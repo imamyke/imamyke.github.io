@@ -66,7 +66,7 @@
 <h2 id="用-Node-js-架設伺服器"><a href="#用-Node-js-架設伺服器" class="headerlink" title="用 Node.js 架設伺服器"></a>用 Node.js 架設伺服器</h2><p>現在，有了以上的知識就開始將文字轉化為程式碼打造自己的伺服器吧!</p>
 <h2 id="參考資料來源"><a href="#參考資料來源" class="headerlink" title="參考資料來源"></a>參考資料來源</h2><p>ALPHA Camp: <a href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
 <p>Content-type: <a href="https://medium.com/hobo-engineer/ricky%E7%AD%86%E8%A8%98-postman-%E5%B8%B8%E8%A6%8B%E7%9A%84-content-type-b17a75396668">https://medium.com/hobo-engineer/ricky%E7%AD%86%E8%A8%98-postman-%E5%B8%B8%E8%A6%8B%E7%9A%84-content-type-b17a75396668</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const amy = &#x27;0608&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> amy = <span class="string">&quot;0608&quot;</span>;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>後端</category>
