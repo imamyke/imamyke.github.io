@@ -18,21 +18,21 @@
 <table>
 <thead>
 <tr>
-<th>HTTP Request</th>
-<th>HTTP Response</th>
+<th align="center">HTTP Request</th>
+<th align="center">HTTP Response</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Request Line(method + URL)</td>
-<td>Response Status</td>
+<td align="center">Request Line(method + URL)</td>
+<td align="center">Response Status</td>
 </tr>
 <tr>
-<td>Request Headers</td>
-<td>Response Headers</td>
+<td align="center">Request Headers</td>
+<td align="center">Response Headers</td>
 </tr>
 <tr>
-<td>Message Body</td>
-<td>Response Body</td>
+<td align="center">Message Body</td>
+<td align="center">Response Body</td>
 </tr>
 </tbody></table>
 <ul>
