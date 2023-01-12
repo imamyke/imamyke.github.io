@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
   </script>
 
-  <meta name="description" content="[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一):star: 學習建議在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。 :computer: 用戶端與伺服器端的 HTT">
+  <meta name="description" content="[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一) ⭐ 學習建議 在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。 💻 用戶端與伺服器端的 HTTP 傳輸協定 1️⃣">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何利用Node.js及Express框架打造伺服器及靜態網頁">
 <meta property="og:url" content="https://imamyke.github.io/2023/01/11/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/index.html">
 <meta property="og:site_name" content="全端筆記">
-<meta property="og:description" content="[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一):star: 學習建議在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。 :computer: 用戶端與伺服器端的 HTT">
+<meta property="og:description" content="[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一) ⭐ 學習建議 在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。 💻 用戶端與伺服器端的 HTTP 傳輸協定 1️⃣">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://images.zapier.com/storage/photos/4717d012f26dc6a4928e0d025102af7f.png?format=jpg">
 <meta property="og:image" content="https://images.zapier.com/storage/photos/df8b6d09ab35aac47c1fb7b020a42d61.png?format=jpg">
@@ -282,10 +282,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="AC-學期-2-3-利用-Node-js-及-Express-框架打造伺服器及靜態網頁-一"><a href="#AC-學期-2-3-利用-Node-js-及-Express-框架打造伺服器及靜態網頁-一" class="headerlink" title="[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一)"></a>[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一)</h1><h2 id="star-學習建議"><a href="#star-學習建議" class="headerlink" title=":star: 學習建議"></a>:star: 學習建議</h2><p>在學習 Express 框架及打造伺服器之前，我們必須要<strong>先了解網際網路傳輸原理</strong>，這樣在學習框架上，就會<strong>知道為何要設定這些東西</strong>，學習上也會更如魚得水唷!</p>
+        <h1>[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一)</h1>
+<h2 id="⭐-學習建議"><a class="header-anchor" href="#⭐-學習建議"></a>⭐ 學習建議</h2>
+<p>在學習 Express 框架及打造伺服器之前，我們必須要<strong>先了解網際網路傳輸原理</strong>，這樣在學習框架上，就會<strong>知道為何要設定這些東西</strong>，學習上也會更如魚得水唷!</p>
 <p>但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。</p>
-<h2 id="computer-用戶端與伺服器端的-HTTP-傳輸協定"><a href="#computer-用戶端與伺服器端的-HTTP-傳輸協定" class="headerlink" title=":computer: 用戶端與伺服器端的 HTTP 傳輸協定"></a>:computer: 用戶端與伺服器端的 HTTP 傳輸協定</h2><h3 id="one-什麼是-HTTP"><a href="#one-什麼是-HTTP" class="headerlink" title=":one: 什麼是 HTTP ?"></a>:one: 什麼是 HTTP ?</h3><p>我們人跟人之間溝通會跟對方用聽得懂的語言做溝通，同樣地電腦設備也是，而電腦設備間溝通的語言就叫 HTTP。</p>
-<p>:books: <strong>HTTP 簡介</strong></p>
+<h2 id="💻-用戶端與伺服器端的-HTTP-傳輸協定"><a class="header-anchor" href="#💻-用戶端與伺服器端的-HTTP-傳輸協定"></a>💻 用戶端與伺服器端的 HTTP 傳輸協定</h2>
+<h3 id="1️⃣-什麼是-HTTP"><a class="header-anchor" href="#1️⃣-什麼是-HTTP"></a>1️⃣ 什麼是 HTTP ?</h3>
+<p>我們人跟人之間溝通會跟對方用聽得懂的語言做溝通，同樣地電腦設備也是，而電腦設備間溝通的語言就叫 HTTP。</p>
+<p>📚 <strong>HTTP 簡介</strong></p>
 <ul>
 <li>也稱作<strong>超文本傳輸協定</strong>，英文為<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol</li>
 <li>電腦設備間互相索取文件的溝通語言</li>
@@ -293,187 +297,213 @@
 <blockquote>
 <p>簡單來說，用戶端(client)跟伺服器端(server)請求文件，或是伺服器端(server)給予用戶端(client)相應的回應時，都需要透過 HTTP 來溝通。</p>
 </blockquote>
-<h3 id="two-HTTP-的組成結構是什麼"><a href="#two-HTTP-的組成結構是什麼" class="headerlink" title=":two: HTTP 的組成結構是什麼?"></a>:two: HTTP 的組成結構是什麼?</h3><p>在 HTTP 組成結構學習上要專注於英文的命名，會跟接下來的應用有關唷!</p>
+<h3 id="2️⃣-HTTP-的組成結構是什麼"><a class="header-anchor" href="#2️⃣-HTTP-的組成結構是什麼"></a>2️⃣ HTTP 的組成結構是什麼?</h3>
+<p>在 HTTP 組成結構學習上要專注於英文的命名，會跟接下來的應用有關唷!</p>
 <table>
 <thead>
 <tr>
-<th align="center">HTTP Request</th>
-<th align="center">HTTP Response</th>
+<th style="text-align:center">HTTP Request</th>
+<th style="text-align:center">HTTP Response</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Request Line(method + URL)</td>
-<td align="center">Response Status</td>
+<tbody>
+<tr>
+<td style="text-align:center">Request Line(method + URL)</td>
+<td style="text-align:center">Response Status</td>
 </tr>
 <tr>
-<td align="center">Request Headers</td>
-<td align="center">Response Headers</td>
+<td style="text-align:center">Request Headers</td>
+<td style="text-align:center">Response Headers</td>
 </tr>
 <tr>
-<td align="center">Request Body</td>
-<td align="center">Response Body</td>
+<td style="text-align:center">Request Body</td>
+<td style="text-align:center">Response Body</td>
 </tr>
-</tbody></table>
-<p>:pushpin: <strong>HTTP Request</strong></p>
+</tbody>
+</table>
+<p>📌 <strong>HTTP Request</strong></p>
 <ul>
-<li><p><strong>Request <code>Line</code>:</strong> 包含<code>Request Method</code>和<code>Request URL</code>，以及 HTTP 版本。</p>
+<li>
+<p><strong>Request <code>Line</code>:</strong> 包含<code>Request Method</code>和<code>Request URL</code>，以及 HTTP 版本。</p>
 <ul>
-<li><p><strong>Request Method:</strong> 常見如下表。</p>
+<li>
+<p><strong>Request Method:</strong> 常見如下表。</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="center">說明</th>
+<th style="text-align:center">Method</th>
+<th style="text-align:center">說明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><strong>GET</strong></td>
-<td align="center">讀取資料</td>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>GET</strong></td>
+<td style="text-align:center">讀取資料</td>
 </tr>
 <tr>
-<td align="center"><strong>POST</strong></td>
-<td align="center">新增資料</td>
+<td style="text-align:center"><strong>POST</strong></td>
+<td style="text-align:center">新增資料</td>
 </tr>
 <tr>
-<td align="center"><strong>PUT</strong></td>
-<td align="center">修改資料(如果沒有該筆資料存在，就會新增資料)</td>
+<td style="text-align:center"><strong>PUT</strong></td>
+<td style="text-align:center">修改資料(如果沒有該筆資料存在，就會新增資料)</td>
 </tr>
 <tr>
-<td align="center"><strong>PATCH</strong></td>
-<td align="center">修改資料</td>
+<td style="text-align:center"><strong>PATCH</strong></td>
+<td style="text-align:center">修改資料</td>
 </tr>
 <tr>
-<td align="center"><strong>DELETE</strong></td>
-<td align="center">刪除資料</td>
+<td style="text-align:center"><strong>DELETE</strong></td>
+<td style="text-align:center">刪除資料</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li><p><strong>Request URL:</strong> 用戶端請求資源的伺服器網址。</p>
+<li>
+<p><strong>Request URL:</strong> 用戶端請求資源的伺服器網址。</p>
 </li>
 </ul>
 </li>
-<li><p><strong>Request <code>Headers</code>:</strong> 主要是客戶端向伺服器端請求的訊息，且每一行欄位內容由 <code>name: value</code> 成對組成，最常見的 Header 如下:</p>
+<li>
+<p><strong>Request <code>Headers</code>:</strong> 主要是客戶端向伺服器端請求的訊息，且每一行欄位內容由 <code>name: value</code> 成對組成，最常見的 Header 如下:</p>
 <ul>
 <li><strong>Host:</strong> 請求的伺服器主機名稱。</li>
-<li><strong>Content-Type:</strong> 請求內容格式類型，例如純文字檔(text&#x2F;plain)、HTML 格式(text&#x2F;html)等等，有興趣的可以網下方參考資料來源查詢。</li>
+<li><strong>Content-Type:</strong> 請求內容格式類型，例如純文字檔(text/plain)、HTML 格式(text/html)等等，有興趣的可以網下方參考資料來源查詢。</li>
 </ul>
 </li>
-<li><p><strong>Request <code>Body</code>:</strong> 通常是在用戶端以 POST 方式請求時，會把客戶的資訊放在 Request body 裡，提交給指定的 URL。</p>
+<li>
+<p><strong>Request <code>Body</code>:</strong> 通常是在用戶端以 POST 方式請求時，會把客戶的資訊放在 Request body 裡，提交給指定的 URL。</p>
 </li>
 </ul>
 <img src="https://images.zapier.com/storage/photos/4717d012f26dc6a4928e0d025102af7f.png?format=jpg" width="50%">
-
-<p>:pushpin: <strong>HTTP Response</strong></p>
+<p>📌 <strong>HTTP Response</strong></p>
 <ul>
 <li><strong>Response <code>Status</code>:</strong> 包含 HTTP 版本、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status">HTTP 狀態碼</a>以及狀態碼描述，狀態碼常見例如 <strong>2XX</strong> 表示伺服器<strong>成功回應</strong>，<strong>4XX</strong>表示用戶端<strong>錯誤回應</strong>。</li>
 <li><strong>Response <code>Headers</code>:</strong> 主要是伺服器端向客戶端回應的訊息，如 Content-Type 定義回應客戶端的內容格式類型。</li>
 <li><strong>Response <code>Body</code>:</strong> 伺服器端回應給客戶的內容。</li>
 </ul>
 <img src="https://images.zapier.com/storage/photos/df8b6d09ab35aac47c1fb7b020a42d61.png?format=jpg" width="50%">
-
 <blockquote>
-<p>:memo: <strong>總結:</strong><br><br>HTTP Request 由四元素組成: <strong>URL、Method、Headers、Body</strong><br><br>HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></p>
+<p>📝 <strong>總結:</strong><br>
+<br>HTTP Request 由四元素組成: <strong>URL、Method、Headers、Body</strong><br>
+<br>HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></p>
 </blockquote>
-<h3 id="three-URL-的結構長怎樣"><a href="#three-URL-的結構長怎樣" class="headerlink" title=":three: URL 的結構長怎樣?"></a>:three: URL 的結構長怎樣?</h3><p><strong><font color=#0000FF>http:&#x2F;&#x2F;</font><font color=#FF6600><a target="_blank" rel="noopener" href="http://www.imamyke.com/">www.imamyke.com</a></font>:3000<font color=#008000>&#x2F;categories</font><font color=#800080>&#x2F;?keyword&#x3D;frontend&amp;sort&#x3D;asc</font></strong></p>
+<h3 id="3️⃣-URL-的結構長怎樣"><a class="header-anchor" href="#3️⃣-URL-的結構長怎樣"></a>3️⃣ URL 的結構長怎樣?</h3>
+<p><strong><font color=#0000FF>http://</font><font color=#FF6600><a target="_blank" rel="noopener" href="http://www.imamyke.com">www.imamyke.com</a></font>:3000<font color=#008000>/categories</font><font color=#800080>/?keyword=frontend&amp;sort=asc</font></strong></p>
 <table>
 <thead>
 <tr>
-<th align="center">URL 結構</th>
-<th align="left">說明</th>
+<th style="text-align:center">URL 結構</th>
+<th style="text-align:left">說明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><strong><font color=#0000FF>Protocol</font></strong></td>
-<td align="left">傳輸協定，不一定是 http 或 https，也有可能是 ssh、ftp、mailto、file</td>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><font color=#0000FF>Protocol</font></strong></td>
+<td style="text-align:left">傳輸協定，不一定是 http 或 https，也有可能是 ssh、ftp、mailto、file</td>
 </tr>
 <tr>
-<td align="center"><strong><font color=#FF6600>Host</font></strong></td>
-<td align="left">主機名稱，也就是網域名稱</td>
+<td style="text-align:center"><strong><font color=#FF6600>Host</font></strong></td>
+<td style="text-align:left">主機名稱，也就是網域名稱</td>
 </tr>
 <tr>
-<td align="center"><strong>port</strong></td>
-<td align="left">通訊埠，通常會隱藏起來</td>
+<td style="text-align:center"><strong>port</strong></td>
+<td style="text-align:left">通訊埠，通常會隱藏起來</td>
 </tr>
 <tr>
-<td align="center"><strong><font color=#008000>Path</font></strong></td>
-<td align="left">檔案路徑</td>
+<td style="text-align:center"><strong><font color=#008000>Path</font></strong></td>
+<td style="text-align:left">檔案路徑</td>
 </tr>
 <tr>
-<td align="center"><strong><font color=#800080>Parameter</font></strong></td>
-<td align="left">使用 <strong><code>?</code></strong> 來表示參數的開頭，並用 <strong><code>&amp;</code></strong> 分隔不同的項目， <code>?</code> 之後的字串稱為 <strong>query string</strong>，<br>這個名詞先筆記一下，後面會學習到怎麼使用!<br>在這裡 <code>keyword</code> 和 <code>sort</code> 表示參數，<code>frontend</code> 和 <code>asc</code> 表示參數的值</td>
+<td style="text-align:center"><strong><font color=#800080>Parameter</font></strong></td>
+<td style="text-align:left">使用 <strong><code>?</code></strong> 來表示參數的開頭，並用 <strong><code>&amp;</code></strong> 分隔不同的項目， <code>?</code> 之後的字串稱為 <strong>query string</strong>，<br>這個名詞先筆記一下，後面會學習到怎麼使用!<br>在這裡 <code>keyword</code> 和 <code>sort</code> 表示參數，<code>frontend</code> 和 <code>asc</code> 表示參數的值</td>
 </tr>
-</tbody></table>
-<h2 id="pencil2-一起實作吧-用-Node-js-架設伺服器"><a href="#pencil2-一起實作吧-用-Node-js-架設伺服器" class="headerlink" title=":pencil2: 一起實作吧!用 Node.js 架設伺服器"></a>:pencil2: 一起實作吧!用 Node.js 架設伺服器</h2><p>現在，有了以上的知識就開始將文字轉化為程式碼打造自己的伺服器吧!</p>
+</tbody>
+</table>
+<h2 id="✏️-一起實作吧-用-Node-js-架設伺服器"><a class="header-anchor" href="#✏️-一起實作吧-用-Node-js-架設伺服器"></a>✏️ 一起實作吧!用 Node.js 架設伺服器</h2>
+<p>現在，有了以上的知識就開始將文字轉化為程式碼打造自己的伺服器吧!</p>
 <p>順道一提，實際做完之後可以對照著 HTTP 結構去思考為何會這樣建立伺服器唷!</p>
-<h3 id="one-定義和伺服器有關的變數"><a href="#one-定義和伺服器有關的變數" class="headerlink" title=":one: 定義和伺服器有關的變數"></a>:one: <strong>定義和伺服器有關的變數</strong></h3><p>:triangular_flag_on_post: <strong>Step1. 載入 Node.js 的 HTTP 模組</strong></p>
-<p>首先，當然是要讓我們的伺服器會跟其他電腦設備「說話」，<br>那個溝通語言就是 HTTP !</p>
+<h3 id="1️⃣-定義和伺服器有關的變數"><a class="header-anchor" href="#1️⃣-定義和伺服器有關的變數"></a>1️⃣ <strong>定義和伺服器有關的變數</strong></h3>
+<p>🚩 <strong>Step1. 載入 Node.js 的 HTTP 模組</strong></p>
+<p>首先，當然是要讓我們的伺服器會跟其他電腦設備「說話」，<br>
+那個溝通語言就是 HTTP !</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br></pre></td></tr></table></figure>
-
 <p>載入之後我們把 HTTP 模組存成 <code>http</code> 這個變數，之後就可以利用這個變數來使用 HTTP 模組的方法。</p>
-<p>:triangular_flag_on_post: <strong>Step2. 設定伺服器的相關變數</strong></p>
+<p>🚩 <strong>Step2. 設定伺服器的相關變數</strong></p>
 <p>再來，我們要定義伺服器的主機位置，這樣伺服器之間才會知道資料要傳送到哪。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hostname = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="two-設定伺服器處理請求和回應的動作"><a href="#two-設定伺服器處理請求和回應的動作" class="headerlink" title=":two: 設定伺服器處理請求和回應的動作"></a>:two: <strong>設定伺服器處理請求和回應的動作</strong></h3><p>:triangular_flag_on_post: <strong>Step1. 使用 HTTP 模組方法</strong></p>
+<h3 id="2️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#2️⃣-設定伺服器處理請求和回應的動作"></a>2️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
+<p>🚩 <strong>Step1. 使用 HTTP 模組方法</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 請求和回應的動作都會在這邊</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>:bulb: <strong>重點說明:</strong></p>
+<p>💡 <strong>重點說明:</strong></p>
 <ul>
-<li><p><strong>使用 HTTP 模組方法: createServer</strong></p>
+<li>
+<p><strong>使用 HTTP 模組方法: createServer</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.<span class="property">createServer</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>變數命名</strong></p>
+<li>
+<p><strong>變數命名</strong></p>
 <table>
 <thead>
 <tr>
-<th align="center">請求(Request)</th>
-<th align="center">回應(Response)</th>
+<th style="text-align:center">請求(Request)</th>
+<th style="text-align:center">回應(Response)</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">req</td>
-<td align="center">res</td>
+<tbody>
+<tr>
+<td style="text-align:center">req</td>
+<td style="text-align:center">res</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
 </ul>
-<p>:triangular_flag_on_post: <strong>Step2. 設定回應的 HTTP 狀態碼 (status code) 和內容格式類型 (Content-Type)</strong></p>
-<p>還記得 Response headers 會設定內容格式嗎? 有沒有覺得函式的命名非常語意化 :innocent:</p>
+<p>🚩 <strong>Step2. 設定回應的 HTTP 狀態碼 (status code) 和內容格式類型 (Content-Type)</strong></p>
+<p>還記得 Response headers 會設定內容格式嗎? 有沒有覺得函式的命名非常語意化 😇</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="property">statusCode</span> = <span class="number">200</span>; <span class="comment">// 新增這裡</span></span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/plain&quot;</span>); <span class="comment">// 新增這裡</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>:bulb: <strong>重點說明:</strong></p>
+<p>💡 <strong>重點說明:</strong></p>
 <ul>
-<li><p><strong>使用 HTTP 模組方法: setHeader</strong></p>
+<li>
+<p><strong>使用 HTTP 模組方法: setHeader</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&quot;Header欄位名&quot;</span>, <span class="string">&quot;Header欄位值&quot;</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>狀態碼: statusCode</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="property">statusCode</span> = 回應狀態碼;</span><br></pre></td></tr></table></figure></li>
+<li>
+<p><strong>狀態碼: statusCode</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="property">statusCode</span> = 回應狀態碼;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>:triangular_flag_on_post: <strong>Step3. 伺服器端回應給客戶的內容</strong></p>
+<p>🚩 <strong>Step3. 伺服器端回應給客戶的內容</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="property">statusCode</span> = <span class="number">200</span>;</span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/plain&quot;</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">`This is my first server`</span>); <span class="comment">// 新增這裡</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>:bulb: <strong>重點說明:</strong></p>
+<p>💡 <strong>重點說明:</strong></p>
 <ul>
-<li><p><strong>使用 HTTP 模組方法: end</strong></p>
+<li>
+<p><strong>使用 HTTP 模組方法: end</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">end</span>(<span class="string">&quot;依照Content-Type的格式回應內容&quot;</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>如何回傳 HTML?</strong></p>
-<p>這邊我們回應的 Content-Type 是使用純文字 text&#x2F;plain 表示。<br><br>如果要回傳成 HTML，我們可以這樣改寫 :arrow_down:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/html&quot;</span>);</span><br><span class="line">res.<span class="title function_">end</span>(<span class="string">`&lt;h1&gt;This is my first server&lt;/h1&gt;`</span>); <span class="comment">// 使用模板字串唷!</span></span><br></pre></td></tr></table></figure></li>
+<li>
+<p><strong>如何回傳 HTML?</strong></p>
+<p>這邊我們回應的 Content-Type 是使用純文字 text/plain 表示。<br>
+<br>如果要回傳成 HTML，我們可以這樣改寫 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/html&quot;</span>);</span><br><span class="line">res.<span class="title function_">end</span>(<span class="string">`&lt;h1&gt;This is my first server&lt;/h1&gt;`</span>); <span class="comment">// 使用模板字串唷!</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="three-啟動並監聽-listen-伺服器"><a href="#three-啟動並監聽-listen-伺服器" class="headerlink" title=":three: 啟動並監聽(listen)伺服器"></a>:three: <strong>啟動並監聽(listen)伺服器</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">listen</span>(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<h3 id="3️⃣-啟動並監聽-listen-伺服器"><a class="header-anchor" href="#3️⃣-啟動並監聽-listen-伺服器"></a>3️⃣ <strong>啟動並監聽(listen)伺服器</strong></h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">listen</span>(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>成功啟動後，可以在終端機看到 <code>The server is listening on http://localhost:3000</code>，接下來就可以打開瀏覽器輸入 <code>http://localhost:3000</code>，就看到伺服器回應我們的內容 <code>This is my first server</code> !!!</p>
-<p>:bulb: <strong>重點說明:</strong></p>
+<p>💡 <strong>重點說明:</strong></p>
 <ul>
-<li><p><strong>使用 HTTP 模組方法: server.listen</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">listen</span>(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>
+<p><strong>使用 HTTP 模組方法: server.listen</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">listen</span>(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>:tada::tada::tada:耶!恭喜成功完成你的第一個伺服器，我們帶著這些觀念去挑戰和學習 Express 框架吧!:heartpulse:</p>
-<h2 id="mag-right-參考資料來源"><a href="#mag-right-參考資料來源" class="headerlink" title=":mag_right: 參考資料來源"></a>:mag_right: 參考資料來源</h2><p>:pushpin: ALPHA Camp: <a target="_blank" rel="noopener" href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
-<p>:pushpin: Content-type: <a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-content-type.html">https://www.runoob.com/http/http-content-type.html</a></p>
-<p>:pushpin: HTTP: <a target="_blank" rel="noopener" href="https://zapier.com/learn/apis/chapter-2-protocols/">https://zapier.com/learn/apis/chapter-2-protocols/</a></p>
-<p>:pushpin: Node.js: <a target="_blank" rel="noopener" href="https://nodejs.org/api/http.html">https://nodejs.org/api/http.html</a></p>
+<p>🎉🎉🎉耶!恭喜成功完成你的第一個伺服器，我們帶著這些觀念去挑戰和學習 Express 框架吧!💗</p>
+<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
+<p>📌 ALPHA Camp: <a target="_blank" rel="noopener" href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
+<p>📌 Content-type: <a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-content-type.html">https://www.runoob.com/http/http-content-type.html</a></p>
+<p>📌 HTTP: <a target="_blank" rel="noopener" href="https://zapier.com/learn/apis/chapter-2-protocols/">https://zapier.com/learn/apis/chapter-2-protocols/</a></p>
+<p>📌 Node.js: <a target="_blank" rel="noopener" href="https://nodejs.org/api/http.html">https://nodejs.org/api/http.html</a></p>
 
     </div>
 
@@ -556,7 +586,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AC-%E5%AD%B8%E6%9C%9F-2-3-%E5%88%A9%E7%94%A8-Node-js-%E5%8F%8A-Express-%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81-%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#star-%E5%AD%B8%E7%BF%92%E5%BB%BA%E8%AD%B0"><span class="nav-number">1.1.</span> <span class="nav-text">:star: 學習建議</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computer-%E7%94%A8%E6%88%B6%E7%AB%AF%E8%88%87%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AB%AF%E7%9A%84-HTTP-%E5%82%B3%E8%BC%B8%E5%8D%94%E5%AE%9A"><span class="nav-number">1.2.</span> <span class="nav-text">:computer: 用戶端與伺服器端的 HTTP 傳輸協定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP"><span class="nav-number">1.2.1.</span> <span class="nav-text">:one: 什麼是 HTTP ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-HTTP-%E7%9A%84%E7%B5%84%E6%88%90%E7%B5%90%E6%A7%8B%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.2.2.</span> <span class="nav-text">:two: HTTP 的組成結構是什麼?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#three-URL-%E7%9A%84%E7%B5%90%E6%A7%8B%E9%95%B7%E6%80%8E%E6%A8%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text">:three: URL 的結構長怎樣?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pencil2-%E4%B8%80%E8%B5%B7%E5%AF%A6%E4%BD%9C%E5%90%A7-%E7%94%A8-Node-js-%E6%9E%B6%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">:pencil2: 一起實作吧!用 Node.js 架設伺服器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-%E5%AE%9A%E7%BE%A9%E5%92%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%9C%89%E9%97%9C%E7%9A%84%E8%AE%8A%E6%95%B8"><span class="nav-number">1.3.1.</span> <span class="nav-text">:one: 定義和伺服器有關的變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-%E8%A8%AD%E5%AE%9A%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%99%95%E7%90%86%E8%AB%8B%E6%B1%82%E5%92%8C%E5%9B%9E%E6%87%89%E7%9A%84%E5%8B%95%E4%BD%9C"><span class="nav-number">1.3.2.</span> <span class="nav-text">:two: 設定伺服器處理請求和回應的動作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#three-%E5%95%9F%E5%8B%95%E4%B8%A6%E7%9B%A3%E8%81%BD-listen-%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.3.3.</span> <span class="nav-text">:three: 啟動並監聽(listen)伺服器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mag-right-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.4.</span> <span class="nav-text">:mag_right: 參考資料來源</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">[AC 學期 2-3]利用 Node.js 及 Express 框架打造伺服器及靜態網頁(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E5%AD%B8%E7%BF%92%E5%BB%BA%E8%AD%B0"><span class="nav-number">1.1.</span> <span class="nav-text">⭐ 學習建議</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%BB-%E7%94%A8%E6%88%B6%E7%AB%AF%E8%88%87%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AB%AF%E7%9A%84-HTTP-%E5%82%B3%E8%BC%B8%E5%8D%94%E5%AE%9A"><span class="nav-number">1.2.</span> <span class="nav-text">💻 用戶端與伺服器端的 HTTP 傳輸協定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E4%BB%80%E9%BA%BC%E6%98%AF-HTTP"><span class="nav-number">1.2.1.</span> <span class="nav-text">1️⃣ 什麼是 HTTP ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-HTTP-%E7%9A%84%E7%B5%84%E6%88%90%E7%B5%90%E6%A7%8B%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.2.2.</span> <span class="nav-text">2️⃣ HTTP 的組成結構是什麼?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-URL-%E7%9A%84%E7%B5%90%E6%A7%8B%E9%95%B7%E6%80%8E%E6%A8%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text">3️⃣ URL 的結構長怎樣?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%8F%EF%B8%8F-%E4%B8%80%E8%B5%B7%E5%AF%A6%E4%BD%9C%E5%90%A7-%E7%94%A8-Node-js-%E6%9E%B6%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">✏️ 一起實作吧!用 Node.js 架設伺服器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E5%AE%9A%E7%BE%A9%E5%92%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%9C%89%E9%97%9C%E7%9A%84%E8%AE%8A%E6%95%B8"><span class="nav-number">1.3.1.</span> <span class="nav-text">1️⃣ 定義和伺服器有關的變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E8%A8%AD%E5%AE%9A%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%99%95%E7%90%86%E8%AB%8B%E6%B1%82%E5%92%8C%E5%9B%9E%E6%87%89%E7%9A%84%E5%8B%95%E4%BD%9C"><span class="nav-number">1.3.2.</span> <span class="nav-text">2️⃣ 設定伺服器處理請求和回應的動作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E5%95%9F%E5%8B%95%E4%B8%A6%E7%9B%A3%E8%81%BD-listen-%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.3.3.</span> <span class="nav-text">3️⃣ 啟動並監聽(listen)伺服器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.4.</span> <span class="nav-text">🔎 參考資料來源</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
