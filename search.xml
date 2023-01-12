@@ -136,7 +136,7 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
 </tr>
 <tr>
 <td style="text-align:center"><strong><font color=#800080>Parameter</font></strong></td>
-<td style="text-align:left">使用 <strong><code>?</code></strong> 來表示參數的開頭，並用 <strong><code>&amp;</code></strong> 分隔不同的項目， <code>?</code> 之後的字串稱為 <strong>query string</strong>，這個名詞先筆記一下，後面會學習到怎麼使用!<br>在這裡 <code>keyword</code> 和 <code>sort</code> 表示參數，<code>frontend</code> 和 <code>asc</code> 表示參數的值</td>
+<td style="text-align:left">使用 <strong><code>?</code></strong> 來表示參數的開頭，並用 <strong><code>&amp;</code></strong> 分隔不同的項目， <code>?</code> 之後的字串稱為 <strong>query string</strong>，<br>這個名詞先筆記一下，後面會學習到怎麼使用!<br>在這裡 <code>keyword</code> 和 <code>sort</code> 表示參數，<code>frontend</code> 和 <code>asc</code> 表示參數的值</td>
 </tr>
 </tbody>
 </table>
