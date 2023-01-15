@@ -6,6 +6,7 @@
     <content><![CDATA[<h2 id="⭐-學習建議"><a class="header-anchor" href="#⭐-學習建議"></a>⭐ 學習建議</h2>
 <p>在學習 Express 框架及打造伺服器之前，我們必須要<strong>先了解網際網路傳輸原理</strong>，這樣在學習框架上，就會<strong>知道為何要設定這些東西</strong>，學習上也會更如魚得水唷!<br>
 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。</p>
+<span id="more"></span>
 <h2 id="💻-用戶端與伺服器端的-HTTP-傳輸協定"><a class="header-anchor" href="#💻-用戶端與伺服器端的-HTTP-傳輸協定"></a>💻 用戶端與伺服器端的 HTTP 傳輸協定</h2>
 <h3 id="1️⃣-什麼是-HTTP"><a class="header-anchor" href="#1️⃣-什麼是-HTTP"></a>1️⃣ 什麼是 HTTP ?</h3>
 <p>我們人跟人之間溝通會跟對方用聽得懂的語言做溝通，同樣地電腦設備也是，而電腦設備間溝通的語言就叫 HTTP。</p>
