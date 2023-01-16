@@ -365,21 +365,18 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
 </ul>
 <h3 id="3️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#3️⃣-設定伺服器處理請求和回應的動作"></a>3️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
 <ul>
-<li>
-<p><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</p>
-</li>
-<li>
-<p><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型</p>
+<li><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</li>
+<li><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型
 <ul>
 <li>
 <p>這邊利用 <code>res.send()</code> 方法回傳瀏覽器顯示的內容</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my Express server!&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
 <li>
 <p>若要回傳 HTML 格式，可以這樣做 ⬇️</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;&lt;h1&gt;This is my Express server!&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <blockquote>
