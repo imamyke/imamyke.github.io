@@ -28,7 +28,7 @@
 <meta property="og:description" content="[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二) ⭐ 為何會使用 Express 框架 ?  Express 是極簡的 Node.js 網路框架 (Web framework) 提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統 引用樣板引擎 (template engine) 打造網頁前端頁面 可以串接資料庫並可直接以 JavaS">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-01-16T17:17:22.421Z">
-<meta property="article:modified_time" content="2023-01-16T17:20:09.310Z">
+<meta property="article:modified_time" content="2023-01-16T17:31:37.010Z">
 <meta property="article:author" content="Amy Ke">
 <meta property="article:tag" content="expressjs">
 <meta property="article:tag" content="nodejs">
@@ -236,7 +236,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-17 01:17:22 / 修改時間：01:20:09" itemprop="dateCreated datePublished" datetime="2023-01-17T01:17:22+08:00">2023-01-17</time>
+              <time title="創建時間：2023-01-17 01:17:22 / 修改時間：01:31:37" itemprop="dateCreated datePublished" datetime="2023-01-17T01:17:22+08:00">2023-01-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
 <p>等等，進入Express框架之前，我們要先了解什麼是 MVC 架構。<br>
 因為接下來會有大量資料文件的串接過程，有了 MVC 設計模式的概念，就可以快速理解程式碼間「檔案分工」的概念!</p>
 <p>MVC 架構簡單來說就像是 <strong>「公司各部門的互相合作」</strong> ，當公司事情、業務越多，不太會讓每個人身兼多職，而是將業務合併或分類並為此設立部門，而部門間會因應公司的運作而互相配合。</p>
-<p>那麼程式碼也是一樣，當在同一份檔案越寫越多程式碼時，若檔案越大會使程式碼較不易閱讀且很難維護，所以我們會將程式碼依特性做分類並另外建立資料夾放置做管理，而MVC 架構即是將程式碼分類為資料管理(M)、介面畫面的呈現(V)及程式動作指派的邏輯©，整理如下表 ⬇️</p>
+<p>那麼程式碼也是一樣，當在同一份檔案越寫越多程式碼時，若檔案越大會使程式碼較不易閱讀且很難維護，所以我們會將程式碼依特性做分類並另外建立資料夾放置做管理，而MVC 架構即是將程式碼分類為資料管理(<strong>M</strong>odel)、介面畫面的呈現(<strong>V</strong>iew)及程式動作指派的邏輯(<strong>C</strong>ontroller)，整理如下表 ⬇️</p>
 <ul>
 <li>
 <p>MVC 架構及意義</p>
@@ -407,12 +407,17 @@
 </ul>
 <h3 id="3️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#3️⃣-設定伺服器處理請求和回應的動作"></a>3️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
 <ul>
-<li><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</li>
-<li><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型
+<li>
+<p><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</p>
+</li>
+<li>
+<p><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型</p>
 <ul>
 <li>
 <p>這邊利用 <code>res.send()</code> 方法回傳瀏覽器顯示的內容</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my Express server!&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 <li>
 <p>若要回傳 HTML 格式，可以這樣做 ⬇️</p>
@@ -420,10 +425,8 @@
 </li>
 </ul>
 <blockquote>
-<p>‘/’ 是<strong>根目錄</strong>，也就是網址為<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000.com</a>的頁面</p>
+<p>’ / ’ 是<strong>根目錄</strong>，也就是網址為<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000.com</a>的頁面</p>
 </blockquote>
-</li>
-</ul>
 <p>💡 <strong>重點說明:</strong></p>
 <ul>
 <li>
@@ -463,7 +466,6 @@
 <p>🎉🎉🎉耶!恭喜成功完成 Express 伺服器，接下來我們就正式開始打造我們的 Express 應用程式!💗</p>
 <h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
 <p>📌 ALPHA Camp: <a target="_blank" rel="noopener" href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
-<p>📌 MVC 架構: <a target="_blank" rel="noopener" href="https://tw.alphacamp.co/blog/mvc-model-view-controller?gclid=Cj0KCQiA_P6dBhD1ARIsAAGI7HA0xHAIzFvBH4i_zEk2Bo6qQIT-Pt60SEu1VkE5OXoE6uypHFM3btcaAkg9EALw_wcB">https://tw.alphacamp.co/blog/mvc-model-view-controller?gclid=Cj0KCQiA_P6dBhD1ARIsAAGI7HA0xHAIzFvBH4i_zEk2Bo6qQIT-Pt60SEu1VkE5OXoE6uypHFM3btcaAkg9EALw_wcB</a></p>
 <p>📌 Express 官網: <a target="_blank" rel="noopener" href="https://expressjs.com/">https://expressjs.com/</a></p>
 
     </div>
