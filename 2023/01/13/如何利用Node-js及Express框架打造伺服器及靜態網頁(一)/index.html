@@ -23,7 +23,7 @@
   <meta name="description" content="⭐ 學習建議 在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(一)">
-<meta property="og:url" content="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/index.html">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="全端筆記">
 <meta property="og:description" content="⭐ 學習建議 在學習 Express 框架及打造伺服器之前，我們必須要先了解網際網路傳輸原理，這樣在學習框架上，就會知道為何要設定這些東西，學習上也會更如魚得水唷! 但這裡會偏向實作也會簡述原理，若要更深入可以在網路上或透過最下方參考資料查詢更多。">
 <meta property="og:locale" content="zh_TW">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://images.zapier.com/storage/photos/4717d012f26dc6a4928e0d025102af7f.png?format=jpg">
 
-<link rel="canonical" href="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/">
+<link rel="canonical" href="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -215,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -266,8 +266,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/13/如何利用Node-js及Express框架打造伺服器及靜態網頁/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%B8%80)/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/13/如何利用Node-js及Express框架打造伺服器及靜態網頁(一)/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -515,6 +515,13 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/" rel="next" title="AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)">
+      AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -595,7 +602,7 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -720,8 +727,8 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/";
-    this.page.identifier = "2023/01/13/如何利用Node-js及Express框架打造伺服器及靜態網頁/";
+    this.page.url = "https://imamyke.github.io/2023/01/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%B8%80)/";
+    this.page.identifier = "2023/01/13/如何利用Node-js及Express框架打造伺服器及靜態網頁(一)/";
     this.page.title = "AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(一)";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
