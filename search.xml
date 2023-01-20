@@ -58,7 +58,7 @@
 <ul>
 <li>
 <p>如何轉換 MongoDB 資料庫的 data ?<br>
-如果要將 MongoDB 資料庫的 data 轉換為可使用 JS 操作的物件，那麼必須使用 <code>**lean**</code> 的方法來轉換。</p>
+如果要將 MongoDB 資料庫的 data 轉換為可使用 JS 操作的物件，那麼必須使用 <code>lean</code> 的方法來轉換。</p>
 </li>
 <li>
 <p>如何取得 MongoDB 資料庫的 data ? 取出來的 data 是「物件」還是「陣列」?<br>
