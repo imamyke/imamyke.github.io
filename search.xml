@@ -2,28 +2,28 @@
 <search>
   <entry>
     <title>AC學期2-3: 自學經驗回顧</title>
-    <url>/2023/01/20/AC%E5%AD%B8%E6%9C%9F2-3_%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
+    <url>/2023/01/20/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
     <content><![CDATA[<h1>AC學期2-3: 自學經驗回顧</h1>
-<h2 id="遇到的問題"><a class="header-anchor" href="#遇到的問題"></a>遇到的問題</h2>
+<h2 id="遇到的問題及解決方式"><a class="header-anchor" href="#遇到的問題及解決方式"></a>遇到的問題及解決方式</h2>
 <p>在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是「目前的資料是什麼類型?」以及「對專案課程及框架概念似懂非懂」，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。<br>
 所以，為了讓自己更理解整個專案及課程，我先地毯式將課程內容利用圖像化方式寫下重點以及資料流串接的方向。<br>
 再來，因為整體專案的檔案分類是利用 MVC 架構，我在二次實作時，會提早把功能分出去，例如:</p>
 <ul>
 <li>先分好路由檔案，然後若有其他檔案需要導入路由，我會直接做串接，如此便省去最後再重構程式碼的時間</li>
 <li>先把資料庫檔案分出去，若有其他檔案需使用資料庫檔案，便可以直接指向這個資料夾做載入</li>
-<li>…以此類推</li>
 </ul>
 <span id="more"></span>
-<p>如此，就這樣照著思考後的圖表以及深入了解教材的字句引導，對於專案的理解視野會突然變得超不一樣，尤其會更快發現自己的盲點!也更快去解決問題!<br>
-以下，就是我如何透過這個方式去找出問題、定義問題然後一一擊破的過程。</p>
-<h2 id="定義問題及解決方式"><a class="header-anchor" href="#定義問題及解決方式"></a>定義問題及解決方式</h2>
+<p>就這樣，照著思考後的圖表以及深入了解教材的字句引導，對於專案的理解視野會突然變得超不一樣，尤其會更快發現自己的盲點!也更快去解決問題!<br>
+以下，就是我如何透過這個方式去<strong>找出問題、定義問題然後一一擊破的過程</strong>。</p>
+<h2 id="卡關問題集"><a class="header-anchor" href="#卡關問題集"></a>卡關問題集</h2>
 <ol>
-<li>query string, param, req.body的相異處</li>
-</ol>
+<li>
+<p>query string, param, req.body的相異處<br>
+在教案中，會使用這三種跟網址和表單送出有關的變數存取方法，一開始會把這三項使用時機搞混，所以我會將這三項的特色列表下來，就會知道如何做應用⬇️</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">存取位置</th>
+<th style="text-align:center">存取方法</th>
 <th style="text-align:center">表單 Method 屬性</th>
 <th style="text-align:center">表現方式</th>
 <th style="text-align:center">是否會出現在網址</th>
@@ -33,245 +33,102 @@
 <tr>
 <td style="text-align:center">query string</td>
 <td style="text-align:center">GET</td>
-<td style="text-align:center">表單送出後，會出現在網址的 ? 後面的字串</td>
+<td style="text-align:center">表單送出後，會出現在網址的 &quot; <strong>?</strong> &quot; 後面的字串</td>
 <td style="text-align:center">是</td>
 </tr>
 <tr>
 <td style="text-align:center">param</td>
 <td style="text-align:center">GET</td>
-<td style="text-align:center">定義在路由的變數裡，可使用 req.param 物件取得變數值</td>
+<td style="text-align:center">定義在路由的變數裡，可使用 <strong>req.param</strong> 物件取得變數值</td>
 <td style="text-align:center">是</td>
 </tr>
 <tr>
 <td style="text-align:center">request body</td>
 <td style="text-align:center">POST</td>
-<td style="text-align:center">通常使用在較隱密的表單資訊，可使用 req.body 物件取得變數值</td>
+<td style="text-align:center">通常使用在較隱密的表單資訊，可使用 <strong>req.body</strong> 物件取得變數值</td>
 <td style="text-align:center">否</td>
 </tr>
 </tbody>
 </table>
-<ol start="2">
-<li>資料庫串接後，資料的存取方式</li>
-</ol>
-<ul>
-<li>如何操作及取得 MongoDB 資料庫的 data ?<br>
-首先，要先將 MongoDB 資料庫的 data 轉化為可使用 JS 操作的物件，所以必須使用 lean 的方法來轉化</li>
-<li>取出來的 data 是「物件」還是「陣列」?</li>
-</ul>
-<ol start="3">
-<li>下拉表單的屬性</li>
-</ol>
-<h2 id="分享與展望"><a class="header-anchor" href="#分享與展望"></a>分享與展望</h2>
-<p>有沒有對某些專業的技術內涵有更深入的認識？</p>
-<p>Express檔案 若沒指定檔案，預設會先找index.js</p>
-]]></content>
-      <categories>
-        <category>學習經驗</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)</title>
-    <url>/2023/01/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
-    <content><![CDATA[<h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
-<h2 id="⭐-為何會使用-Express-框架"><a class="header-anchor" href="#⭐-為何會使用-Express-框架"></a>⭐ 為何會使用 Express 框架 ?</h2>
-<ol>
-<li>Express 是極簡的 Node.js 網路框架 (Web framework)</li>
-<li>提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統</li>
-<li>引用樣板引擎 (template engine) 打造網頁前端頁面</li>
-<li>可以串接資料庫並可直接以 JavaScript 來操作資料庫</li>
-</ol>
-<p>以上為 Express 框架最大的四個特色，我們會逐步依照下方學習重點來學習使用方式!</p>
-<span id="more"></span>
-<h2 id="💎-Express-框架學習重點"><a class="header-anchor" href="#💎-Express-框架學習重點"></a>💎 Express 框架學習重點</h2>
-<p>✅ <strong>👉利用 Express 框架建立伺服器</strong><br>
-🔲 <strong>使用 express.Router 建立路由器及多種使用方法</strong><br>
-🔲 <strong>動態路由 (param) 的應用</strong><br>
-🔲 <strong>Express 的靜態檔案 (static files) 放置方法</strong><br>
-🔲 <strong>使用模板引擎 (template engine) 渲染前端畫面</strong><br>
-🔲 <strong>模板引擎 (template engine) 的常用 Helpers 使用</strong><br>
-🔲 <strong>網頁搜尋功能怎麼寫? 介紹網址上的 Query string!</strong><br>
-🔲 <strong>送出表單: GET 與 POST 的差別</strong><br>
-🔲 <strong>表單送出後內容跑去哪? 跑進 Request body 裡!</strong><br>
-🔲 <strong>基礎資料操作功能: CRUD</strong><br>
-🔲 <strong>路由語意化: RESTful method</strong><br>
-🔲 <strong>MongoDB 資料庫串接</strong><br>
-🔲 <strong>網頁排序功能怎麼寫? MongoDB的進階應用</strong><br>
-🔲 <strong>下拉表單的 Onchange 屬性(另外寫專案)</strong></p>
-<h2 id="📚-學習-MVC-架構"><a class="header-anchor" href="#📚-學習-MVC-架構"></a>📚 學習 MVC 架構</h2>
-<p>等等，進入Express框架之前，我們要先了解什麼是 MVC 架構。<br>
-因為接下來會有大量資料文件的串接過程，有了 MVC 設計模式的概念，就可以快速理解程式碼間「檔案分工」的概念!</p>
-<p>MVC 架構簡單來說就像是 <strong>「公司各部門的互相合作」</strong> ，當公司事情、業務越多，不太會讓每個人身兼多職，而是將業務合併或分類並為此設立部門，而部門間會因應公司的運作而互相配合。</p>
-<p>那麼程式碼也是一樣，當在同一份檔案越寫越多程式碼時，若檔案越大會使程式碼較不易閱讀且很難維護，所以我們會將程式碼依特性做分類並另外建立資料夾放置做管理，而MVC 架構即是將程式碼分類為資料管理(<strong>M</strong>odel)、介面畫面的呈現(<strong>V</strong>iew)及程式動作指派的邏輯(<strong>C</strong>ontroller)，整理如下表 ⬇️</p>
+</li>
+<li>
+<p>資料庫串接後，資料的存取方式及取出後的資料類型<br>
+第一次操作資料庫時，對於資料庫串接不是那麼有概念。但其實…就只是<strong>將資料庫內容轉化為 JS 可以操作的資料而已</strong>，例如陣列或物件，這個觀念懂其實資料操作上就會非常得心應手!<br>
+在下面來分享我在操作資料庫的思考過程⬇️</p>
 <ul>
 <li>
-<p>MVC 架構及意義</p>
+<p>如何轉換 MongoDB 資料庫的 data ?<br>
+如果要將 MongoDB 資料庫的 data 轉換為可使用 JS 操作的物件，那麼必須使用 &quot; <strong>lean</strong> &quot; 的方法來轉換。</p>
+</li>
+<li>
+<p>如何取得 MongoDB 資料庫的 data ? 取出來的 data 是「物件」還是「陣列」?<br>
+要懂得操作資料，我覺得除了要知道要如何取出，更重要的是，要知道<strong>取出的資料類型是甚麼!</strong><br>
+因為這樣才會知道要用什麼 JS 方法去<strong>操作資料</strong>!<br>
+這裡列出 2 種專案會用到的<strong>取出方式和取出後的資料類型</strong>⬇️</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">架構</th>
-<th style="text-align:center"><strong>M</strong>odel</th>
-<th style="text-align:center"><strong>V</strong>iew</th>
-<th style="text-align:center"><strong>C</strong>ontroller</th>
+<th style="text-align:center">取出資料方式</th>
+<th style="text-align:center">取出後的資料類型</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">翻譯</td>
-<td style="text-align:center">模型</td>
-<td style="text-align:center">視圖</td>
-<td style="text-align:center">控制器</td>
+<td style="text-align:center">find()</td>
+<td style="text-align:center">陣列</td>
 </tr>
 <tr>
-<td style="text-align:center">意義</td>
-<td style="text-align:center">放資料的地方</td>
-<td style="text-align:center">管理畫面的呈現</td>
-<td style="text-align:center">與使用者間的互動邏輯</td>
+<td style="text-align:center">findById()</td>
+<td style="text-align:center">一個物件</td>
 </tr>
 </tbody>
 </table>
 </li>
+</ul>
+</li>
 <li>
-<p>使用 MVC 目的</p>
+<p>渲染局部模板 (partial template) 的操作方式: res.render()<br>
+同樣地，有了上面第三項的認知，我們在渲染畫面時，在變數的載入會更有概念!<br>
+比如說，傳入局部樣板的變數類型可以是陣列，也可以是一個物件，甚至是字串等等，我們會更容易依照畫面渲染的需求來判斷要傳入什麼樣的變數類型，例如 helper 的使用上，載入的變數是陣列或是物件</p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.<span class="title function_">render</span>(局部樣板, &#123; 變數 &#125;, callback)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>下拉表單(select)的屬性<br>
+為了要做<strong>排序</strong>功能，我在這裡卡觀的難題就是「下拉選單屬性不熟悉」!<br>
+所以，在這裡我先去了解 <code>select</code> 和 <code>option</code> 的標籤屬性，然後再寫下思考邏輯來打造排序功能!<br>
+最大的重點就是，當表單送出後，表單如何去存取 <code>select</code> 中 <code>option</code> 的值，然後再透過取出 <code>option</code> 的值來架構思考邏輯<br>
+而我的排序功能邏輯是 ➡️ 「只要某一個 <code>option</code> 被<strong>選取</strong>，畫面就會依照 <code>option</code> 的<strong>排序方式</strong>做排序」<br>
+細節簡述如下:</p>
 <ul>
-<li>當專案規模變大時，透過 MVC 架構將程式碼獨立出來並歸類到資料夾裡，可以更好地閱讀及維護。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>MVC 提供的協助是「<strong>把不同意義的程式碼放在不同的檔案裡並彼此各司其職分工合作</strong>」🏃</p>
-</blockquote>
-<h2 id="✏️-利用-Express-框架建立伺服器"><a class="header-anchor" href="#✏️-利用-Express-框架建立伺服器"></a>✏️ 利用 Express 框架建立伺服器</h2>
-<h3 id="1️⃣-安裝Express"><a class="header-anchor" href="#1️⃣-安裝Express"></a>1️⃣ 安裝Express</h3>
-<p>🚩 <strong>Step1. 建立 Express 資料夾</strong></p>
+<li><code>option</code> 被選取後，表單送出後的動作為何?
 <ul>
-<li>
-<p>打開終端機，使用 <code>mkdir</code> 指令，並建立 <code>express_project</code> 的專案資料夾</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> express_project</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>再利用 <code>cd</code> 進入資料夾內</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> express_project</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>select</code> 要先設定 <strong>name</strong> 屬性來定義變數名稱，因為任何 <code>option</code> 被選取後的值會被存在 name 裡</li>
+<li><code>option</code> 要設定 <strong>value</strong> 屬性，且每個 <code>option</code> 會有不一樣的 <code>value</code></li>
+<li>當表單送出後，<code>select</code> 的 <code>name</code> 會存取選取的 <code>option</code> 設定的 <code>value</code> 值，並<strong>存入 query string 的物件中</strong></li>
 </ul>
-<p>🚩 <strong>Step2. 產生 package.json 檔案</strong></p>
+</li>
+<li>畫面如何依照 <code>option</code> 的排序方式改變?
 <ul>
-<li>
-<p>利用 <code>npm init</code> 指令產生 <code>package.json</code> 的檔案，裡面會記錄關於專案的相關資訊</p>
-</li>
-<li>
-<p>而 <code>-y</code> 是為了快速把 <code>package.json</code> 快速建立好，並跳過許多手動設定，之後有需要再修改即可</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
-</li>
+<li>利用 query string 的物件，取出被選取的 <code>option</code> 設定的 <code>value</code> 值</li>
+<li>使用 mongoDB 提供的 <strong>sort 方法</strong>依照 <code>value</code> 值來做畫面的排序(這裡省略詳細的邏輯細節)</li>
 </ul>
-<p>🚩 <strong>Step3. 利用 npm 安裝 Express</strong></p>
+</li>
+<li>如何讓被選取的 <code>option</code> 留在畫面 ?
 <ul>
-<li>
-<p>利用 <code>npm install</code> 或 <code>npm i</code> (縮寫)指令下載 Express 套件會看到專案資料夾產生 <code>node_modules</code> 的資料夾，裡面會放置透過 npm 下載的套件</p>
-</li>
-<li>
-<p>若有指定版本，可使用 <code>npm install [套件名稱]@[版本號]</code>，若沒有指定版本會<strong>預設下載最新版本</strong></p>
-</li>
-<li>
-<p>打開 <code>package.json</code> 會發現 <code>dependencies</code> 裡面出現 express 的套件，表示安裝成功囉!</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install express</span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2️⃣-定義和伺服器有關的變數"><a class="header-anchor" href="#2️⃣-定義和伺服器有關的變數"></a>2️⃣ 定義和伺服器有關的變數</h3>
-<p>🚩 <strong>Step1. 載入 Express</strong></p>
-<ul>
-<li>
-<p>在專案資料夾 <code>express_project</code> 新增名為 <code>app.js</code> 的檔案</p>
-</li>
-<li>
-<p>利用 <code>require</code> 載入 Express，並存在 <code>express</code> 的變數裡</p>
-</li>
-<li>
-<p>再定義 <code>app</code> 來使用 Express 框架提供的方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>🚩 <strong>Step2. 設定伺服器的相關變數</strong></p>
-<ul>
-<li>
-<p>Express 的伺服器相關變數設定簡化</p>
-<ul>
-<li><strong>不需要再載入 HTTP 模組</strong> ➡️ 如開頭所述，因為 Express 內部已載入 HTTP 模組</li>
-<li><strong>不需要特別設定主機名稱</strong> ➡️ Express 預設為 <code>localhost</code></li>
-</ul>
-</li>
-<li>
-<p><strong>只要設定連接埠號 (port) !</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#3️⃣-設定伺服器處理請求和回應的動作"></a>3️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
-<ul>
-<li><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</li>
-<li><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型
-<ul>
-<li>
-<p>這邊利用 <code>res.send()</code> 方法回傳瀏覽器顯示的內容</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my Express server!&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>若要回傳 HTML 格式，可以這樣做 ⬇️</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;&lt;h1&gt;This is my Express server!&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<li>使用 helper <code>&#123;&#123;if&#125;&#125;&#123;&#123;/if&#125;&#125;</code> 搭配 <code>option</code> 的 <strong>selected 屬性</strong>，透過邏輯判斷在畫面被排序後，選取的 option 還持續留在畫面中</li>
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>’ / ’ 是<strong>根目錄</strong>，也就是網址為<a href="http://localhost:3000/">http://localhost:3000.com</a>的頁面</p>
-</blockquote>
-<p>💡 <strong>重點說明:</strong></p>
-<ul>
-<li>
-<p><strong>使用 Express 方法:</strong></p>
-<ul>
-<li>
-<p><code>app.get</code> ➡️ 定義到哪個路由時，瀏覽器要給予什麼樣的回應</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;路徑&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<blockquote>
-<p>匿名函式可以取得瀏覽器發進來的請求 (request)， 和我們的伺服器想傳送的回應 (response)</p>
-</blockquote>
-<ul>
-<li>
-<p><code>res.send</code> ➡️ 把內容傳送回去給瀏覽器</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;回應的內容&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="4️⃣-啟動並監聽-listen-伺服器"><a class="header-anchor" href="#4️⃣-啟動並監聽-listen-伺服器"></a>4️⃣ <strong>啟動並監聽(listen)伺服器</strong></h3>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>成功啟動後，可以在終端機看到 <code>The server is listening on http://localhost:3000</code>，接下來就可以打開瀏覽器輸入 <code>http://localhost:3000</code>，就看到伺服器回應我們的內容 <code>This is my Express server</code> !!!</p>
-<p>💡 <strong>重點說明:</strong></p>
-<ul>
-<li>
-<p><strong>使用 Express 方法: app.listen</strong></p>
-<ul>
-<li>
-<p>裡面的匿名函式: 當伺服器啟動時，這個函式就會被執行</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>🎉🎉🎉耶!恭喜成功完成 Express 伺服器，接下來我們就正式開始打造我們的 Express 應用程式!💗</p>
-<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
-<p>📌 ALPHA Camp: <a href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
-<p>📌 Express 官網: <a href="https://expressjs.com/">https://expressjs.com/</a></p>
+</ol>
+<h2 id="分享與展望"><a class="header-anchor" href="#分享與展望"></a>分享與展望</h2>
+<p>在這學期中，最大的收穫是更了解表單送出後的伺服器運作，還有了解伺服器間 request 和 response 的相互溝通過程，最後，藉由 Express 框架及串接 MongoDB 資料庫的應用，打造了小型的網頁應用程式「餐廳清單」及「密碼產生器」。</p>
+<p>而我最大的成就感是<strong>解出問題的過程</strong>，就像教案引導的方式，我們要將功能或是問題做拆解，然後再逐步寫出來!而這樣的方式，我在密碼產生器的專案感受很深，真的就是<strong>拆解步驟然後功能就水到渠成</strong>😄</p>
+<p>之後要進入學期三了，跟自己說聲加油，我可以的💛</p>
 ]]></content>
       <categories>
-        <category>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁</category>
+        <category>學習經驗</category>
       </categories>
-      <tags>
-        <tag>expressjs</tag>
-        <tag>nodejs</tag>
-        <tag>http</tag>
-      </tags>
   </entry>
   <entry>
     <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(一)</title>
@@ -491,6 +348,210 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
 <p>📌 Content-type: <a href="https://www.runoob.com/http/http-content-type.html">https://www.runoob.com/http/http-content-type.html</a></p>
 <p>📌 HTTP: <a href="https://zapier.com/learn/apis/chapter-2-protocols/">https://zapier.com/learn/apis/chapter-2-protocols/</a></p>
 <p>📌 Node.js: <a href="https://nodejs.org/api/http.html">https://nodejs.org/api/http.html</a></p>
+]]></content>
+      <categories>
+        <category>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁</category>
+      </categories>
+      <tags>
+        <tag>expressjs</tag>
+        <tag>nodejs</tag>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)</title>
+    <url>/2023/01/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
+    <content><![CDATA[<h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
+<h2 id="⭐-為何會使用-Express-框架"><a class="header-anchor" href="#⭐-為何會使用-Express-框架"></a>⭐ 為何會使用 Express 框架 ?</h2>
+<ol>
+<li>Express 是極簡的 Node.js 網路框架 (Web framework)</li>
+<li>提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統</li>
+<li>引用樣板引擎 (template engine) 打造網頁前端頁面</li>
+<li>可以串接資料庫並可直接以 JavaScript 來操作資料庫</li>
+</ol>
+<p>以上為 Express 框架最大的四個特色，我們會逐步依照下方學習重點來學習使用方式!</p>
+<span id="more"></span>
+<h2 id="💎-Express-框架學習重點"><a class="header-anchor" href="#💎-Express-框架學習重點"></a>💎 Express 框架學習重點</h2>
+<p>✅ <strong>👉利用 Express 框架建立伺服器</strong><br>
+🔲 <strong>使用 express.Router 建立路由器及多種使用方法</strong><br>
+🔲 <strong>動態路由 (param) 的應用</strong><br>
+🔲 <strong>Express 的靜態檔案 (static files) 放置方法</strong><br>
+🔲 <strong>使用模板引擎 (template engine) 渲染前端畫面</strong><br>
+🔲 <strong>模板引擎 (template engine) 的常用 Helpers 使用</strong><br>
+🔲 <strong>網頁搜尋功能怎麼寫? 介紹網址上的 Query string!</strong><br>
+🔲 <strong>送出表單: GET 與 POST 的差別</strong><br>
+🔲 <strong>表單送出後內容跑去哪? 跑進 Request body 裡!</strong><br>
+🔲 <strong>基礎資料操作功能: CRUD</strong><br>
+🔲 <strong>路由語意化: RESTful method</strong><br>
+🔲 <strong>MongoDB 資料庫串接</strong><br>
+🔲 <strong>網頁排序功能怎麼寫? MongoDB的進階應用</strong><br>
+🔲 <strong>下拉表單的 Onchange 屬性(另外寫專案)</strong></p>
+<h2 id="📚-學習-MVC-架構"><a class="header-anchor" href="#📚-學習-MVC-架構"></a>📚 學習 MVC 架構</h2>
+<p>等等，進入Express框架之前，我們要先了解什麼是 MVC 架構。<br>
+因為接下來會有大量資料文件的串接過程，有了 MVC 設計模式的概念，就可以快速理解程式碼間「檔案分工」的概念!</p>
+<p>MVC 架構簡單來說就像是 <strong>「公司各部門的互相合作」</strong> ，當公司事情、業務越多，不太會讓每個人身兼多職，而是將業務合併或分類並為此設立部門，而部門間會因應公司的運作而互相配合。</p>
+<p>那麼程式碼也是一樣，當在同一份檔案越寫越多程式碼時，若檔案越大會使程式碼較不易閱讀且很難維護，所以我們會將程式碼依特性做分類並另外建立資料夾放置做管理，而MVC 架構即是將程式碼分類為資料管理(<strong>M</strong>odel)、介面畫面的呈現(<strong>V</strong>iew)及程式動作指派的邏輯(<strong>C</strong>ontroller)，整理如下表 ⬇️</p>
+<ul>
+<li>
+<p>MVC 架構及意義</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">架構</th>
+<th style="text-align:center"><strong>M</strong>odel</th>
+<th style="text-align:center"><strong>V</strong>iew</th>
+<th style="text-align:center"><strong>C</strong>ontroller</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">翻譯</td>
+<td style="text-align:center">模型</td>
+<td style="text-align:center">視圖</td>
+<td style="text-align:center">控制器</td>
+</tr>
+<tr>
+<td style="text-align:center">意義</td>
+<td style="text-align:center">放資料的地方</td>
+<td style="text-align:center">管理畫面的呈現</td>
+<td style="text-align:center">與使用者間的互動邏輯</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>使用 MVC 目的</p>
+<ul>
+<li>當專案規模變大時，透過 MVC 架構將程式碼獨立出來並歸類到資料夾裡，可以更好地閱讀及維護。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>MVC 提供的協助是「<strong>把不同意義的程式碼放在不同的檔案裡並彼此各司其職分工合作</strong>」🏃</p>
+</blockquote>
+<h2 id="✏️-利用-Express-框架建立伺服器"><a class="header-anchor" href="#✏️-利用-Express-框架建立伺服器"></a>✏️ 利用 Express 框架建立伺服器</h2>
+<h3 id="1️⃣-安裝Express"><a class="header-anchor" href="#1️⃣-安裝Express"></a>1️⃣ 安裝Express</h3>
+<p>🚩 <strong>Step1. 建立 Express 資料夾</strong></p>
+<ul>
+<li>
+<p>打開終端機，使用 <code>mkdir</code> 指令，並建立 <code>express_project</code> 的專案資料夾</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> express_project</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>再利用 <code>cd</code> 進入資料夾內</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> express_project</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step2. 產生 package.json 檔案</strong></p>
+<ul>
+<li>
+<p>利用 <code>npm init</code> 指令產生 <code>package.json</code> 的檔案，裡面會記錄關於專案的相關資訊</p>
+</li>
+<li>
+<p>而 <code>-y</code> 是為了快速把 <code>package.json</code> 快速建立好，並跳過許多手動設定，之後有需要再修改即可</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step3. 利用 npm 安裝 Express</strong></p>
+<ul>
+<li>
+<p>利用 <code>npm install</code> 或 <code>npm i</code> (縮寫)指令下載 Express 套件會看到專案資料夾產生 <code>node_modules</code> 的資料夾，裡面會放置透過 npm 下載的套件</p>
+</li>
+<li>
+<p>若有指定版本，可使用 <code>npm install [套件名稱]@[版本號]</code>，若沒有指定版本會<strong>預設下載最新版本</strong></p>
+</li>
+<li>
+<p>打開 <code>package.json</code> 會發現 <code>dependencies</code> 裡面出現 express 的套件，表示安裝成功囉!</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install express</span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2️⃣-定義和伺服器有關的變數"><a class="header-anchor" href="#2️⃣-定義和伺服器有關的變數"></a>2️⃣ 定義和伺服器有關的變數</h3>
+<p>🚩 <strong>Step1. 載入 Express</strong></p>
+<ul>
+<li>
+<p>在專案資料夾 <code>express_project</code> 新增名為 <code>app.js</code> 的檔案</p>
+</li>
+<li>
+<p>利用 <code>require</code> 載入 Express，並存在 <code>express</code> 的變數裡</p>
+</li>
+<li>
+<p>再定義 <code>app</code> 來使用 Express 框架提供的方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step2. 設定伺服器的相關變數</strong></p>
+<ul>
+<li>
+<p>Express 的伺服器相關變數設定簡化</p>
+<ul>
+<li><strong>不需要再載入 HTTP 模組</strong> ➡️ 如開頭所述，因為 Express 內部已載入 HTTP 模組</li>
+<li><strong>不需要特別設定主機名稱</strong> ➡️ Express 預設為 <code>localhost</code></li>
+</ul>
+</li>
+<li>
+<p><strong>只要設定連接埠號 (port) !</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#3️⃣-設定伺服器處理請求和回應的動作"></a>3️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
+<ul>
+<li><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</li>
+<li><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型
+<ul>
+<li>
+<p>這邊利用 <code>res.send()</code> 方法回傳瀏覽器顯示的內容</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my Express server!&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>若要回傳 HTML 格式，可以這樣做 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;&lt;h1&gt;This is my Express server!&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>’ / ’ 是<strong>根目錄</strong>，也就是網址為<a href="http://localhost:3000/">http://localhost:3000.com</a>的頁面</p>
+</blockquote>
+<p>💡 <strong>重點說明:</strong></p>
+<ul>
+<li>
+<p><strong>使用 Express 方法:</strong></p>
+<ul>
+<li>
+<p><code>app.get</code> ➡️ 定義到哪個路由時，瀏覽器要給予什麼樣的回應</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;路徑&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>匿名函式可以取得瀏覽器發進來的請求 (request)， 和我們的伺服器想傳送的回應 (response)</p>
+</blockquote>
+<ul>
+<li>
+<p><code>res.send</code> ➡️ 把內容傳送回去給瀏覽器</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;回應的內容&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4️⃣-啟動並監聽-listen-伺服器"><a class="header-anchor" href="#4️⃣-啟動並監聽-listen-伺服器"></a>4️⃣ <strong>啟動並監聽(listen)伺服器</strong></h3>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>成功啟動後，可以在終端機看到 <code>The server is listening on http://localhost:3000</code>，接下來就可以打開瀏覽器輸入 <code>http://localhost:3000</code>，就看到伺服器回應我們的內容 <code>This is my Express server</code> !!!</p>
+<p>💡 <strong>重點說明:</strong></p>
+<ul>
+<li>
+<p><strong>使用 Express 方法: app.listen</strong></p>
+<ul>
+<li>
+<p>裡面的匿名函式: 當伺服器啟動時，這個函式就會被執行</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>🎉🎉🎉耶!恭喜成功完成 Express 伺服器，接下來我們就正式開始打造我們的 Express 應用程式!💗</p>
+<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
+<p>📌 ALPHA Camp: <a href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
+<p>📌 Express 官網: <a href="https://expressjs.com/">https://expressjs.com/</a></p>
 ]]></content>
       <categories>
         <category>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁</category>
