@@ -20,19 +20,22 @@
     var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
   </script>
 
-  <meta name="description" content="這是一段學無止盡的旅程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://imamyke.github.io/categories/index.html">
+  <meta name="description" content="前端設計基礎 — 什麼是「盒模型(Box Model)」? 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為:         屬性(property)     說明           內容(content)                     擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端設計基礎-什麼是「盒模型(Box Model)」?">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/index.html">
 <meta property="og:site_name" content="全端筆記">
-<meta property="og:description" content="這是一段學無止盡的旅程">
+<meta property="og:description" content="前端設計基礎 — 什麼是「盒模型(Box Model)」? 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為:         屬性(property)     說明           內容(content)                     擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2023-01-10T15:53:48.000Z">
-<meta property="article:modified_time" content="2023-01-10T16:00:59.463Z">
+<meta property="article:published_time" content="2023-01-21T06:37:15.216Z">
+<meta property="article:modified_time" content="2023-01-21T07:49:24.868Z">
 <meta property="article:author" content="Amy Ke">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="html">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://imamyke.github.io/categories/">
+<link rel="canonical" href="https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/">
 
 
 <script id="page-configurations">
@@ -40,13 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>categories | 全端筆記
-</title>
+  <title>前端設計基礎-什麼是「盒模型(Box Model)」? | 全端筆記</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
   <script>
@@ -202,55 +204,188 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-TW">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端設計基礎-什麼是「盒模型(Box Model)」?
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">categories
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
 
-<div class="post-meta">
+              <time title="創建時間：2023-01-21 14:37:15 / 修改時間：15:49:24" itemprop="dateCreated datePublished" datetime="2023-01-21T14:37:15+08:00">2023-01-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">前端設計</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/21/前端設計基礎-盒模型(box)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
-</div>
+        </div>
+      </header>
 
-</header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共有 3 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AC%E5%AD%B8%E6%9C%9F2-3-%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node-js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/">AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88/">前端設計</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%B8%E7%BF%92%E7%B6%93%E9%A9%97/">學習經驗</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
+        <h1>前端設計基礎 — 什麼是「盒模型(Box Model)」?</h1>
+<h2 id="盒模型定義"><a class="header-anchor" href="#盒模型定義"></a>盒模型定義</h2>
+<p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為:</p>
+<table>
+  <tr>
+    <th>屬性(property)</th>
+    <th>說明</th>
+  </tr>
+  <tr>
+    <td>內容(content)</td>
+    <td>
+      <ul>
+        <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
+        <li>也可依據 width * height設定內容大小</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>內距(padding)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>邊界(border)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>外距(margin)</td>
+    <td></td>
+  </tr>
+</table>
+<ul>
+<li>內容(content)
+<ul>
+<li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
+<li>也可依據 width * height設定內容大小</li>
+</ul>
+</li>
+<li>內距(padding)</li>
+<li>邊界(border)</li>
+<li>外距(margin)</li>
+</ul>
+<h2 id="Box-sizing-屬性"><a class="header-anchor" href="#Box-sizing-屬性"></a>Box-sizing 屬性</h2>
+<p>CSS的<code>box-sizing</code>屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">盒模型屬性值</th>
+<th style="text-align:center">說明</th>
+<th style="text-align:center">是否包含內距和邊界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>content-box</code></td>
+<td style="text-align:center">為<code>box-sizing</code>元素的預設值(default)，只將內容納為寬、高計算</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>border-box</code></td>
+<td style="text-align:center">元素寬、高計算包含: 內容、內距、邊界</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Border-box"><a class="header-anchor" href="#Border-box"></a>Border-box</h3>
+<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
+<p>📌 MDN: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a></p>
+<p>📌 W3SCHOOLS: <a target="_blank" rel="noopener" href="https://www.w3schools.com/cssref/css3_pr_box-sizing.php">https://www.w3schools.com/cssref/css3_pr_box-sizing.php</a></p>
+<p>📌</p>
+<p>📌</p>
+
     </div>
-    
 
     
     
     
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/frontend/" rel="tag"># frontend</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/" rel="prev" title="前端設計入門-HTML,CSS權重說明">
+      <i class="fa fa-chevron-left"></i> 前端設計入門-HTML,CSS權重說明
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -297,6 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前端設計基礎 — 什麼是「盒模型(Box Model)」?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.1.</span> <span class="nav-text">盒模型定義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-sizing-%E5%B1%AC%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">Box-sizing 屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Border-box"><span class="nav-number">1.2.1.</span> <span class="nav-text">Border-box</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.3.</span> <span class="nav-text">🔎 參考資料來源</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -434,6 +570,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/";
+    this.page.identifier = "2023/01/21/前端設計基礎-盒模型(box)/";
+    this.page.title = "前端設計基礎-什麼是「盒模型(Box Model)」?";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
