@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端設計入門 — CSS選擇器及常用屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
+    <title>前端設計入門 — HTML,CSS權重說明</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -13,8 +13,8 @@
       </tags>
   </entry>
   <entry>
-    <title>前端設計入門 — HTML,CSS權重說明</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
+    <title>前端設計入門 — CSS選擇器及常用屬性</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -32,89 +32,6 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計基礎 — 盒模型(Box Model)及Display屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)%E5%8F%8ADisplay%E5%B1%AC%E6%80%A7/</url>
-    <content><![CDATA[<h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
-<h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
-<h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
-<p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)</p>
-<span id="more"></span>
-<h4 id="盒模型的組成屬性"><a class="header-anchor" href="#盒模型的組成屬性"></a>盒模型的組成屬性</h4>
-  <table style="text-aligh: center;">
-    <tr>
-      <th>屬性(property)</th>
-      <th>說明</th>
-    </tr>
-    <tr>
-      <td>內容(content)</td>
-      <td>
-        <ul>
-          <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
-          <li>也可依據 <strong>width * height</strong> 設定內容大小</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>內距(padding)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>邊界(border)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>外距(margin)</td>
-      <td></td>
-    </tr>
-  </table>
-<h3 id="🔖-Box-sizing-屬性及屬性值"><a class="header-anchor" href="#🔖-Box-sizing-屬性及屬性值"></a>🔖 Box-sizing 屬性及屬性值</h3>
-<ul>
-<li>CSS的 <code>box-sizing</code> 屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></li>
-<li>CSS 語法<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">box-<span class="attr">sizing</span>: value;</span><br></pre></td></tr></table></figure>
-</li>
-<li>Box-sizing 的屬性值
-<table>
-<thead>
-<tr>
-<th style="text-align:center">屬性值(value)</th>
-<th style="text-align:center">說明</th>
-<th style="text-align:center">是否包含內距和邊界</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>content-box</code></td>
-<td style="text-align:center">為<code>box-sizing</code>元素的預設值 (default)，只將內容納為寬、高計算</td>
-<td style="text-align:center">否</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>border-box</code></td>
-<td style="text-align:center">元素寬、高計算包含: 內容、內距、邊界</td>
-<td style="text-align:center">是</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<h3 id="🔖-margin的塌陷現象"><a class="header-anchor" href="#🔖-margin的塌陷現象"></a>🔖 margin的塌陷現象</h3>
-<h2 id="⭐-Display屬性"><a class="header-anchor" href="#⭐-Display屬性"></a>⭐ Display屬性</h2>
-<h3 id=""><a class="header-anchor" href="#"></a></h3>
-<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
-<p>📌 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a></p>
-<p>📌 W3SCHOOLS: <a href="https://www.w3schools.com/cssref/css3_pr_box-sizing.php">https://www.w3schools.com/cssref/css3_pr_box-sizing.php</a></p>
-<p>📌</p>
-<p>📌</p>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
         <tag>frontend</tag>
         <tag>html</tag>
       </tags>
@@ -476,6 +393,89 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
         <tag>expressjs</tag>
         <tag>nodejs</tag>
         <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計基礎 — 盒模型(Box Model)及Display屬性</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)%E5%8F%8ADisplay%E5%B1%AC%E6%80%A7/</url>
+    <content><![CDATA[<h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
+<h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
+<h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
+<p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)</p>
+<span id="more"></span>
+<h4 id="盒模型的組成屬性"><a class="header-anchor" href="#盒模型的組成屬性"></a>盒模型的組成屬性</h4>
+  <table style="text-aligh: center;">
+    <tr>
+      <th>屬性(property)</th>
+      <th>說明</th>
+    </tr>
+    <tr>
+      <td>內容(content)</td>
+      <td>
+        <ul>
+          <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
+          <li>也可依據 <strong>width * height</strong> 設定內容大小</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>內距(padding)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>邊界(border)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>外距(margin)</td>
+      <td></td>
+    </tr>
+  </table>
+<h3 id="🔖-Box-sizing-屬性及屬性值"><a class="header-anchor" href="#🔖-Box-sizing-屬性及屬性值"></a>🔖 Box-sizing 屬性及屬性值</h3>
+<ul>
+<li>CSS的 <code>box-sizing</code> 屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></li>
+<li>CSS 語法<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: value;</span><br></pre></td></tr></table></figure>
+</li>
+<li>Box-sizing 的屬性值
+<table>
+<thead>
+<tr>
+<th style="text-align:center">屬性值(value)</th>
+<th style="text-align:center">說明</th>
+<th style="text-align:center">是否包含內距和邊界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>content-box</code></td>
+<td style="text-align:center">為<code>box-sizing</code>元素的預設值 (default)，只將內容納為寬、高計算</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>border-box</code></td>
+<td style="text-align:center">元素寬、高計算包含: 內容、內距、邊界</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="🔖-margin的塌陷現象"><a class="header-anchor" href="#🔖-margin的塌陷現象"></a>🔖 margin的塌陷現象</h3>
+<h2 id="⭐-Display屬性"><a class="header-anchor" href="#⭐-Display屬性"></a>⭐ Display屬性</h2>
+<h3 id=""><a class="header-anchor" href="#"></a></h3>
+<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
+<p>📌 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a></p>
+<p>📌 W3SCHOOLS: <a href="https://www.w3schools.com/cssref/css3_pr_box-sizing.php">https://www.w3schools.com/cssref/css3_pr_box-sizing.php</a></p>
+<p>📌</p>
+<p>📌</p>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
