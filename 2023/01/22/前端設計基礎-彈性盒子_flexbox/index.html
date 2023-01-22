@@ -20,17 +20,22 @@
     var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
   </script>
 
-  <meta name="description" content="這是一段學無止盡的旅程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="全端筆記">
-<meta property="og:url" content="https://imamyke.github.io/categories/%E5%AD%B8%E7%BF%92%E7%B6%93%E9%A9%97/index.html">
+  <meta name="description" content="前端設計基礎 — CSS的彈性盒子 Flexbox">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端設計基礎 — CSS的彈性盒子 Flexbox">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/index.html">
 <meta property="og:site_name" content="全端筆記">
-<meta property="og:description" content="這是一段學無止盡的旅程">
+<meta property="og:description" content="前端設計基礎 — CSS的彈性盒子 Flexbox">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-01-22T15:40:21.702Z">
+<meta property="article:modified_time" content="2023-01-22T16:18:47.180Z">
 <meta property="article:author" content="Amy Ke">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://imamyke.github.io/categories/%E5%AD%B8%E7%BF%92%E7%B6%93%E9%A9%97/">
+<link rel="canonical" href="https://imamyke.github.io/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/">
 
 
 <script id="page-configurations">
@@ -38,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>分類: 學習經驗 | 全端筆記</title>
+  <title>前端設計基礎 — CSS的彈性盒子 Flexbox | 全端筆記</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
   <script>
@@ -200,57 +205,127 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端設計基礎 — CSS的彈性盒子 Flexbox
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-22 23:40:21" itemprop="dateCreated datePublished" datetime="2023-01-22T23:40:21+08:00">2023-01-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-23 00:18:47" itemprop="dateModified" datetime="2023-01-23T00:18:47+08:00">2023-01-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">前端設計</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">學習經驗
-          <small>分類</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/22/前端設計基礎-彈性盒子_flexbox/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+        <h1>前端設計基礎 — CSS的彈性盒子 Flexbox</h1>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-01-22T18:15:13+08:00"
-              content="2023-01-22">
-          01-22
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/frontend/" rel="tag"># frontend</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/01/22/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/" itemprop="url">
-            <span itemprop="name">AC學期2-3: 自學經驗回顧</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/" rel="prev" title="前端設計入門 — CSS選擇器及常用屬性">
+      <i class="fa fa-chevron-left"></i> 前端設計入門 — CSS選擇器及常用屬性
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-position%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F%E5%8F%8ATransform%E5%B1%AC%E6%80%A7/" rel="next" title="前端設計基礎 — Position定位方式及Transform屬性">
+      前端設計基礎 — Position定位方式及Transform屬性 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -297,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前端設計基礎 — CSS的彈性盒子 Flexbox</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -312,20 +388,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -434,6 +510,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/";
+    this.page.identifier = "2023/01/22/前端設計基礎-彈性盒子_flexbox/";
+    this.page.title = "前端設計基礎 — CSS的彈性盒子 Flexbox";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
