@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
   </script>
 
-  <meta name="description" content="前端設計基礎 — 什麼是「盒模型(Box Model)」? 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)">
+  <meta name="description" content="前端設計基礎 — 盒模型(Box Model)及Display屬性? ⭐ 盒模型(Box Model) 🔖 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端設計基礎 — 什麼是「盒模型(Box Model)」?">
+<meta property="og:title" content="前端設計基礎 — 盒模型(Box Model)及Display屬性">
 <meta property="og:url" content="https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/index.html">
 <meta property="og:site_name" content="全端筆記">
-<meta property="og:description" content="前端設計基礎 — 什麼是「盒模型(Box Model)」? 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)">
+<meta property="og:description" content="前端設計基礎 — 盒模型(Box Model)及Display屬性? ⭐ 盒模型(Box Model) 🔖 盒模型定義 瀏覽器將每一個標籤元素都視為一個矩形的「盒模型」，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-01-21T06:37:15.216Z">
-<meta property="article:modified_time" content="2023-01-21T08:01:01.704Z">
+<meta property="article:modified_time" content="2023-01-22T08:50:29.595Z">
 <meta property="article:author" content="Amy Ke">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="frontend">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>前端設計基礎 — 什麼是「盒模型(Box Model)」? | 全端筆記</title>
+  <title>前端設計基礎 — 盒模型(Box Model)及Display屬性 | 全端筆記</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
   <script>
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          前端設計基礎 — 什麼是「盒模型(Box Model)」?
+          前端設計基礎 — 盒模型(Box Model)及Display屬性
         </h1>
 
         <div class="post-meta">
@@ -234,10 +234,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2023-01-21 14:37:15 / 修改時間：16:01:01" itemprop="dateCreated datePublished" datetime="2023-01-21T14:37:15+08:00">2023-01-21</time>
+              <time title="創建時間：2023-01-21 14:37:15" itemprop="dateCreated datePublished" datetime="2023-01-21T14:37:15+08:00">2023-01-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-22 16:50:29" itemprop="dateModified" datetime="2023-01-22T16:50:29+08:00">2023-01-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -273,11 +279,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1>前端設計基礎 — 什麼是「盒模型(Box Model)」?</h1>
-<h2 id="盒模型定義"><a class="header-anchor" href="#盒模型定義"></a>盒模型定義</h2>
+        <h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
+<h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
+<h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
 <p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)</p>
 <span id="more"></span>
-<table>
+<ul>
+<li>盒模型的組成屬性<table style="text-aligh: center;">
   <tr>
     <th>屬性(property)</th>
     <th>說明</th>
@@ -287,7 +295,7 @@
     <td>
       <ul>
         <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
-        <li>也可依據 width * height設定內容大小</li>
+        <li>也可依據 <strong>width * height</strong> 設定內容大小</li>
       </ul>
     </td>
   </tr>
@@ -304,23 +312,18 @@
     <td></td>
   </tr>
 </table>
-<ul>
-<li>內容(content)
-<ul>
-<li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
-<li>也可依據 width * height設定內容大小</li>
-</ul>
 </li>
-<li>內距(padding)</li>
-<li>邊界(border)</li>
-<li>外距(margin)</li>
 </ul>
-<h2 id="Box-sizing-屬性"><a class="header-anchor" href="#Box-sizing-屬性"></a>Box-sizing 屬性</h2>
-<p>CSS的<code>box-sizing</code>屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></p>
+<h3 id="🔖-Box-sizing-屬性及屬性值"><a class="header-anchor" href="#🔖-Box-sizing-屬性及屬性值"></a>🔖 Box-sizing 屬性及屬性值</h3>
+<ul>
+<li>CSS的 <code>box-sizing</code> 屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></li>
+<li>CSS 語法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-<span class="attr">sizing</span>: value;</span><br></pre></td></tr></table></figure>
+</li>
+<li>Box-sizing 的屬性值
 <table>
 <thead>
 <tr>
-<th style="text-align:center">盒模型屬性值</th>
+<th style="text-align:center">屬性值(value)</th>
 <th style="text-align:center">說明</th>
 <th style="text-align:center">是否包含內距和邊界</th>
 </tr>
@@ -328,7 +331,7 @@
 <tbody>
 <tr>
 <td style="text-align:center"><code>content-box</code></td>
-<td style="text-align:center">為<code>box-sizing</code>元素的預設值(default)，只將內容納為寬、高計算</td>
+<td style="text-align:center">為<code>box-sizing</code>元素的預設值 (default)，只將內容納為寬、高計算</td>
 <td style="text-align:center">否</td>
 </tr>
 <tr>
@@ -338,7 +341,11 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Border-box"><a class="header-anchor" href="#Border-box"></a>Border-box</h3>
+</li>
+</ul>
+<h3 id="🔖-margin的塌陷現象"><a class="header-anchor" href="#🔖-margin的塌陷現象"></a>🔖 margin的塌陷現象</h3>
+<h2 id="⭐-Display屬性"><a class="header-anchor" href="#⭐-Display屬性"></a>⭐ Display屬性</h2>
+<h3 id=""><a class="header-anchor" href="#"></a></h3>
 <h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
 <p>📌 MDN: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model</a></p>
 <p>📌 W3SCHOOLS: <a target="_blank" rel="noopener" href="https://www.w3schools.com/cssref/css3_pr_box-sizing.php">https://www.w3schools.com/cssref/css3_pr_box-sizing.php</a></p>
@@ -433,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前端設計基礎 — 什麼是「盒模型(Box Model)」?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.1.</span> <span class="nav-text">盒模型定義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-sizing-%E5%B1%AC%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">Box-sizing 屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Border-box"><span class="nav-number">1.2.1.</span> <span class="nav-text">Border-box</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.3.</span> <span class="nav-text">🔎 參考資料來源</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前端設計基礎 — 盒模型(Box Model)及Display屬性?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E7%9B%92%E6%A8%A1%E5%9E%8B-Box-Model"><span class="nav-number">1.1.</span> <span class="nav-text">⭐ 盒模型(Box Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%96-%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.1.1.</span> <span class="nav-text">🔖 盒模型定義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%96-Box-sizing-%E5%B1%AC%E6%80%A7%E5%8F%8A%E5%B1%AC%E6%80%A7%E5%80%BC"><span class="nav-number">1.1.2.</span> <span class="nav-text">🔖 Box-sizing 屬性及屬性值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%94%96-margin%E7%9A%84%E5%A1%8C%E9%99%B7%E7%8F%BE%E8%B1%A1"><span class="nav-number">1.1.3.</span> <span class="nav-text">🔖 margin的塌陷現象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-Display%E5%B1%AC%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">⭐ Display屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.3.</span> <span class="nav-text">🔎 參考資料來源</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -576,7 +583,7 @@
   var disqus_config = function() {
     this.page.url = "https://imamyke.github.io/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/";
     this.page.identifier = "2023/01/21/前端設計基礎-盒模型(box)/";
-    this.page.title = "前端設計基礎 — 什麼是「盒模型(Box Model)」?";
+    this.page.title = "前端設計基礎 — 盒模型(Box Model)及Display屬性";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
