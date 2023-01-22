@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>前端設計入門 — CSS選擇器及常用屬性</title>
-    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>前端設計入門 — HTML,CSS權重說明</title>
-    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -26,7 +26,7 @@
   </entry>
   <entry>
     <title>前端設計入門 — HTML常用標籤</title>
-    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -38,42 +38,40 @@
   </entry>
   <entry>
     <title>前端設計基礎 — 盒模型(Box Model)及Display屬性</title>
-    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)/</url>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)%E5%8F%8ADisplay%E5%B1%AC%E6%80%A7/</url>
     <content><![CDATA[<h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
 <h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
 <h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
 <p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)</p>
 <span id="more"></span>
-<ul>
-<li>盒模型的組成屬性<table style="text-aligh: center;">
-  <tr>
-    <th>屬性(property)</th>
-    <th>說明</th>
-  </tr>
-  <tr>
-    <td>內容(content)</td>
-    <td>
-      <ul>
-        <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
-        <li>也可依據 <strong>width * height</strong> 設定內容大小</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>內距(padding)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>邊界(border)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>外距(margin)</td>
-    <td></td>
-  </tr>
-</table>
-</li>
-</ul>
+<h4 id="盒模型的組成屬性"><a class="header-anchor" href="#盒模型的組成屬性"></a>盒模型的組成屬性</h4>
+  <table style="text-aligh: center;">
+    <tr>
+      <th>屬性(property)</th>
+      <th>說明</th>
+    </tr>
+    <tr>
+      <td>內容(content)</td>
+      <td>
+        <ul>
+          <li>擁有「真實的內容」，例如文字、圖片或影片，我們可以依據這些真實內容來決定內容的大小</li>
+          <li>也可依據 <strong>width * height</strong> 設定內容大小</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>內距(padding)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>邊界(border)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>外距(margin)</td>
+      <td></td>
+    </tr>
+  </table>
 <h3 id="🔖-Box-sizing-屬性及屬性值"><a class="header-anchor" href="#🔖-Box-sizing-屬性及屬性值"></a>🔖 Box-sizing 屬性及屬性值</h3>
 <ul>
 <li>CSS的 <code>box-sizing</code> 屬性 (property) 定義<strong>元素寬、高的計算方式</strong>，也就是元素的寬、高<strong>是否要將內距和邊界計算進去</strong></li>
@@ -123,7 +121,7 @@
   </entry>
   <entry>
     <title>AC學期2-3: 自學經驗回顧</title>
-    <url>/2023/01/20/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
+    <url>/2023/01/22/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
     <content><![CDATA[<h1>AC學期2-3: 自學經驗回顧</h1>
 <h2 id="⭐-遇到的問題及解決方式"><a class="header-anchor" href="#⭐-遇到的問題及解決方式"></a>⭐ 遇到的問題及解決方式</h2>
 <p>在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是 <strong>「目前的資料是什麼類型?」</strong> 以及 <strong>「對專案課程及框架概念似懂非懂」</strong>，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。<br>
@@ -482,7 +480,7 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
   </entry>
   <entry>
     <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)</title>
-    <url>/2023/01/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
+    <url>/2023/01/22/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
     <content><![CDATA[<h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
 <h2 id="⭐-為何會使用-Express-框架"><a class="header-anchor" href="#⭐-為何會使用-Express-框架"></a>⭐ 為何會使用 Express 框架 ?</h2>
 <ol>
