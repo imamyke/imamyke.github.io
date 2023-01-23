@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic|Courier New:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -382,7 +382,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/01/23/React-List-rendering/" class="post-title-link" itemprop="url">React — 清單渲染(List Rendering)</a>
+            <a href="/2023/01/23/React-List-rendering/" class="post-title-link" itemprop="url">React — 列表渲染(List Rendering)</a>
         </h2>
 
         <div class="post-meta">
@@ -393,7 +393,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-23 01:00:48 / 修改時間：01:11:00" itemprop="dateCreated datePublished" datetime="2023-01-23T01:00:48+08:00">2023-01-23</time>
+              <time title="創建時間：2023-01-23 01:00:48 / 修改時間：20:24:58" itemprop="dateCreated datePublished" datetime="2023-01-23T01:00:48+08:00">2023-01-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -430,7 +430,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1>React — 列表渲染 (List Rendering)</h1>
+<h2 id="📚-列表渲染-List-Rendering-定義"><a class="header-anchor" href="#📚-列表渲染-List-Rendering-定義"></a>📚 列表渲染 (List Rendering) 定義</h2>
+<ul>
+<li>非 JSX 的變數或函數都必須以 <code>&#123; &#125;</code> 包起來!</li>
+<li>將<strong>可辨識的JSX元素陣列</strong>，做列表渲染 ➡️ <code>&#123;[&lt;&gt; &lt;/&gt;,&lt;&gt; &lt;/&gt;,...]&#125;</code></li>
+<li>可以用 map() 或 filter() 導出並渲染列表</li>
+<li>React 規定列表渲染的Array裡<strong>每個 element 都應該要有一個 key，如此才能給予每個 element 一個固定的身份</strong>
+<ul>
+<li>Key 幫助 React 分辨哪些項目被改變、增加或刪除，所以<strong>不可重複且必須是唯一</strong></li>
+<li>Key 只有在周遭有 Array 的情境中才有意義</li>
+<li>用 Key 抽離 Component ➡️ 如果要抽離一個 <strong>ListItem component</strong> ，應該要<strong>把 Key 放在 Array 裡的 <code>&lt;ListItem /&gt;</code> element 上</strong>，而不是把它放在 ListItem 裡面的 <code>&lt;li&gt;</code> element 上</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/23/React-List-rendering/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -474,7 +495,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-23 01:00:06 / 修改時間：01:11:17" itemprop="dateCreated datePublished" datetime="2023-01-23T01:00:06+08:00">2023-01-23</time>
+              <time title="創建時間：2023-01-23 01:00:06 / 修改時間：18:30:33" itemprop="dateCreated datePublished" datetime="2023-01-23T01:00:06+08:00">2023-01-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -511,7 +532,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1>React — 條件渲染(Conditional Rendering)</h1>
+<h2 id="條件渲染-Conditional-Rendering-定義"><a class="header-anchor" href="#條件渲染-Conditional-Rendering-定義"></a>條件渲染 (Conditional Rendering) 定義</h2>
+<ul>
+<li>讓元件依循條件做屬性、內容、配置更動</li>
+<li>配合Reactjs的資料單向流模式，讓狀態更可預期</li>
+<li>因為元件即方法，直接將判斷式寫在方法中</li>
+<li>可以配置&quot;<strong>文字內容</strong>&quot;、“<strong>樣式改變</strong>”、“<strong>屬性(props)</strong>”、“<strong>顯示路由(React route)</strong>”</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/23/React-conditional-rendering/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -555,7 +591,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-23 00:59:24 / 修改時間：01:11:10" itemprop="dateCreated datePublished" datetime="2023-01-23T00:59:24+08:00">2023-01-23</time>
+              <time title="創建時間：2023-01-23 00:59:24 / 修改時間：17:15:15" itemprop="dateCreated datePublished" datetime="2023-01-23T00:59:24+08:00">2023-01-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -592,7 +628,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1>React — 函式元件(Functional Component)</h1>
+<h2 id="🔖-Render-Element"><a class="header-anchor" href="#🔖-Render-Element"></a>🔖 Render Element</h2>
+<h3 id="1️⃣-建立-React-應用程式最小的單位是-Element"><a class="header-anchor" href="#1️⃣-建立-React-應用程式最小的單位是-Element"></a>1️⃣ 建立 React 應用程式最小的單位是 Element</h3>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/23/React-functional-component/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -636,7 +683,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-23 00:55:37 / 修改時間：01:11:05" itemprop="dateCreated datePublished" datetime="2023-01-23T00:55:37+08:00">2023-01-23</time>
+              <time title="創建時間：2023-01-23 00:55:37 / 修改時間：16:20:12" itemprop="dateCreated datePublished" datetime="2023-01-23T00:55:37+08:00">2023-01-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -673,7 +720,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1>React — JSX用法整理</h1>
+<h2 id="⭐-JSX-語法重點"><a class="header-anchor" href="#⭐-JSX-語法重點"></a>⭐ JSX 語法重點</h2>
+<p>JSX 語法重點在於:<br>
+允許我們在 JS 的檔案中使用 HTML 的標籤，並且使用 JSX 語法建立「一個 React 的 element」，<br>
+而這樣的標籤語法比起 HTML，更貼近於 JavaScript!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/23/React-JSX%E7%94%A8%E6%B3%95%E6%95%B4%E7%90%86/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
