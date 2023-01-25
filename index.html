@@ -206,6 +206,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/24/React-react-useState/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/24/React-react-useState/" class="post-title-link" itemprop="url">React Hook — React的狀態管理 UseState</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-24 23:01:39" itemprop="dateCreated datePublished" datetime="2023-01-24T23:01:39+08:00">2023-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-25 11:46:56" itemprop="dateModified" datetime="2023-01-25T11:46:56+08:00">2023-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/24/React-react-useState/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/24/React-react-useState/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>React Hook — React的狀態管理 UseState</h1>
+<h2 id="什麼是-useState"><a class="header-anchor" href="#什麼是-useState"></a>什麼是 useState ?</h2>
+<p>React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。<br>
+而 React 的特色就是資料的「單向流綁定」，當某資料狀態改變了，可以讓整個畫面相同資料的狀態改變。</p>
+<h2 id="全域狀態管理-—-Context-API"><a class="header-anchor" href="#全域狀態管理-—-Context-API"></a>全域狀態管理 — Context API</h2>
+<p>當我們希望可以將一個狀態在其他地方使用，但又不想一個一個透過 Props 傳入時，就需要 Context API 來管理全域狀態了!</p>
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zh-hant.reactjs.org/docs/hooks-state.html">React 官網</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.xuemi.co/">學米React課程</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/23/React-react-router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -237,7 +339,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-01-24 09:42:10" itemprop="dateModified" datetime="2023-01-24T09:42:10+08:00">2023-01-24</time>
+                <time title="修改時間：2023-01-24 12:10:04" itemprop="dateModified" datetime="2023-01-24T12:10:04+08:00">2023-01-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,36 +378,23 @@
       
           <h1>React — React Router</h1>
 <h2 id="什麼是-React-Router"><a class="header-anchor" href="#什麼是-React-Router"></a>什麼是 React Router ?</h2>
-<h3 id="什麼是-Router"><a class="header-anchor" href="#什麼是-Router"></a>什麼是 Router ?</h3>
-<p>Router 在網際網路世界中是隨處可見，每一次資訊的傳遞，都會透過路由器來引導發送到正確位置</p>
-<h3 id="路由器中的路徑-Path"><a class="header-anchor" href="#路由器中的路徑-Path"></a>路由器中的路徑 (Path) ?</h3>
-<p>路徑會帶著資源訊息，當路由器到了目的地之後，讓應用程式知道要取得哪個資源內容</p>
-<h3 id="為什麼前端網頁需要路由應用"><a class="header-anchor" href="#為什麼前端網頁需要路由應用"></a>為什麼前端網頁需要路由應用 ?</h3>
-<blockquote>
-<p>前端網頁的路由器，就是網際網路中路由應用的縮影</p>
-</blockquote>
+<p>在傳統的網頁裡，如果瀏覽器要改變頁面，都必須要向伺服器發出請求 (request) 來要到相對應的資源內容，然後再去渲染新的頁面，但每當使用者按下一個連結，就會重新再刷新的動作其實會造成使用者體驗不是太好。<br>
+於是，React router 為了改善這個現象，他可以讓網頁在不透過跟伺服器請求 (request) 的動作下，就算更改網址路徑也可以即時更新頁面，大大提升使用者瀏覽網站的體驗 !</p>
+<h2 id="為何要使用-React-Router-DOM"><a class="header-anchor" href="#為何要使用-React-Router-DOM"></a>為何要使用 React Router DOM ?</h2>
 <ul>
-<li>優化 SPA(Single Page Application) 單頁式應用</li>
-<li>更好管理顯示內容</li>
-<li>更好辨識頁面意圖</li>
-<li>更方便做網頁快取</li>
-<li>優化 SEO</li>
+<li>支援度廣、彈性大</li>
+<li>社群生態廣</li>
+<li>更多好用的方法</li>
+<li>全部都是 ReactJS 元件</li>
 </ul>
-<h2 id="認識-History-PushState-API"><a class="header-anchor" href="#認識-History-PushState-API"></a>認識 History PushState API</h2>
-<blockquote>
-<p>每次變化都會被記錄在 history stack 中，因此可以操作瀏覽器原生歷史紀錄</p>
-</blockquote>
-<p>history.pushState(state: object, URL: string)</p>
-<ul>
-<li>state — 可以記錄一個物件當歷史紀錄</li>
-<li>title — 改變網頁標題 (支援度低)</li>
-<li>URL — 改變網址路徑 (直接改變而不重新整理)</li>
-</ul>
-<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.xuemi.co/">學米React課程</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/23/React-react-router/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1047,87 +1136,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/23/%E4%BD%9C%E5%93%81-POS%E6%A9%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Amy Ke">
-      <meta itemprop="description" content="這是一段學無止盡的旅程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="全端筆記">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/23/%E4%BD%9C%E5%93%81-POS%E6%A9%9F/" class="post-title-link" itemprop="url">作品集 — POS機</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2023-01-23 00:50:15 / 修改時間：01:05:31" itemprop="dateCreated datePublished" datetime="2023-01-23T00:50:15+08:00">2023-01-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">作品集</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2023/01/23/%E4%BD%9C%E5%93%81-POS%E6%A9%9F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/23/作品-POS機/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1199,7 +1207,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1212,7 +1220,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

@@ -125,38 +125,73 @@
       </tags>
   </entry>
   <entry>
-    <title>React — React Router</title>
-    <url>/2023/01/23/React-react-router/</url>
-    <content><![CDATA[<h1>React — React Router</h1>
-<h2 id="什麼是-React-Router"><a class="header-anchor" href="#什麼是-React-Router"></a>什麼是 React Router ?</h2>
-<h3 id="什麼是-Router"><a class="header-anchor" href="#什麼是-Router"></a>什麼是 Router ?</h3>
-<p>Router 在網際網路世界中是隨處可見，每一次資訊的傳遞，都會透過路由器來引導發送到正確位置</p>
-<h3 id="路由器中的路徑-Path"><a class="header-anchor" href="#路由器中的路徑-Path"></a>路由器中的路徑 (Path) ?</h3>
-<p>路徑會帶著資源訊息，當路由器到了目的地之後，讓應用程式知道要取得哪個資源內容</p>
-<h3 id="為什麼前端網頁需要路由應用"><a class="header-anchor" href="#為什麼前端網頁需要路由應用"></a>為什麼前端網頁需要路由應用 ?</h3>
-<blockquote>
-<p>前端網頁的路由器，就是網際網路中路由應用的縮影</p>
-</blockquote>
+    <title>React — 條件渲染(Conditional Rendering)</title>
+    <url>/2023/01/23/React-conditional-rendering/</url>
+    <content><![CDATA[<h1>React — 條件渲染(Conditional Rendering)</h1>
+<h2 id="條件渲染-Conditional-Rendering-定義"><a class="header-anchor" href="#條件渲染-Conditional-Rendering-定義"></a>條件渲染 (Conditional Rendering) 定義</h2>
 <ul>
-<li>優化 SPA(Single Page Application) 單頁式應用</li>
-<li>更好管理顯示內容</li>
-<li>更好辨識頁面意圖</li>
-<li>更方便做網頁快取</li>
-<li>優化 SEO</li>
+<li>讓元件依循條件做屬性、內容、配置更動</li>
+<li>配合Reactjs的資料單向流模式，讓狀態更可預期</li>
+<li>因為元件即方法，直接將判斷式寫在方法中</li>
+<li>可以配置&quot;<strong>文字內容</strong>&quot;、“<strong>樣式改變</strong>”、“<strong>屬性(props)</strong>”、“<strong>顯示路由(React route)</strong>”</li>
 </ul>
-<h2 id="認識-History-PushState-API"><a class="header-anchor" href="#認識-History-PushState-API"></a>認識 History PushState API</h2>
-<blockquote>
-<p>每次變化都會被記錄在 history stack 中，因此可以操作瀏覽器原生歷史紀錄</p>
-</blockquote>
-<p>history.pushState(state: object, URL: string)</p>
-<ul>
-<li>state — 可以記錄一個物件當歷史紀錄</li>
-<li>title — 改變網頁標題 (支援度低)</li>
-<li>URL — 改變網址路徑 (直接改變而不重新整理)</li>
-</ul>
+<span id="more"></span>
+<h2 id="實作"><a class="header-anchor" href="#實作"></a>實作</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ConditionDescription</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;props =&gt;&#x27;</span>, props); <span class="comment">// props因為下面有設定gender屬性，所以會帶有gender屬性</span></span><br><span class="line">  <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;boy&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.useStyle</span> ? &#123;<span class="attr">color:</span> &#x27;<span class="attr">blue</span>&#x27;&#125; <span class="attr">:</span> &#123;&#125;&#125;&gt;</span>Hello, boy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;girl&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.style&#125;</span>&gt;</span>Hello, girl<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;girl&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">color:</span> &#x27;<span class="attr">red</span>&#x27; &#125;&#125; </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Amy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/pure&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;boy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">useStyle</span>=<span class="string">&#123;true&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Ivan&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>💁‍♀️ <strong>ConditionDescription的props物件</strong></p><ul><li>Pathname ===  <code>/</code> : <code>props = {gender: 'girl', style: {color: 'red'}}</code></li><li>Pathname === <code>/pure</code> : <code>props = {gender: 'boy', useStyle: true}</code></li></ul>
+          </div>
+<h3 id="畫面的呈現及配置重點說明"><a class="header-anchor" href="#畫面的呈現及配置重點說明"></a>畫面的呈現及配置重點說明</h3>
+<h4 id="Pathname"><a class="header-anchor" href="#Pathname"></a>Pathname: <code>'/'</code></h4>
+  <img src="https://i.imgur.com/0gPHOKT.png" alt="react" width="370" style="margin: 0;">
+<h4 id="Pathname-pure"><a class="header-anchor" href="#Pathname-pure"></a>Pathname: <code>'/pure'</code></h4>
+  <img src="https://i.imgur.com/2f4PiIT.png" alt="react" width="370" style="margin: 0;" >
 <h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
 <ul>
 <li><a href="https://www.xuemi.co/">學米React課程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React — 列表渲染(List Rendering)</title>
+    <url>/2023/01/23/React-List-rendering/</url>
+    <content><![CDATA[<h1>React — 列表渲染 (List Rendering)</h1>
+<h2 id="📚-列表渲染-List-Rendering-定義"><a class="header-anchor" href="#📚-列表渲染-List-Rendering-定義"></a>📚 列表渲染 (List Rendering) 定義</h2>
+<ul>
+<li>非 JSX 的變數或函數都必須以 <code>&#123; &#125;</code> 包起來!</li>
+<li>將<strong>可辨識的JSX元素陣列</strong>，做列表渲染 ➡️ <code>&#123;[&lt;&gt; &lt;/&gt;,&lt;&gt; &lt;/&gt;,...]&#125;</code></li>
+<li>可以用 map() 或 filter() 導出並渲染列表</li>
+<li>React 規定列表渲染的Array裡<strong>每個 element 都應該要有一個 key，如此才能給予每個 element 一個固定的身份</strong>
+<ul>
+<li>Key 幫助 React 分辨哪些項目被改變、增加或刪除，所以<strong>不可重複且必須是唯一</strong></li>
+<li>Key 只有在周遭有 Array 的情境中才有意義</li>
+<li>用 Key 抽離 Component ➡️ 如果要抽離一個 <strong>ListItem component</strong> ，應該要<strong>把 Key 放在 Array 裡的 <code>&lt;ListItem /&gt;</code> element 上</strong>，而不是把它放在 ListItem 裡面的 <code>&lt;li&gt;</code> element 上</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="📝-實作並說明-Key-的正確設置位置"><a class="header-anchor" href="#📝-實作並說明-Key-的正確設置位置"></a>📝 實作並說明 Key 的正確設置位置</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">0</span>, <span class="attr">title</span>: <span class="string">&quot;Breakfast&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&quot;Work&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&quot;Take a rest&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">&quot;Tea time&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">title</span>: <span class="string">&quot;Dinner&quot;</span>&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+  <img src="https://i.imgur.com/0WXTV59.png" alt="react" width="370" style="margin: 0;">
+<h3 id="❌-錯誤-key-不能放在-li-元素上"><a class="header-anchor" href="#❌-錯誤-key-不能放在-li-元素上"></a>❌ 錯誤: key 不能放在 <code>&lt;li&gt;</code> 元素上</h3>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListItem</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;props.key&#125;</span>&gt;</span>&#123;props.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span> <span class="comment">// key 不能放在 &lt;li&gt; 元素上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">MyImg</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;todos.map((todo) =&gt; &#123; return  <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> /&gt;</span> &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  ) </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="✔️-正確-key-只在array-裡的-ListItem-element-上被指定"><a class="header-anchor" href="#✔️-正確-key-只在array-裡的-ListItem-element-上被指定"></a>✔️ 正確: key 只在array 裡的 <code>&lt;ListItem /&gt;</code> element 上被指定</h3>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListItem</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;props.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span> <span class="comment">// 不需在這指定 key</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">MyImg</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          // key 只在這指定即可</span></span><br><span class="line"><span class="language-xml">          &#123;todos.map((todo) =&gt; &#123; return  <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> /&gt;</span> &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  ) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>💁‍♀️ React 不建議使用陣列的索引(index)作為 key，特別是在項目的順序會改變的情況。這會對效能產生不好的影響，也可能會讓 component state 產生問題!可參考 Robin Pokorny 這篇<a href="https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/">深入剖析使用索引</a></p>
+          </div>
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://www.xuemi.co/">學米React課程</a></li>
+<li><a href="https://zh-hant.reactjs.org/docs/lists-and-keys.html">React官網 — 列表與 Key</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -251,6 +286,54 @@
       </tags>
   </entry>
   <entry>
+    <title>React Hook — React的狀態管理 UseState</title>
+    <url>/2023/01/24/React-react-useState/</url>
+    <content><![CDATA[<h1>React Hook — React的狀態管理 UseState</h1>
+<h2 id="什麼是-useState"><a class="header-anchor" href="#什麼是-useState"></a>什麼是 useState ?</h2>
+<p>React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。<br>
+而 React 的特色就是資料的「單向流綁定」，當某資料狀態改變了，可以讓整個畫面相同資料的狀態改變。</p>
+<h2 id="全域狀態管理-—-Context-API"><a class="header-anchor" href="#全域狀態管理-—-Context-API"></a>全域狀態管理 — Context API</h2>
+<p>當我們希望可以將一個狀態在其他地方使用，但又不想一個一個透過 Props 傳入時，就需要 Context API 來管理全域狀態了!</p>
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li>
+<p><a href="https://zh-hant.reactjs.org/docs/hooks-state.html">React 官網</a></p>
+</li>
+<li>
+<p><a href="https://www.xuemi.co/">學米React課程</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>jsx</tag>
+        <tag>frontend</tag>
+        <tag>hook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>作品集 — Todolist</title>
+    <url>/2023/01/23/%E4%BD%9C%E5%93%81-Todolist/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>作品集</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>backend</tag>
+        <tag>crud</tag>
+        <tag>mongodb</tag>
+        <tag>mongoose</tag>
+        <tag>express</tag>
+        <tag>portfolio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>React — Styled-component</title>
     <url>/2023/01/23/React-styled-component/</url>
     <content><![CDATA[<h1>React — Styled-component</h1>
@@ -314,68 +397,6 @@
       </tags>
   </entry>
   <entry>
-    <title>作品集 — Todolist</title>
-    <url>/2023/01/23/%E4%BD%9C%E5%93%81-Todolist/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>作品集</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>backend</tag>
-        <tag>crud</tag>
-        <tag>mongodb</tag>
-        <tag>mongoose</tag>
-        <tag>express</tag>
-        <tag>portfolio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React — 列表渲染(List Rendering)</title>
-    <url>/2023/01/23/React-List-rendering/</url>
-    <content><![CDATA[<h1>React — 列表渲染 (List Rendering)</h1>
-<h2 id="📚-列表渲染-List-Rendering-定義"><a class="header-anchor" href="#📚-列表渲染-List-Rendering-定義"></a>📚 列表渲染 (List Rendering) 定義</h2>
-<ul>
-<li>非 JSX 的變數或函數都必須以 <code>&#123; &#125;</code> 包起來!</li>
-<li>將<strong>可辨識的JSX元素陣列</strong>，做列表渲染 ➡️ <code>&#123;[&lt;&gt; &lt;/&gt;,&lt;&gt; &lt;/&gt;,...]&#125;</code></li>
-<li>可以用 map() 或 filter() 導出並渲染列表</li>
-<li>React 規定列表渲染的Array裡<strong>每個 element 都應該要有一個 key，如此才能給予每個 element 一個固定的身份</strong>
-<ul>
-<li>Key 幫助 React 分辨哪些項目被改變、增加或刪除，所以<strong>不可重複且必須是唯一</strong></li>
-<li>Key 只有在周遭有 Array 的情境中才有意義</li>
-<li>用 Key 抽離 Component ➡️ 如果要抽離一個 <strong>ListItem component</strong> ，應該要<strong>把 Key 放在 Array 裡的 <code>&lt;ListItem /&gt;</code> element 上</strong>，而不是把它放在 ListItem 裡面的 <code>&lt;li&gt;</code> element 上</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h2 id="📝-實作並說明-Key-的正確設置位置"><a class="header-anchor" href="#📝-實作並說明-Key-的正確設置位置"></a>📝 實作並說明 Key 的正確設置位置</h2>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">0</span>, <span class="attr">title</span>: <span class="string">&quot;Breakfast&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&quot;Work&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&quot;Take a rest&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">&quot;Tea time&quot;</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">title</span>: <span class="string">&quot;Dinner&quot;</span>&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-  <img src="https://i.imgur.com/0WXTV59.png" alt="react" width="370" style="margin: 0;">
-<h3 id="❌-錯誤-key-不能放在-li-元素上"><a class="header-anchor" href="#❌-錯誤-key-不能放在-li-元素上"></a>❌ 錯誤: key 不能放在 <code>&lt;li&gt;</code> 元素上</h3>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListItem</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;props.key&#125;</span>&gt;</span>&#123;props.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span> <span class="comment">// key 不能放在 &lt;li&gt; 元素上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">MyImg</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;todos.map((todo) =&gt; &#123; return  <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> /&gt;</span> &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  ) </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="✔️-正確-key-只在array-裡的-ListItem-element-上被指定"><a class="header-anchor" href="#✔️-正確-key-只在array-裡的-ListItem-element-上被指定"></a>✔️ 正確: key 只在array 裡的 <code>&lt;ListItem /&gt;</code> element 上被指定</h3>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListItem</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;props.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span> <span class="comment">// 不需在這指定 key</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">MyImg</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          // key 只在這指定即可</span></span><br><span class="line"><span class="language-xml">          &#123;todos.map((todo) =&gt; &#123; return  <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> /&gt;</span> &#125;)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  ) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info">
-            <p>💁‍♀️ React 不建議使用陣列的索引(index)作為 key，特別是在項目的順序會改變的情況。這會對效能產生不好的影響，也可能會讓 component state 產生問題!可參考 Robin Pokorny 這篇<a href="https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/">深入剖析使用索引</a></p>
-          </div>
-<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
-<ul>
-<li><a href="https://www.xuemi.co/">學米React課程</a></li>
-<li><a href="https://zh-hant.reactjs.org/docs/lists-and-keys.html">React官網 — 列表與 Key</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>react</tag>
-        <tag>jsx</tag>
-        <tag>frontend</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>作品集 — 兔子登入頁面</title>
     <url>/2023/01/23/%E4%BD%9C%E5%93%81-%E5%85%94%E5%AD%90%E7%99%BB%E5%85%A5%E9%A0%81%E9%9D%A2/</url>
     <content><![CDATA[]]></content>
@@ -395,31 +416,69 @@
       </tags>
   </entry>
   <entry>
-    <title>React — 條件渲染(Conditional Rendering)</title>
-    <url>/2023/01/23/React-conditional-rendering/</url>
-    <content><![CDATA[<h1>React — 條件渲染(Conditional Rendering)</h1>
-<h2 id="條件渲染-Conditional-Rendering-定義"><a class="header-anchor" href="#條件渲染-Conditional-Rendering-定義"></a>條件渲染 (Conditional Rendering) 定義</h2>
+    <title>React — React Router</title>
+    <url>/2023/01/23/React-react-router/</url>
+    <content><![CDATA[<h1>React — React Router</h1>
+<h2 id="什麼是-React-Router"><a class="header-anchor" href="#什麼是-React-Router"></a>什麼是 React Router ?</h2>
+<p>在傳統的網頁裡，如果瀏覽器要改變頁面，都必須要向伺服器發出請求 (request) 來要到相對應的資源內容，然後再去渲染新的頁面，但每當使用者按下一個連結，就會重新再刷新的動作其實會造成使用者體驗不是太好。<br>
+於是，React router 為了改善這個現象，他可以讓網頁在不透過跟伺服器請求 (request) 的動作下，就算更改網址路徑也可以即時更新頁面，大大提升使用者瀏覽網站的體驗 !</p>
+<h2 id="為何要使用-React-Router-DOM"><a class="header-anchor" href="#為何要使用-React-Router-DOM"></a>為何要使用 React Router DOM ?</h2>
 <ul>
-<li>讓元件依循條件做屬性、內容、配置更動</li>
-<li>配合Reactjs的資料單向流模式，讓狀態更可預期</li>
-<li>因為元件即方法，直接將判斷式寫在方法中</li>
-<li>可以配置&quot;<strong>文字內容</strong>&quot;、“<strong>樣式改變</strong>”、“<strong>屬性(props)</strong>”、“<strong>顯示路由(React route)</strong>”</li>
+<li>支援度廣、彈性大</li>
+<li>社群生態廣</li>
+<li>更多好用的方法</li>
+<li>全部都是 ReactJS 元件</li>
 </ul>
 <span id="more"></span>
-<h2 id="實作"><a class="header-anchor" href="#實作"></a>實作</h2>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ConditionDescription</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;props =&gt;&#x27;</span>, props); <span class="comment">// props因為下面有設定gender屬性，所以會帶有gender屬性</span></span><br><span class="line">  <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;boy&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.useStyle</span> ? &#123;<span class="attr">color:</span> &#x27;<span class="attr">blue</span>&#x27;&#125; <span class="attr">:</span> &#123;&#125;&#125;&gt;</span>Hello, boy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;girl&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.style&#125;</span>&gt;</span>Hello, girl<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;girl&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">color:</span> &#x27;<span class="attr">red</span>&#x27; &#125;&#125; </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Amy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/pure&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;boy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">useStyle</span>=<span class="string">&#123;true&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Ivan&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info">
-            <p>💁‍♀️ <strong>ConditionDescription的props物件</strong></p><ul><li>Pathname ===  <code>/</code> : <code>props = {gender: 'girl', style: {color: 'red'}}</code></li><li>Pathname === <code>/pure</code> : <code>props = {gender: 'boy', useStyle: true}</code></li></ul>
-          </div>
-<h3 id="畫面的呈現及配置重點說明"><a class="header-anchor" href="#畫面的呈現及配置重點說明"></a>畫面的呈現及配置重點說明</h3>
-<h4 id="Pathname"><a class="header-anchor" href="#Pathname"></a>Pathname: <code>'/'</code></h4>
-  <img src="https://i.imgur.com/0gPHOKT.png" alt="react" width="370" style="margin: 0;">
-<h4 id="Pathname-pure"><a class="header-anchor" href="#Pathname-pure"></a>Pathname: <code>'/pure'</code></h4>
-  <img src="https://i.imgur.com/2f4PiIT.png" alt="react" width="370" style="margin: 0;" >
+<h2 id="為什麼前端網頁需要路由應用"><a class="header-anchor" href="#為什麼前端網頁需要路由應用"></a>為什麼前端網頁需要路由應用 ?</h2>
+<blockquote>
+<p>前端網頁的路由器，就是網際網路中路由應用的縮影</p>
+</blockquote>
+<ul>
+<li>優化 SPA(Single Page Application) 單頁式應用</li>
+<li>更好管理顯示內容</li>
+<li>更好辨識頁面意圖</li>
+<li>更方便做網頁快取</li>
+<li>優化 SEO</li>
+</ul>
+<h2 id="安裝-react-router-dom"><a class="header-anchor" href="#安裝-react-router-dom"></a>安裝 <code>react-router-dom</code></h2>
+<p>Step1. 打開終端機並下載 <code>react-router-dom</code></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">npm i react-router-dom</span><br></pre></td></tr></table></figure>
+<p>Step2. 在 index.js 載入 <code>BrowserRouter</code>，並使用 <code>&lt;BrowserRouter&gt;</code> 放在 <code>&lt;App /&gt;</code> 之間</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserRouter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> root = <span class="title class_">ReactDOM</span>.<span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>));</span><br><span class="line">root.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>Step3. 在 App.js 載入 <code>react-router-dom</code>，並定義會用到的元件，我們將會去使用他們</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Route</span>, <span class="title class_">Routes</span>, <span class="title class_">Link</span>, <span class="title class_">NavLink</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Router-元件使用方式"><a class="header-anchor" href="#React-Router-元件使用方式"></a>React Router 元件使用方式</h2>
+<h3 id="Routes-和-Route"><a class="header-anchor" href="#Routes-和-Route"></a>Routes 和 Route</h3>
+<h3 id="Link"><a class="header-anchor" href="#Link"></a>Link</h3>
+<h3 id="NavLink"><a class="header-anchor" href="#NavLink"></a>NavLink</h3>
+<h2 id="React-Router-的-Hooks"><a class="header-anchor" href="#React-Router-的-Hooks"></a>React Router 的 Hooks</h2>
+<h3 id="useNavigate"><a class="header-anchor" href="#useNavigate"></a>useNavigate</h3>
+<h3 id="useLocation"><a class="header-anchor" href="#useLocation"></a>useLocation</h3>
+<h3 id="useParams"><a class="header-anchor" href="#useParams"></a>useParams</h3>
+<h3 id="useSearchParams"><a class="header-anchor" href="#useSearchParams"></a>useSearchParams</h3>
+<h3 id="useSubmit"><a class="header-anchor" href="#useSubmit"></a>useSubmit</h3>
+<h2 id="認識-History-PushState-API"><a class="header-anchor" href="#認識-History-PushState-API"></a>認識 History PushState API</h2>
+<blockquote>
+<p>每次變化都會被記錄在 history stack 中，因此可以操作瀏覽器原生歷史紀錄</p>
+</blockquote>
+<p>history.pushState(state: object, URL: string)</p>
+<ul>
+<li>state — 可以記錄一個物件當歷史紀錄</li>
+<li>title — 改變網頁標題 (支援度低)</li>
+<li>URL — 改變網址路徑 (直接改變而不重新整理)</li>
+</ul>
 <h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
 <ul>
-<li><a href="https://www.xuemi.co/">學米React課程</a></li>
+<li>
+<p><a href="https://www.xuemi.co/">學米React課程</a></p>
+</li>
+<li>
+<p><a href="https://reactrouter.com/en/main/start/overview">React Ruter</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=Ul3y1LXxzdU&amp;t=458s">Learn React Router v6 In 45 Minutes</a></p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -427,20 +486,8 @@
       </categories>
       <tags>
         <tag>react</tag>
+        <tag>jsx</tag>
         <tag>frontend</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計入門 — CSS選擇器及常用屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
-    <content><![CDATA[<h1>前端設計入門 — CSS選擇器及常用屬性</h1>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -461,6 +508,31 @@
         <tag>express</tag>
         <tag>portfolio</tag>
         <tag>uiux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計入門 — HTML常用標籤</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計入門 — CSS選擇器及常用屬性</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
+    <content><![CDATA[<h1>前端設計入門 — CSS選擇器及常用屬性</h1>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -513,6 +585,20 @@
       </tags>
   </entry>
   <entry>
+    <title>前端設計基礎 — 偽元素及偽類選擇器</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%81%BD%E5%85%83%E7%B4%A0%E5%8F%8A%E5%81%BD%E9%A1%9E%E9%81%B8%E6%93%87%E5%99%A8/</url>
+    <content><![CDATA[<h1>前端設計基礎 — 偽元素及偽類選擇器</h1>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>作品集 — 購物車</title>
     <url>/2023/01/23/%E4%BD%9C%E5%93%81-%E8%B3%BC%E7%89%A9%E8%BB%8A/</url>
     <content><![CDATA[]]></content>
@@ -529,20 +615,6 @@
         <tag>mongoose</tag>
         <tag>express</tag>
         <tag>portfolio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計基礎 — 偽元素及偽類選擇器</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%81%BD%E5%85%83%E7%B4%A0%E5%8F%8A%E5%81%BD%E9%A1%9E%E9%81%B8%E6%93%87%E5%99%A8/</url>
-    <content><![CDATA[<h1>前端設計基礎 — 偽元素及偽類選擇器</h1>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -565,35 +637,6 @@
         <tag>mongoose</tag>
         <tag>express</tag>
         <tag>portfolio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計基礎 — Float的排版方式及清除浮動</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-float%E7%9A%84%E6%8E%92%E7%89%88%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8B%95/</url>
-    <content><![CDATA[<h1>前端設計基礎 — Float的排版方式及清除浮動</h1>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>layout</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計實作 — 表單(form)元件</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E8%A1%A8%E5%96%AE(form)%E5%85%83%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>form</tag>
       </tags>
   </entry>
   <entry>
@@ -681,9 +724,9 @@
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — 圖片的放置方式</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%9C%96%E7%89%87%E7%9A%84%E6%94%BE%E7%BD%AE%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h1>前端設計基礎 — 圖片的放置方式</h1>
+    <title>前端設計基礎 — CSS的彈性盒子 Flexbox</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/</url>
+    <content><![CDATA[<h1>前端設計基礎 — CSS的彈性盒子 Flexbox</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
@@ -695,8 +738,8 @@
       </tags>
   </entry>
   <entry>
-    <title>前端設計實作 — 表格(table)元件</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E8%A1%A8%E6%A0%BC(table)%E5%85%83%E4%BB%B6/</url>
+    <title>前端設計實作 — 表單(form)元件</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E8%A1%A8%E5%96%AE(form)%E5%85%83%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
@@ -705,13 +748,28 @@
         <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
-        <tag>table</tag>
+        <tag>form</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — CSS的彈性盒子 Flexbox</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/</url>
-    <content><![CDATA[<h1>前端設計基礎 — CSS的彈性盒子 Flexbox</h1>
+    <title>前端設計基礎 — Float的排版方式及清除浮動</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-float%E7%9A%84%E6%8E%92%E7%89%88%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8B%95/</url>
+    <content><![CDATA[<h1>前端設計基礎 — Float的排版方式及清除浮動</h1>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>layout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計基礎 — 圖片的放置方式</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%9C%96%E7%89%87%E7%9A%84%E6%94%BE%E7%BD%AE%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1>前端設計基礎 — 圖片的放置方式</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
@@ -737,23 +795,9 @@
       </tags>
   </entry>
   <entry>
-    <title>前端設計實作 — 色票(Colorpalette)</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E8%89%B2%E7%A5%A8(Colorpalette)/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>作品集</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>portfolio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計基礎 — 置中方法整理</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%BD%AE%E4%B8%AD%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1>前端設計基礎 — 置中方法整理</h1>
+    <title>前端設計觀念 — CSS撰寫習慣及命名方式</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E8%A7%80%E5%BF%B5-CSS%E6%92%B0%E5%AF%AB%E7%BF%92%E6%85%A3%E5%8F%8A%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1>前端設計觀念 — CSS撰寫習慣及命名方式</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
@@ -765,9 +809,9 @@
       </tags>
   </entry>
   <entry>
-    <title>前端設計觀念 — CSS撰寫習慣及命名方式</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E8%A7%80%E5%BF%B5-CSS%E6%92%B0%E5%AF%AB%E7%BF%92%E6%85%A3%E5%8F%8A%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h1>前端設計觀念 — CSS撰寫習慣及命名方式</h1>
+    <title>前端設計基礎 — 置中方法整理</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%BD%AE%E4%B8%AD%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1>前端設計基礎 — 置中方法整理</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
@@ -790,6 +834,34 @@
         <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計實作 — 表格(table)元件</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E8%A1%A8%E6%A0%BC(table)%E5%85%83%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計實作 — 商品卡(product card)</title>
+    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E5%95%86%E5%93%81%E5%8D%A1(product_card)/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>作品集</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>portfolio</tag>
       </tags>
   </entry>
   <entry>
@@ -1167,18 +1239,6 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
       </tags>
   </entry>
   <entry>
-    <title>前端設計入門 — HTML常用標籤</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)</title>
     <url>/2023/01/22/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
     <content><![CDATA[<h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
@@ -1383,8 +1443,8 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
       </tags>
   </entry>
   <entry>
-    <title>前端設計實作 — 商品卡(product card)</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E5%95%86%E5%93%81%E5%8D%A1(product_card)/</url>
+    <title>前端設計實作 — 色票(Colorpalette)</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E8%89%B2%E7%A5%A8(Colorpalette)/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>作品集</category>
