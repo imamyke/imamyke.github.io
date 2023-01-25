@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
+  </script>
+
+  <meta name="description" content="React Hook — React 的狀態管理(一) UseState、createContext 🔖 什麼是 useState ? React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。 而 React 的特色就是資料的「單向流綁定」，當某資料狀態改變了，可以讓整個畫面相同資料的狀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Hook — React的狀態管理(一) UseState、createContext">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/index.html">
+<meta property="og:site_name" content="全端筆記">
+<meta property="og:description" content="React Hook — React 的狀態管理(一) UseState、createContext 🔖 什麼是 useState ? React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。 而 React 的特色就是資料的「單向流綁定」，當某資料狀態改變了，可以讓整個畫面相同資料的狀">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-01-24T15:01:39.595Z">
+<meta property="article:modified_time" content="2023-01-25T09:30:02.162Z">
+<meta property="article:author" content="Amy Ke">
+<meta property="article:tag" content="react">
+<meta property="article:tag" content="jsx">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="hook">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://imamyke.github.io/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>React Hook — React的狀態管理(一) UseState、createContext | 全端筆記</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-253618128-1');
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">全端筆記</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">留下學習的痕跡</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React Hook — React的狀態管理(一) UseState、createContext
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-24 23:01:39" itemprop="dateCreated datePublished" datetime="2023-01-24T23:01:39+08:00">2023-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-25 17:30:02" itemprop="dateModified" datetime="2023-01-25T17:30:02+08:00">2023-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/24/React_Hook-React的狀態管理(一)-UseState_createContext/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>React Hook — React 的狀態管理(一) UseState、createContext</h1>
+<h2 id="🔖-什麼是-useState"><a class="header-anchor" href="#🔖-什麼是-useState"></a>🔖 什麼是 useState ?</h2>
+<p>React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。<br>
+而 React 的特色就是資料的「單向流綁定」，當某資料狀態改變了，可以讓整個畫面相同資料的狀態改變。</p>
+<span id="more"></span>
+<h3 id="UseState-用法"><a class="header-anchor" href="#UseState-用法"></a>UseState 用法</h3>
+<p>這裡假設目前的程式環境已支援 React</p>
+<h4 id="從-React-引入-useState"><a class="header-anchor" href="#從-React-引入-useState"></a>從 React 引入 useState</h4>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>現在，我們可以利用 <code>useState</code> 這個方法</p>
+<h4 id="useState-語法"><a class="header-anchor" href="#useState-語法"></a>useState 語法</h4>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [state, setState] = <span class="title function_">useState</span>();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>在我們使用 <code>useState</code> 宣告 <code>state</code> 變數，他會回傳一個含有兩個值的 array</p>
+<ul>
+<li>第一個值是 <code>state</code> : <strong>目前</strong>狀態的設定值</li>
+<li>第一個值是 <code>setState</code> : 可以<strong>更新</strong>狀態的 function</li>
+</ul>
+</li>
+<li>
+<p><code>useState()</code> 的括號 <code>( )</code> 內為<strong>初始設定</strong>的值</p>
+</li>
+<li>
+<p>useState 語法總結:</p>
+<ul>
+<li><code>useState</code> 使用 JS 的<strong>解構賦值</strong>語法宣告了兩個變數 <code>state</code> 和 <code>setState</code>，而這兩個變數名稱是其實可以<strong>隨意設定</strong>的唷!</li>
+<li>而上段語法可以看成:</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stateVariable = <span class="title function_">useState</span>(); <span class="comment">// 回傳兩個值的 array</span></span><br><span class="line"><span class="keyword">const</span> state = stateVariable[<span class="number">0</span>]; <span class="comment">// 第一個值</span></span><br><span class="line"><span class="keyword">const</span> setState = stateVariable[<span class="number">1</span>]; <span class="comment">// 第二個值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="🔖-全域狀態管理-Context-API-—-createContext"><a class="header-anchor" href="#🔖-全域狀態管理-Context-API-—-createContext"></a>🔖 全域狀態管理(Context API) — <code>createContext</code></h2>
+<p>當我們希望可以將一個狀態在其他地方使用，但又不想一個一個透過 <code>Props</code> 傳入時，就可以透過 Context API 來讓資料狀態在全域的情況下都可以使用!</p>
+<h3 id="createContext-用法"><a class="header-anchor" href="#createContext-用法"></a>createContext 用法</h3>
+<p>✏️ 主要有三個步驟:</p>
+<ol>
+<li><strong>Create</strong><br>
+創建一個 Context 物件 (Context object) ➡️ <code>createContext</code></li>
+<li><strong>Provide</strong><br>
+在元件中提供指定的 Context 物件</li>
+<li><strong>Use</strong><br>
+在需要資料的元件裡使用創建的 Context 物件 ➡️ <code>useContext</code></li>
+</ol>
+<p>接下來會以 Todolist 的例子來說明 <code>createContext</code> 的用法</p>
+<h4 id="Step1-Create-the-context"><a class="header-anchor" href="#Step1-Create-the-context"></a>Step1. Create the context</h4>
+<p>建立一個資料夾，並命名為 Context，且在資料夾裡面創建一個名為 <code>Todos.js</code> 的檔案，專門用來放置 Todolist 的預設資料</p>
+<p>在 <code>Todos.js</code> 檔案中，我們會從 <code>React</code> 載入 <code>createContext</code> 並將這個 context 物件命名為 <code>TodosContext</code>，然後 <code>export</code> 這個檔案</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">TodosContext</span> = <span class="title function_">createContext</span>()</span><br></pre></td></tr></table></figure>
+<p>此時，<code>createContext</code> 會回傳一個 context objext，我們在下一步驟會用 <code>useContext()</code> 這個方法去使用這個 context objext</p>
+<h4 id="Step2-Provide-the-context"><a class="header-anchor" href="#Step2-Provide-the-context"></a>Step2. Provide the context</h4>
+<p>將 context 物件載入到要提供資料狀態出去的地方</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TodosContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./Context/Todos&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>利用 <code>&lt;TodosContext.Provider&gt;&lt;/TodosContext.Provider&gt;</code> 將要提供的區域包圍起來</p>
+<p>並且將預設資料狀態值 <code>todos</code> 放到屬性 <code>value</code> 裡，context 物件 <code>TodosContext</code> 會接收這個資料狀態並提供給需要的元件，如下:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">TodoIndex</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [todos, setTodos] = <span class="title function_">useState</span>([</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&#x27;Have a dinner&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&#x27;running&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">TodosContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;&#123;todos&#125;&#125;</span>&gt;</span> // 這裡的物件為 &#123;todos: todos&#125;，因為命名相同而縮寫</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;logo&#125;</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">TodoList</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">TodosContext.Provider</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Step3-Use-the-context"><a class="header-anchor" href="#Step3-Use-the-context"></a>Step3. Use the context</h4>
+<p>在要使用的檔案裡面一樣先載入 context 物件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TodosContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./Context/Todos&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>在要使用這個 context 物件的元件裡面，我們利用 <code>useContext</code> 去載入預設資料狀態值，並可使用他的資料</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">TodoList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123;todos&#125; = <span class="title function_">useContext</span>(<span class="title class_">TodosContext</span>) </span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Todo List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;</span></span><br><span class="line"><span class="language-xml">            todos.map((todo, index) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">              return <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">index</span>=<span class="string">&#123;index&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> <span class="attr">todo</span>=<span class="string">&#123;todo&#125;</span> <span class="attr">todos</span>=<span class="string">&#123;todos&#125;</span> <span class="attr">completed</span>=<span class="string">&#123;todo.completed&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#125;)</span></span><br><span class="line"><span class="language-xml">          &#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zh-hant.reactjs.org/docs/hooks-state.html">React 官網</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.xuemi.co/">學米React課程</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://beta.reactjs.org/learn/passing-data-deeply-with-context">beta.reactjs.org</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"># react</a>
+              <a href="/tags/jsx/" rel="tag"># jsx</a>
+              <a href="/tags/frontend/" rel="tag"># frontend</a>
+              <a href="/tags/hook/" rel="tag"># hook</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/23/React-react-router/" rel="prev" title="React — React Router">
+      <i class="fa fa-chevron-left"></i> React — React Router
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/25/React_Hook%E4%BB%8B%E7%B4%B9/" rel="next" title="React Hook 介紹">
+      React Hook 介紹 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">React Hook — React 的狀態管理(一) UseState、createContext</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%96-%E4%BB%80%E9%BA%BC%E6%98%AF-useState"><span class="nav-number">1.1.</span> <span class="nav-text">🔖 什麼是 useState ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UseState-%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">UseState 用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%9E-React-%E5%BC%95%E5%85%A5-useState"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">從 React 引入 useState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#useState-%E8%AA%9E%E6%B3%95"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">useState 語法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%96-%E5%85%A8%E5%9F%9F%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86-Context-API-%E2%80%94-createContext"><span class="nav-number">1.2.</span> <span class="nav-text">🔖 全域狀態管理(Context API) — createContext</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#createContext-%E7%94%A8%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">createContext 用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-Create-the-context"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Step1. Create the context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-Provide-the-context"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Step2. Provide the context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-Use-the-context"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Step3. Use the context</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.3.</span> <span class="nav-text">🔎 參考資料</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy Ke"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Amy Ke</p>
+  <div class="site-description" itemprop="description">這是一段學無止盡的旅程</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imamyke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imamyke@gmail.com" title="E-Mail → mailto:imamyke@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/imamyke" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amy Ke</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://imamyke.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/";
+    this.page.identifier = "2023/01/24/React_Hook-React的狀態管理(一)-UseState_createContext/";
+    this.page.title = "React Hook — React的狀態管理(一) UseState、createContext";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
