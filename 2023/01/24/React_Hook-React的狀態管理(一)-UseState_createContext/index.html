@@ -30,12 +30,15 @@
 <meta property="og:image" content="https://i.imgur.com/lv5sOd0.png">
 <meta property="og:image" content="https://i.imgur.com/8cVdreX.png">
 <meta property="article:published_time" content="2023-01-24T15:01:39.595Z">
-<meta property="article:modified_time" content="2023-01-26T05:06:15.554Z">
+<meta property="article:modified_time" content="2023-01-26T06:28:52.900Z">
 <meta property="article:author" content="Amy Ke">
 <meta property="article:tag" content="react">
 <meta property="article:tag" content="jsx">
 <meta property="article:tag" content="frontend">
 <meta property="article:tag" content="hook">
+<meta property="article:tag" content="usestate">
+<meta property="article:tag" content="createcontext">
+<meta property="article:tag" content="usecontext">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/lv5sOd0.png">
 
@@ -246,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-01-26 13:06:15" itemprop="dateModified" datetime="2023-01-26T13:06:15+08:00">2023-01-26</time>
+                <time title="修改時間：2023-01-26 14:28:52" itemprop="dateModified" datetime="2023-01-26T14:28:52+08:00">2023-01-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,6 +317,13 @@
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stateVariable = <span class="title function_">useState</span>(); <span class="comment">// 回傳兩個值的 array</span></span><br><span class="line"><span class="keyword">const</span> state = stateVariable[<span class="number">0</span>]; <span class="comment">// 第一個值</span></span><br><span class="line"><span class="keyword">const</span> setState = stateVariable[<span class="number">1</span>]; <span class="comment">// 第二個值</span></span><br></pre></td></tr></table></figure>
 </li>
+<li>
+<p><code>setState</code> 函式的參數重點:</p>
+<ul>
+<li>Pass the state, Run Everytime. eg. <code>setCount(count + 1)</code></li>
+<li>Pass the function, Run only the very first time when your component render. eg. <code>setCount(prev =&gt; prev + 1)</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="實作範例"><a class="header-anchor" href="#實作範例"></a>實作範例</h3>
 <p>這邊以一個點擊按鈕後改變 <code>input</code> 的值做示範。</p>
@@ -330,9 +340,9 @@
 <li><strong>Create</strong><br>
 創建一個 Context 物件 (Context object) ➡️ <code>createContext</code></li>
 <li><strong>Provide</strong><br>
-在元件中提供指定的 Context 物件</li>
+在 component 中提供指定的 Context 物件</li>
 <li><strong>Use</strong><br>
-在需要資料的元件裡使用創建的 Context 物件 ➡️ <code>useContext</code></li>
+在需要資料的 component 裡使用創建的 Context 物件 ➡️ <code>useContext</code></li>
 </ol>
 <p>接下來會以 Todolist 的例子來說明 <code>createContext</code> 的用法</p>
 <h4 id="Step1-Create-the-context"><a class="header-anchor" href="#Step1-Create-the-context"></a>Step1. Create the context</h4>
@@ -343,13 +353,13 @@
 <p>將 <code>TodosContext</code> 載入到要提供資料狀態出去的地方。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TodoApp.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TodosContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./Contexts.js&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>利用 <code>&lt;TodosContext.Provider&gt;&lt;/TodosContext.Provider&gt;</code> 將要提供的區域包圍起來</p>
-<p>並且將預設資料狀態值 <code>todos</code> 放到屬性 <code>value</code> 裡，context 物件 <code>TodosContext</code> 會接收這個資料狀態並提供給需要的元件，如下:</p>
+<p>並且將預設資料狀態值 <code>todos</code> 放到屬性 <code>value</code> 裡，context 物件 <code>TodosContext</code> 會接收這個資料狀態並提供給需要的 component，如下:</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TodoApp.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">TodoApp</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 要提供的資料狀態</span></span><br><span class="line">  <span class="keyword">const</span> [todos, setTodos] = <span class="title function_">useState</span>([</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&#x27;Have a dinner&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&#x27;running&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">TodosContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;&#123;todos&#125;&#125;</span>&gt;</span> // 這裡傳進去的物件為 &#123;todos: todos&#125;，因為命名相同而縮寫</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;logo&#125;</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">TodoList</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">TodosContext.Provider</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">TodoApp</span>;</span><br></pre></td></tr></table></figure>
-<p>最後，記得再 <code>export</code> 這個元件。</p>
+<p>最後，記得再 <code>export</code> 這個 component。</p>
 <h4 id="Step3-Use-the-context"><a class="header-anchor" href="#Step3-Use-the-context"></a>Step3. Use the context</h4>
 <p>在要使用的檔案裡面，一樣先載入 context 物件 <code>TodosContext</code>。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TodoList.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TodosContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./Contexts.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>然後<strong>在要使用這個 context 物件的元件裡面</strong>，我們會利用 <code>useContext()</code> 去使用 <code>TodosContext</code>提供的資料狀態。</p>
+<p>然後<strong>在要使用這個 context 物件的 component 裡面</strong>，我們會利用 <code>useContext()</code> 去使用 <code>TodosContext</code>提供的資料狀態。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TodoList.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">TodoList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123;todos&#125; = <span class="title function_">useContext</span>(<span class="title class_">TodosContext</span>) </span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Todo List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;</span></span><br><span class="line"><span class="language-xml">            todos.map((todo, index) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">              return <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">index</span>=<span class="string">&#123;index&#125;</span> <span class="attr">title</span>=<span class="string">&#123;todo.title&#125;</span> <span class="attr">todo</span>=<span class="string">&#123;todo&#125;</span> <span class="attr">todos</span>=<span class="string">&#123;todos&#125;</span> <span class="attr">completed</span>=<span class="string">&#123;todo.completed&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#125;)</span></span><br><span class="line"><span class="language-xml">          &#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">TodoList</span>;</span><br></pre></td></tr></table></figure>
 <p>結論就是，我們若想使用全域狀態的方法，其實只要知道創建(Create) → 提供(Provide) → 使用(Use) 三個步驟即可在任何地方使用所有資料!</p>
 <p>下方會提供上面的程式碼，有多加一項功能但不影響閱讀，若有需要可以參考唷!</p>
@@ -363,6 +373,9 @@
 </li>
 <li>
 <p><a target="_blank" rel="noopener" href="https://beta.reactjs.org/learn/passing-data-deeply-with-context">beta.reactjs.org</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://medium.com/hannah-lin/react-hook-%E7%AD%86%E8%A8%98-%E5%BE%9E%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84-hook-%E9%96%8B%E5%A7%8B-usestate-useeffect-fee6582d8725">最基本的useState, useEffect 開始</a></p>
 </li>
 <li>
 <p><a target="_blank" rel="noopener" href="https://github.com/imamyke/usestate-createcontext">usestate-createcontext 專案程式碼</a></p>
@@ -381,6 +394,9 @@
               <a href="/tags/jsx/" rel="tag"># jsx</a>
               <a href="/tags/frontend/" rel="tag"># frontend</a>
               <a href="/tags/hook/" rel="tag"># hook</a>
+              <a href="/tags/usestate/" rel="tag"># usestate</a>
+              <a href="/tags/createcontext/" rel="tag"># createcontext</a>
+              <a href="/tags/usecontext/" rel="tag"># usecontext</a>
           </div>
 
         
@@ -477,7 +493,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -490,7 +506,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
