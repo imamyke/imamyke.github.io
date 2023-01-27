@@ -1,23 +1,415 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>React API 串接</title>
+    <title>ES6 — Class 類別</title>
+    <url>/2023/01/27/ES6-Class%E9%A1%9E%E5%88%A5/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6 — Const 和 Let</title>
+    <url>/2023/01/27/ES6-const%E5%92%8Clet/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6 — 模板字串</title>
+    <url>/2023/01/27/ES6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6 — 談談 This</title>
+    <url>/2023/01/27/ES6-%E8%AB%87%E8%AB%87This/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6 — 變數宣告</title>
+    <url>/2023/01/27/ES6-%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6 — 變數的解構賦值</title>
+    <url>/2023/01/27/ES6-%E8%AE%8A%E6%95%B8%E7%9A%84%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC/</url>
+    <content><![CDATA[<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/class">ES6 入门教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery — 導覽列滾動偵測</title>
+    <url>/2023/01/27/JQuery-%E5%B0%8E%E8%A6%BD%E5%88%97%E6%BB%BE%E5%8B%95%E5%81%B5%E6%B8%AC/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery — 彈跳選單與下拉選單</title>
+    <url>/2023/01/27/JQuery-%E5%BD%88%E8%B7%B3%E9%81%B8%E5%96%AE%E8%88%87%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery基礎 — 選擇器</title>
+    <url>/2023/01/27/JQuery%E5%9F%BA%E7%A4%8E-%E9%81%B8%E6%93%87%E5%99%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 —全畫面的Slider插件 fullPage</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E5%85%A8%E7%95%AB%E9%9D%A2%E7%9A%84Slider%E6%8F%92%E4%BB%B6fullPage/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 單頁式網頁滾動 JQuery One Page Nav</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E5%96%AE%E9%A0%81%E5%BC%8F%E7%B6%B2%E9%A0%81%E6%BB%BE%E5%8B%95%E6%95%88%E6%9E%9CJQueryOnePageNav/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 幻燈片 Slider</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E5%B9%BB%E7%87%88%E7%89%87Slider/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 滾動進場 ScrollReveal</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E6%BB%BE%E5%8B%95%E9%80%B2%E5%A0%B4Scrollreveal/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 瀑布流排版Masonry</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E7%80%91%E5%B8%83%E6%B5%81%E6%8E%92%E7%89%88Masonry/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 燈箱 Light Box</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E7%87%88%E7%AE%B1lightbox/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 背景影片 Vide</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E8%83%8C%E6%99%AF%E5%BD%B1%E7%89%87/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery插件 — 視差滾動 Rellax</title>
+    <url>/2023/01/27/JQuery%E6%8F%92%E4%BB%B6-%E8%A6%96%E5%B7%AE%E6%BB%BE%E5%8B%95Rellax/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JQuery</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript常用的 Array 方法</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E5%B8%B8%E7%94%A8%E7%9A%84array%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript常用的 Number 方法</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E5%B8%B8%E7%94%A8%E7%9A%84number%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript常用的 Object 方法</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E5%B8%B8%E7%94%A8%E7%9A%84object%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript的值、型別與變數</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E7%9A%84%E5%80%BC_%E5%9E%8B%E5%88%A5%E8%88%87%E8%AE%8A%E6%95%B8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript常用的 String 方法</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E5%B8%B8%E7%94%A8%E7%9A%84string%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript的函式概念</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E7%9A%84%E5%87%BD%E5%BC%8F%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript的條件判斷</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基礎 — JavaScript的迴圈撰寫</title>
+    <url>/2023/01/27/JS%E5%9F%BA%E7%A4%8E-JavaScript%E7%9A%84%E8%BF%B4%E5%9C%88%E6%92%B0%E5%AF%AB/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS進階 — 建構函式 Object &amp; Constructor</title>
+    <url>/2023/01/27/JS%E9%80%B2%E9%9A%8E-%E5%BB%BA%E6%A7%8B%E5%87%BD%E5%BC%8FObject_Constructor/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS進階 — 網頁元素DOM操作</title>
+    <url>/2023/01/27/JS%E9%80%B2%E9%9A%8E-%E7%B6%B2%E9%A0%81%E5%85%83%E7%B4%A0DOM%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS進階 — 非同步概念與實作</title>
+    <url>/2023/01/27/JS%E9%80%B2%E9%9A%8E-%E9%9D%9E%E5%90%8C%E6%AD%A5%E6%A6%82%E5%BF%B5%E8%88%87%E5%AF%A6%E4%BD%9C/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React — API 串接</title>
     <url>/2023/01/27/React-API%E4%B8%B2%E6%8E%A5/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>React Hook</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>hook</tag>
         <tag>axios</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>React — JSX用法整理</title>
-    <url>/2023/01/23/React-JSX%E7%94%A8%E6%B3%95%E6%95%B4%E7%90%86/</url>
+    <title>React — Ant Design 實作訂餐系統</title>
+    <url>/2023/01/27/React-AntDesign%E5%AF%A6%E4%BD%9C%E8%A8%82%E9%A4%90%E7%B3%BB%E7%B5%B1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>React Hook</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>react</tag>
+        <tag>hook</tag>
+        <tag>axios</tag>
+        <tag>jsx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React — JSX 用法整理</title>
+    <url>/2023/01/27/React-JSX%E7%94%A8%E6%B3%95%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1>React — JSX用法整理</h1>
 <h2 id="⭐-JSX-語法重點"><a class="header-anchor" href="#⭐-JSX-語法重點"></a>⭐ JSX 語法重點</h2>
 <p>JSX 語法重點在於:<br>
@@ -134,14 +526,14 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>React — 列表渲染(List Rendering)</title>
-    <url>/2023/01/23/React-List-rendering/</url>
+    <title>React — 列表渲染 (List Rendering)</title>
+    <url>/2023/01/27/React-List-rendering/</url>
     <content><![CDATA[<h1>React — 列表渲染 (List Rendering)</h1>
 <h2 id="📚-列表渲染-List-Rendering-定義"><a class="header-anchor" href="#📚-列表渲染-List-Rendering-定義"></a>📚 列表渲染 (List Rendering) 定義</h2>
 <ul>
@@ -177,14 +569,50 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>React — 函式元件(Functional Component)</title>
-    <url>/2023/01/23/React-functional-component/</url>
+    <title>React — 條件渲染 (Conditional Rendering)</title>
+    <url>/2023/01/27/React-conditional-rendering/</url>
+    <content><![CDATA[<h1>React — 條件渲染(Conditional Rendering)</h1>
+<h2 id="條件渲染-Conditional-Rendering-定義"><a class="header-anchor" href="#條件渲染-Conditional-Rendering-定義"></a>條件渲染 (Conditional Rendering) 定義</h2>
+<ul>
+<li>讓元件依循條件做屬性、內容、配置更動</li>
+<li>配合Reactjs的資料單向流模式，讓狀態更可預期</li>
+<li>因為元件即方法，直接將判斷式寫在方法中</li>
+<li>可以配置&quot;<strong>文字內容</strong>&quot;、“<strong>樣式改變</strong>”、“<strong>屬性(props)</strong>”、“<strong>顯示路由(React route)</strong>”</li>
+</ul>
+<span id="more"></span>
+<h2 id="實作"><a class="header-anchor" href="#實作"></a>實作</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ConditionDescription</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;props =&gt;&#x27;</span>, props); <span class="comment">// props因為下面有設定gender屬性，所以會帶有gender屬性</span></span><br><span class="line">  <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;boy&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.useStyle</span> ? &#123;<span class="attr">color:</span> &#x27;<span class="attr">blue</span>&#x27;&#125; <span class="attr">:</span> &#123;&#125;&#125;&gt;</span>Hello, boy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;girl&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.style&#125;</span>&gt;</span>Hello, girl<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;girl&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">color:</span> &#x27;<span class="attr">red</span>&#x27; &#125;&#125; </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Amy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/pure&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;boy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">useStyle</span>=<span class="string">&#123;true&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Ivan&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>💁‍♀️ <strong>ConditionDescription的props物件</strong></p><ul><li>Pathname ===  <code>/</code> : <code>props = {gender: 'girl', style: {color: 'red'}}</code></li><li>Pathname === <code>/pure</code> : <code>props = {gender: 'boy', useStyle: true}</code></li></ul>
+          </div>
+<h3 id="畫面的呈現及配置重點說明"><a class="header-anchor" href="#畫面的呈現及配置重點說明"></a>畫面的呈現及配置重點說明</h3>
+<h4 id="Pathname"><a class="header-anchor" href="#Pathname"></a>Pathname: <code>'/'</code></h4>
+  <img src="https://i.imgur.com/0gPHOKT.png" alt="react" width="370" style="margin: 0;">
+<h4 id="Pathname-pure"><a class="header-anchor" href="#Pathname-pure"></a>Pathname: <code>'/pure'</code></h4>
+  <img src="https://i.imgur.com/2f4PiIT.png" alt="react" width="370" style="margin: 0;" >
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li><a href="https://www.xuemi.co/">學米React課程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React — 函式元件 (Functional Component)</title>
+    <url>/2023/01/27/React-functional-component/</url>
     <content><![CDATA[<h1>React — 函式元件(Functional Component)</h1>
 <h2 id="🔖-Render-Element"><a class="header-anchor" href="#🔖-Render-Element"></a>🔖 Render Element</h2>
 <h3 id="1️⃣-建立-React-應用程式最小的單位是-Element"><a class="header-anchor" href="#1️⃣-建立-React-應用程式最小的單位是-Element"></a>1️⃣ 建立 React 應用程式最小的單位是 Element</h3>
@@ -260,13 +688,13 @@
         <category>React</category>
       </categories>
       <tags>
-        <tag>react</tag>
         <tag>frontend</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
     <title>React — React Router</title>
-    <url>/2023/01/23/React-react-router/</url>
+    <url>/2023/01/27/React-react-router/</url>
     <content><![CDATA[<h1>React — React Router</h1>
 <h2 id="什麼是-React-Router"><a class="header-anchor" href="#什麼是-React-Router"></a>什麼是 React Router ?</h2>
 <p>在傳統的網頁裡，如果瀏覽器要改變頁面，都必須要向伺服器發出請求 (request) 來要到相對應的資源內容，然後再去渲染新的頁面，但每當使用者按下一個連結，就會重新再刷新的動作其實會造成使用者體驗不是太好。<br>
@@ -334,50 +762,14 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React — 條件渲染(Conditional Rendering)</title>
-    <url>/2023/01/23/React-conditional-rendering/</url>
-    <content><![CDATA[<h1>React — 條件渲染(Conditional Rendering)</h1>
-<h2 id="條件渲染-Conditional-Rendering-定義"><a class="header-anchor" href="#條件渲染-Conditional-Rendering-定義"></a>條件渲染 (Conditional Rendering) 定義</h2>
-<ul>
-<li>讓元件依循條件做屬性、內容、配置更動</li>
-<li>配合Reactjs的資料單向流模式，讓狀態更可預期</li>
-<li>因為元件即方法，直接將判斷式寫在方法中</li>
-<li>可以配置&quot;<strong>文字內容</strong>&quot;、“<strong>樣式改變</strong>”、“<strong>屬性(props)</strong>”、“<strong>顯示路由(React route)</strong>”</li>
-</ul>
-<span id="more"></span>
-<h2 id="實作"><a class="header-anchor" href="#實作"></a>實作</h2>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ConditionDescription</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;props =&gt;&#x27;</span>, props); <span class="comment">// props因為下面有設定gender屬性，所以會帶有gender屬性</span></span><br><span class="line">  <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;boy&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.useStyle</span> ? &#123;<span class="attr">color:</span> &#x27;<span class="attr">blue</span>&#x27;&#125; <span class="attr">:</span> &#123;&#125;&#125;&gt;</span>Hello, boy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(props.<span class="property">gender</span> === <span class="string">&#x27;girl&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;props.style&#125;</span>&gt;</span>Hello, girl<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;girl&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">color:</span> &#x27;<span class="attr">red</span>&#x27; &#125;&#125; </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Amy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span> === <span class="string">&#x27;/pure&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">className</span>=<span class="string">&quot;App-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">MyImg</span> <span class="attr">className</span>=<span class="string">&quot;App-logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ConditionDescription</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">gender</span>=<span class="string">&quot;boy&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">useStyle</span>=<span class="string">&#123;true&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Description</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">name</span>=<span class="string">&quot;Ivan&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">age</span>=<span class="string">&quot;18&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AppLink</span> <span class="attr">className</span>=<span class="string">&quot;App-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://reactjs.org&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info">
-            <p>💁‍♀️ <strong>ConditionDescription的props物件</strong></p><ul><li>Pathname ===  <code>/</code> : <code>props = {gender: 'girl', style: {color: 'red'}}</code></li><li>Pathname === <code>/pure</code> : <code>props = {gender: 'boy', useStyle: true}</code></li></ul>
-          </div>
-<h3 id="畫面的呈現及配置重點說明"><a class="header-anchor" href="#畫面的呈現及配置重點說明"></a>畫面的呈現及配置重點說明</h3>
-<h4 id="Pathname"><a class="header-anchor" href="#Pathname"></a>Pathname: <code>'/'</code></h4>
-  <img src="https://i.imgur.com/0gPHOKT.png" alt="react" width="370" style="margin: 0;">
-<h4 id="Pathname-pure"><a class="header-anchor" href="#Pathname-pure"></a>Pathname: <code>'/pure'</code></h4>
-  <img src="https://i.imgur.com/2f4PiIT.png" alt="react" width="370" style="margin: 0;" >
-<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
-<ul>
-<li><a href="https://www.xuemi.co/">學米React課程</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>react</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
     <title>React — Styled-component</title>
-    <url>/2023/01/23/React-styled-component/</url>
+    <url>/2023/01/26/React-styled-component/</url>
     <content><![CDATA[<h1>React — Styled-component</h1>
 <h2 id="⭐-前言"><a class="header-anchor" href="#⭐-前言"></a>⭐ 前言</h2>
 <p>Styled-component 是讓我們在 React 元件系統撰寫 CSS 時更加方便。<br>
@@ -433,9 +825,9 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -480,15 +872,15 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>hook</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
     <title>React Hook — React的狀態管理(一) UseState、createContext</title>
-    <url>/2023/01/24/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/</url>
+    <url>/2023/01/26/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/</url>
     <content><![CDATA[<h1>React Hook — React 的狀態管理(一) UseState、createContext</h1>
 <h2 id="🔖-什麼是-useState"><a class="header-anchor" href="#🔖-什麼是-useState"></a>🔖 什麼是 useState ?</h2>
 <p>React 的 useState 可以讓我們「手動管理狀態」，也就是說當我們改變了一個元件的資料狀態，例如文字、顏色等等，我們可以不用再刷新頁面，而是在頁面直接渲染。<br>
@@ -589,13 +981,28 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>hook</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
         <tag>usestate</tag>
         <tag>createcontext</tag>
         <tag>usecontext</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React Hook — React的狀態管理(二) Redux、Recoil</title>
+    <url>/2023/01/26/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%BA%8C)-redux_recoil/</url>
+    <content><![CDATA[<h1>React Hook — React的狀態管理(二) Redux、Recoil</h1>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>frontend</tag>
+        <tag>react</tag>
+        <tag>hook</tag>
+        <tag>jsx</tag>
       </tags>
   </entry>
   <entry>
@@ -649,26 +1056,11 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>hook</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
         <tag>useeffect</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React Hook — React的狀態管理(二) Redux、Recoil</title>
-    <url>/2023/01/25/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%BA%8C)-redux_recoil/</url>
-    <content><![CDATA[<h1>React Hook — React的狀態管理(二) Redux、Recoil</h1>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>react</tag>
-        <tag>hook</tag>
-        <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -686,10 +1078,10 @@
         <category>React Hook</category>
       </categories>
       <tags>
+        <tag>frontend</tag>
         <tag>react</tag>
         <tag>hook</tag>
         <tag>jsx</tag>
-        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -700,9 +1092,9 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
@@ -719,33 +1111,33 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
+        <tag>javascript</tag>
         <tag>html</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
         <tag>mongoose</tag>
         <tag>express</tag>
         <tag>portfolio</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
     <title>作品集 — Todolist (REACT + axios)</title>
-    <url>/2023/01/23/%E4%BD%9C%E5%93%81-Todolist(React)/</url>
+    <url>/2023/01/27/%E4%BD%9C%E5%93%81-Todolist(React)/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>react</tag>
-        <tag>axios</tag>
-        <tag>frontend</tag>
+        <tag>javascript</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>react</tag>
+        <tag>axios</tag>
         <tag>crud</tag>
         <tag>portfolio</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -756,9 +1148,9 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
@@ -775,9 +1167,9 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
@@ -795,9 +1187,9 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
@@ -814,8 +1206,8 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>react</tag>
         <tag>frontend</tag>
+        <tag>react</tag>
         <tag>backend</tag>
         <tag>portfolio</tag>
       </tags>
@@ -831,9 +1223,9 @@
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>backend</tag>
         <tag>crud</tag>
         <tag>mongodb</tag>
@@ -850,69 +1242,58 @@
         <category>前端工程</category>
       </categories>
       <tags>
-        <tag>axios</tag>
-        <tag>frontend</tag>
+        <tag>javascript</tag>
         <tag>html</tag>
         <tag>css</tag>
-        <tag>javascript</tag>
+        <tag>frontend</tag>
+        <tag>axios</tag>
         <tag>restapi</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計入門 — CSS選擇器及常用屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
-    <content><![CDATA[<h1>前端設計入門 — CSS選擇器及常用屬性</h1>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計入門 — HTML,CSS權重說明</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
+    <title>前端設計 — SCSS基礎語法</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-SCSS%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端設計入門 — HTML常用標籤</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — Float的排版方式及清除浮動</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-float%E7%9A%84%E6%8E%92%E7%89%88%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8B%95/</url>
+    <title>前端設計 — SCSS常用函式</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-SCSS%E5%B8%B8%E7%94%A8%E5%87%BD%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計 — Float的排版方式及清除浮動</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-float%E7%9A%84%E6%8E%92%E7%89%88%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8B%95/</url>
     <content><![CDATA[<h1>前端設計基礎 — Float的排版方式及清除浮動</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>layout</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — Position定位方式及Transform屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-position%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F%E5%8F%8ATransform%E5%B1%AC%E6%80%A7/</url>
+    <title>前端設計 — Position定位方式及Transform屬性</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-position%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F%E5%8F%8ATransform%E5%B1%AC%E6%80%A7/</url>
     <content><![CDATA[<h1>前端設計基礎 — Position定位方式及Transform屬性</h1>
 <h2 id="Position定位屬性"><a class="header-anchor" href="#Position定位屬性"></a>Position定位屬性</h2>
 <h2 id="Z-index屬性"><a class="header-anchor" href="#Z-index屬性"></a>Z-index屬性</h2>
@@ -923,56 +1304,56 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — 偽元素及偽類選擇器</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%81%BD%E5%85%83%E7%B4%A0%E5%8F%8A%E5%81%BD%E9%A1%9E%E9%81%B8%E6%93%87%E5%99%A8/</url>
+    <title>前端設計 — 偽元素及偽類選擇器</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E5%81%BD%E5%85%83%E7%B4%A0%E5%8F%8A%E5%81%BD%E9%A1%9E%E9%81%B8%E6%93%87%E5%99%A8/</url>
     <content><![CDATA[<h1>前端設計基礎 — 偽元素及偽類選擇器</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — 圖片的放置方式</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%9C%96%E7%89%87%E7%9A%84%E6%94%BE%E7%BD%AE%E6%96%B9%E5%BC%8F/</url>
+    <title>前端設計 — 圖片的放置方式</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E5%9C%96%E7%89%87%E7%9A%84%E6%94%BE%E7%BD%AE%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h1>前端設計基礎 — 圖片的放置方式</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — CSS的彈性盒子 Flexbox</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/</url>
+    <title>前端設計 — CSS的彈性盒子 Flexbox</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E5%BD%88%E6%80%A7%E7%9B%92%E5%AD%90_flexbox/</url>
     <content><![CDATA[<h1>前端設計基礎 — CSS的彈性盒子 Flexbox</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — 盒模型(Box Model)及Display屬性</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)%E5%8F%8ADisplay%E5%B1%AC%E6%80%A7/</url>
+    <title>前端設計 — 盒模型(Box Model)及Display屬性</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E7%9B%92%E6%A8%A1%E5%9E%8B(box)%E5%8F%8ADisplay%E5%B1%AC%E6%80%A7/</url>
     <content><![CDATA[<h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
 <h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
 <h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
@@ -1048,38 +1429,90 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>layout</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計基礎 — 置中方法整理</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E7%BD%AE%E4%B8%AD%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86/</url>
+    <title>前端設計 — 置中方法整理</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E7%BD%AE%E4%B8%AD%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1>前端設計基礎 — 置中方法整理</h1>
 ]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
-    <title>前端設計實作 — 表單(form)元件</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E-%E8%A1%A8%E5%96%AE(form)%E5%85%83%E4%BB%B6/</url>
+    <title>前端設計 — 表單(form)元件</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E8%A1%A8%E5%96%AE(form)%E5%85%83%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>form</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計 — 響應式網頁(RWD)及斷點規劃</title>
+    <url>/2023/01/27/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88-%E9%9F%BF%E6%87%89%E5%BC%8F%E7%B6%B2%E9%A0%81(RWD)%E5%8F%8A%E6%96%B7%E9%BB%9E%E8%A6%8F%E5%8A%83/</url>
+    <content><![CDATA[<h1>響應式網頁(RWD)及斷點規劃</h1>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>frontend</tag>
+        <tag>rwd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計入門 — CSS選擇器及常用屬性</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-CSS%E9%81%B8%E6%93%87%E5%99%A8%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B1%AC%E6%80%A7/</url>
+    <content><![CDATA[<h1>前端設計入門 — CSS選擇器及常用屬性</h1>
+]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計入門 — HTML,CSS權重說明</title>
+    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML,CSS%E6%AC%8A%E9%87%8D%E8%AA%AA%E6%98%8E/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+        <tag>frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端設計入門 — HTML常用標籤</title>
+    <url>/2023/01/21/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%85%A5%E9%96%80-HTML%E5%B8%B8%E7%94%A8%E6%A8%99%E7%B1%A4/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端設計</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -1090,51 +1523,51 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>table</tag>
       </tags>
   </entry>
   <entry>
     <title>前端設計實作 — 商品卡(product card)</title>
-    <url>/2023/01/22/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E5%95%86%E5%93%81%E5%8D%A1(product_card)/</url>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C-%E5%95%86%E5%93%81%E5%8D%A1(product_card)/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>portfolio</tag>
       </tags>
   </entry>
   <entry>
     <title>前端設計實作 — 單頁式網站(One Page)</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E5%96%AE%E9%A0%81%E5%BC%8F%E7%B6%B2%E7%AB%99(onepage)/</url>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C-%E5%96%AE%E9%A0%81%E5%BC%8F%E7%B6%B2%E7%AB%99(onepage)/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>portfolio</tag>
       </tags>
   </entry>
   <entry>
     <title>前端設計實作 — 色票(Colorpalette)</title>
-    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C%20%E2%80%94%20%E8%89%B2%E7%A5%A8(Colorpalette)/</url>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C-%E8%89%B2%E7%A5%A8(Colorpalette)/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>作品集</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
         <tag>portfolio</tag>
       </tags>
   </entry>
@@ -1147,9 +1580,9 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
+        <tag>frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -1161,29 +1594,14 @@
         <category>前端設計</category>
       </categories>
       <tags>
-        <tag>frontend</tag>
         <tag>html</tag>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>響應式網頁(RWD)及斷點規劃</title>
-    <url>/2023/01/23/%E9%9F%BF%E6%87%89%E5%BC%8F%E7%B6%B2%E9%A0%81(RWD)%E5%8F%8A%E6%96%B7%E9%BB%9E%E8%A6%8F%E5%8A%83/</url>
-    <content><![CDATA[<h1>響應式網頁(RWD)及斷點規劃</h1>
-]]></content>
-      <categories>
-        <category>前端設計</category>
-      </categories>
-      <tags>
         <tag>frontend</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>rwd</tag>
       </tags>
   </entry>
   <entry>
     <title>AC學期2-3: 自學經驗回顧</title>
-    <url>/2023/01/22/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
+    <url>/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/</url>
     <content><![CDATA[<h1>AC學期2-3: 自學經驗回顧</h1>
 <h2 id="⭐-遇到的問題及解決方式"><a class="header-anchor" href="#⭐-遇到的問題及解決方式"></a>⭐ 遇到的問題及解決方式</h2>
 <p>在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是 <strong>「目前的資料是什麼類型?」</strong> 以及 <strong>「對專案課程及框架概念似懂非懂」</strong>，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。<br>
@@ -1542,7 +1960,7 @@ HTTP Respond 由三元素組成: <strong>Status code、Headers、Body</strong></
   </entry>
   <entry>
     <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)</title>
-    <url>/2023/01/22/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
+    <url>/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/</url>
     <content><![CDATA[<h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
 <h2 id="⭐-為何會使用-Express-框架"><a class="header-anchor" href="#⭐-為何會使用-Express-框架"></a>⭐ 為何會使用 Express 框架 ?</h2>
 <ol>

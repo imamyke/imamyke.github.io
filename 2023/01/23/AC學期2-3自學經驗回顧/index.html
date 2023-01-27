@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
+  </script>
+
+  <meta name="description" content="AC學期2-3: 自學經驗回顧 ⭐ 遇到的問題及解決方式 在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是 「目前的資料是什麼類型?」 以及 「對專案課程及框架概念似懂非懂」，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。 所以，為了讓自己更理解整個專案及課程，我先地毯式將課程內容利用圖像化方式寫下重點以及資料流串接的方向。 再來，因為整體專案的檔案分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AC學期2-3: 自學經驗回顧">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/index.html">
+<meta property="og:site_name" content="全端筆記">
+<meta property="og:description" content="AC學期2-3: 自學經驗回顧 ⭐ 遇到的問題及解決方式 在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是 「目前的資料是什麼類型?」 以及 「對專案課程及框架概念似懂非懂」，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。 所以，為了讓自己更理解整個專案及課程，我先地毯式將課程內容利用圖像化方式寫下重點以及資料流串接的方向。 再來，因為整體專案的檔案分">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-01-22T17:12:38.000Z">
+<meta property="article:modified_time" content="2023-01-27T05:14:40.771Z">
+<meta property="article:author" content="Amy Ke">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://imamyke.github.io/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>AC學期2-3: 自學經驗回顧 | 全端筆記</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-253618128-1');
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">全端筆記</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">留下學習的痕跡</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AC學期2-3: 自學經驗回顧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-23 01:12:38" itemprop="dateCreated datePublished" datetime="2023-01-23T01:12:38+08:00">2023-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-27 13:14:40" itemprop="dateModified" datetime="2023-01-27T13:14:40+08:00">2023-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AC%E5%AD%B8%E6%9C%9F2-3/" itemprop="url" rel="index"><span itemprop="name">AC學期2-3</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/23/AC學期2-3自學經驗回顧/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>AC學期2-3: 自學經驗回顧</h1>
+<h2 id="⭐-遇到的問題及解決方式"><a class="header-anchor" href="#⭐-遇到的問題及解決方式"></a>⭐ 遇到的問題及解決方式</h2>
+<p>在學習 Express 框架及串接 MongoDB 資料庫時，碰到的問題主要是 <strong>「目前的資料是什麼類型?」</strong> 以及 <strong>「對專案課程及框架概念似懂非懂」</strong>，又因為不知道資料的類型，我更無法去使用相對應的方式做邏輯處理。<br>
+所以，為了讓自己更理解整個專案及課程，我<strong>先地毯式將課程內容利用圖像化方式寫下重點以及資料流串接的方向</strong>。<br>
+再來，因為整體專案的檔案分類是利用 MVC 架構，我在二次實作時，會<strong>提早把功能分出去</strong>，例如:</p>
+<ul>
+<li>先分好路由檔案，然後若有其他檔案需要導入路由，我會直接做串接，如此便省去最後再重構程式碼的時間</li>
+<li>先把資料庫檔案分出去，若有其他檔案需使用資料庫檔案，便可以直接指向這個資料夾做載入</li>
+</ul>
+<span id="more"></span>
+<p>就這樣，照著思考後的圖表以及深入了解教材的字句引導，對於專案的理解視野會突然變得超不一樣，尤其會更快發現自己的盲點!也更快去解決問題!<br>
+以下，就是我如何透過這個方式去<strong>找出問題、定義問題然後一一擊破的過程</strong>。</p>
+<h2 id="❓-卡關問題的突破方式"><a class="header-anchor" href="#❓-卡關問題的突破方式"></a>❓ 卡關問題的突破方式</h2>
+<ol>
+<li>
+<p>query string, param, req.body的相異處<br>
+在教案中，會使用這三種跟網址和表單送出有關的變數存取方法，一開始會把這三項使用的時機搞混，所以我會將這三項的特色列表下來，就會知道如何做應用⬇️</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">存取方法</th>
+<th style="text-align:center">表單 Method 屬性</th>
+<th style="text-align:center">表現方式</th>
+<th style="text-align:center">是否會出現在網址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">query string</td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">表單送出後，會出現在網址的 &quot; <strong>?</strong> &quot; 後面的字串</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">param</td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">定義在路由的變數裡，可使用 <strong>req.param</strong> 物件取得變數值</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">request body</td>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">通常使用在較隱密的表單資訊，可使用 <strong>req.body</strong> 物件取得變數值</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>資料庫串接後，資料的存取方式及取出後的資料類型<br>
+第一次操作資料庫時，對於資料庫串接不是那麼有概念。但其實…就只是<strong>將資料庫內容轉化為 JS 可以操作的資料而已</strong>，例如陣列或物件，這個觀念懂其實資料操作上就會非常得心應手!<br>
+在下面來分享我在操作資料庫的思考過程⬇️</p>
+<ul>
+<li>
+<p>如何轉換 MongoDB 資料庫的 data ?<br>
+如果要將 MongoDB 資料庫的 data 轉換為可使用 JS 操作的物件，那麼必須使用 <code>lean</code> 的方法來轉換。</p>
+</li>
+<li>
+<p>如何取得 MongoDB 資料庫的 data ? 取出來的 data 是「物件」還是「陣列」?<br>
+要懂得操作資料，我覺得除了要知道要如何取出，更重要的是，要知道<strong>取出的資料類型是甚麼!</strong><br>
+因為這樣才會知道要用什麼 JS 方法去<strong>操作資料</strong>!<br>
+這裡列出 2 種專案會用到的<strong>取出方式和取出後的資料類型</strong>⬇️</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取出資料方式</th>
+<th style="text-align:center">取出後的資料類型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">find()</td>
+<td style="text-align:center">陣列</td>
+</tr>
+<tr>
+<td style="text-align:center">findById()</td>
+<td style="text-align:center">一個物件</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p>渲染局部模板 (partial template) 的操作方式: <code>res.render()</code><br>
+同樣地，有了上面第三項的認知，我們在渲染畫面時，在變數的載入會更有概念!<br>
+比如說，傳入局部樣板的變數類型可以是陣列，也可以是一個物件，甚至是字串等等，我們會更容易依照畫面渲染的需求來判斷要傳入什麼樣的變數類型，例如 helper 的使用上，載入的變數是陣列或是物件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">render</span>(局部樣板, &#123; 變數 &#125;, callback)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>下拉表單(select)的屬性<br>
+為了要做<strong>排序</strong>功能，我在這裡卡觀的難題就是「下拉選單屬性不熟悉」!<br>
+所以，在這裡我先去了解 <code>select</code> 和 <code>option</code> 的標籤屬性，然後再寫下思考邏輯來打造排序功能!<br>
+最大的重點就是，當表單送出後，表單如何去存取 <code>select</code> 中 <code>option</code> 的值，然後再透過取出 <code>option</code> 的值來架構思考邏輯<br>
+而我的排序功能邏輯是 ➡️ 「只要某一個 <code>option</code> 被<strong>選取</strong>，畫面就會依照 <code>option</code> 的<strong>排序方式</strong>做排序」<br>
+細節簡述如下:</p>
+<ul>
+<li><code>option</code> 被選取後，表單送出後的動作為何?
+<ul>
+<li><code>select</code> 要先設定 <strong>name</strong> 屬性來定義變數名稱，因為任何 <code>option</code> 被選取後的值會被存在 name 裡</li>
+<li><code>option</code> 要設定 <strong>value</strong> 屬性，且每個 <code>option</code> 會有不一樣的 <code>value</code></li>
+<li>當表單送出後，<code>select</code> 的 <code>name</code> 會存取選取的 <code>option</code> 設定的 <code>value</code> 值，並<strong>存入 query string 的物件中</strong></li>
+</ul>
+</li>
+<li>畫面如何依照 <code>option</code> 的排序方式改變?
+<ul>
+<li>利用 query string 的物件，取出被選取的 <code>option</code> 設定的 <code>value</code> 值</li>
+<li>使用 mongoDB 提供的 <strong>sort 方法</strong>依照 <code>value</code> 值來做畫面的排序(這裡省略詳細的邏輯細節)</li>
+</ul>
+</li>
+<li>如何讓被選取的 <code>option</code> 留在畫面 ?
+<ul>
+<li>使用 helper <code>&#123;&#123;if&#125;&#125;&#123;&#123;/if&#125;&#125;</code> 搭配 <code>option</code> 的 <strong>selected 屬性</strong>，透過邏輯判斷在畫面被排序後，選取的 option 還持續留在畫面中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="💐-分享與展望"><a class="header-anchor" href="#💐-分享與展望"></a>💐 分享與展望</h2>
+<p>在這學期中，最大的收穫是更了解表單送出後的伺服器運作，還有了解伺服器間 request 和 response 的相互溝通過程，最後，藉由 Express 框架及串接 MongoDB 資料庫的應用，打造了小型的網頁應用程式「餐廳清單」及「密碼產生器」。</p>
+<p>而我最大的成就感是<strong>解出問題的過程</strong>，就像教案引導的方式，我們要將功能或是問題做拆解，然後再逐步寫出來!而這樣的方式，我在密碼產生器的專案感受很深，真的就是<strong>拆解步驟然後功能就水到渠成</strong>😄</p>
+<p>之後要進入學期三了，跟自己說聲加油，我可以的💛</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/23/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88%E5%AF%A6%E4%BD%9C-%E8%89%B2%E7%A5%A8(Colorpalette)/" rel="prev" title="前端設計實作 — 色票(Colorpalette)">
+      <i class="fa fa-chevron-left"></i> 前端設計實作 — 色票(Colorpalette)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/" rel="next" title="AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)">
+      AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">AC學期2-3: 自學經驗回顧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E5%8F%8A%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">⭐ 遇到的問題及解決方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%93-%E5%8D%A1%E9%97%9C%E5%95%8F%E9%A1%8C%E7%9A%84%E7%AA%81%E7%A0%B4%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">❓ 卡關問題的突破方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%90-%E5%88%86%E4%BA%AB%E8%88%87%E5%B1%95%E6%9C%9B"><span class="nav-number">1.3.</span> <span class="nav-text">💐 分享與展望</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy Ke"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Amy Ke</p>
+  <div class="site-description" itemprop="description">這是一段學無止盡的旅程</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imamyke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imamyke@gmail.com" title="E-Mail → mailto:imamyke@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/imamyke" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amy Ke</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://imamyke.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/";
+    this.page.identifier = "2023/01/23/AC學期2-3自學經驗回顧/";
+    this.page.title = "AC學期2-3: 自學經驗回顧";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

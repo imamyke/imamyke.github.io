@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
+  </script>
+
+  <meta name="description" content="[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二) ⭐ 為何會使用 Express 框架 ?  Express 是極簡的 Node.js 網路框架 (Web framework) 提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統 引用樣板引擎 (template engine) 打造網頁前端頁面 可以串接資料庫並可直接以 JavaS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/index.html">
+<meta property="og:site_name" content="全端筆記">
+<meta property="og:description" content="[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二) ⭐ 為何會使用 Express 框架 ?  Express 是極簡的 Node.js 網路框架 (Web framework) 提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統 引用樣板引擎 (template engine) 打造網頁前端頁面 可以串接資料庫並可直接以 JavaS">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-01-22T17:13:10.000Z">
+<meta property="article:modified_time" content="2023-01-27T05:14:40.877Z">
+<meta property="article:author" content="Amy Ke">
+<meta property="article:tag" content="expressjs">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://imamyke.github.io/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二) | 全端筆記</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-253618128-1');
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">全端筆記</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">留下學習的痕跡</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-23 01:13:10" itemprop="dateCreated datePublished" datetime="2023-01-23T01:13:10+08:00">2023-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-27 13:14:40" itemprop="dateModified" datetime="2023-01-27T13:14:40+08:00">2023-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AC%E5%AD%B8%E6%9C%9F2-3/" itemprop="url" rel="index"><span itemprop="name">AC學期2-3</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/23/如何利用Node.js及Express框架打造伺服器及靜態網頁(二)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</h1>
+<h2 id="⭐-為何會使用-Express-框架"><a class="header-anchor" href="#⭐-為何會使用-Express-框架"></a>⭐ 為何會使用 Express 框架 ?</h2>
+<ol>
+<li>Express 是極簡的 Node.js 網路框架 (Web framework)</li>
+<li>提供大量的 HTTP 模組程式方法、中介軟體 (middleware) 及路由系統</li>
+<li>引用樣板引擎 (template engine) 打造網頁前端頁面</li>
+<li>可以串接資料庫並可直接以 JavaScript 來操作資料庫</li>
+</ol>
+<p>以上為 Express 框架最大的四個特色，我們會逐步依照下方學習重點來學習使用方式!</p>
+<span id="more"></span>
+<h2 id="💎-Express-框架學習重點"><a class="header-anchor" href="#💎-Express-框架學習重點"></a>💎 Express 框架學習重點</h2>
+<p>✅ <strong>👉利用 Express 框架建立伺服器</strong><br>
+🔲 <strong>使用 express.Router 建立路由器及多種使用方法</strong><br>
+🔲 <strong>動態路由 (param) 的應用</strong><br>
+🔲 <strong>Express 的靜態檔案 (static files) 放置方法</strong><br>
+🔲 <strong>使用模板引擎 (template engine) 渲染前端畫面</strong><br>
+🔲 <strong>模板引擎 (template engine) 的常用 Helpers 使用</strong><br>
+🔲 <strong>網頁搜尋功能怎麼寫? 介紹網址上的 Query string!</strong><br>
+🔲 <strong>送出表單: GET 與 POST 的差別</strong><br>
+🔲 <strong>表單送出後內容跑去哪? 跑進 Request body 裡!</strong><br>
+🔲 <strong>基礎資料操作功能: CRUD</strong><br>
+🔲 <strong>路由語意化: RESTful method</strong><br>
+🔲 <strong>MongoDB 資料庫串接</strong><br>
+🔲 <strong>網頁排序功能怎麼寫? MongoDB的進階應用</strong><br>
+🔲 <strong>下拉表單的 Onchange 屬性(另外寫專案)</strong></p>
+<h2 id="📚-學習-MVC-架構"><a class="header-anchor" href="#📚-學習-MVC-架構"></a>📚 學習 MVC 架構</h2>
+<p>等等，進入Express框架之前，我們要先了解什麼是 MVC 架構。<br>
+因為接下來會有大量資料文件的串接過程，有了 MVC 設計模式的概念，就可以快速理解程式碼間「檔案分工」的概念!</p>
+<p>MVC 架構簡單來說就像是 <strong>「公司各部門的互相合作」</strong> ，當公司事情、業務越多，不太會讓每個人身兼多職，而是將業務合併或分類並為此設立部門，而部門間會因應公司的運作而互相配合。</p>
+<p>那麼程式碼也是一樣，當在同一份檔案越寫越多程式碼時，若檔案越大會使程式碼較不易閱讀且很難維護，所以我們會將程式碼依特性做分類並另外建立資料夾放置做管理，而MVC 架構即是將程式碼分類為資料管理(<strong>M</strong>odel)、介面畫面的呈現(<strong>V</strong>iew)及程式動作指派的邏輯(<strong>C</strong>ontroller)，整理如下表 ⬇️</p>
+<ul>
+<li>
+<p>MVC 架構及意義</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">架構</th>
+<th style="text-align:center"><strong>M</strong>odel</th>
+<th style="text-align:center"><strong>V</strong>iew</th>
+<th style="text-align:center"><strong>C</strong>ontroller</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">翻譯</td>
+<td style="text-align:center">模型</td>
+<td style="text-align:center">視圖</td>
+<td style="text-align:center">控制器</td>
+</tr>
+<tr>
+<td style="text-align:center">意義</td>
+<td style="text-align:center">放資料的地方</td>
+<td style="text-align:center">管理畫面的呈現</td>
+<td style="text-align:center">與使用者間的互動邏輯</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>使用 MVC 目的</p>
+<ul>
+<li>當專案規模變大時，透過 MVC 架構將程式碼獨立出來並歸類到資料夾裡，可以更好地閱讀及維護。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>MVC 提供的協助是「<strong>把不同意義的程式碼放在不同的檔案裡並彼此各司其職分工合作</strong>」🏃</p>
+</blockquote>
+<h2 id="✏️-利用-Express-框架建立伺服器"><a class="header-anchor" href="#✏️-利用-Express-框架建立伺服器"></a>✏️ 利用 Express 框架建立伺服器</h2>
+<h3 id="1️⃣-安裝Express"><a class="header-anchor" href="#1️⃣-安裝Express"></a>1️⃣ 安裝Express</h3>
+<p>🚩 <strong>Step1. 建立 Express 資料夾</strong></p>
+<ul>
+<li>
+<p>打開終端機，使用 <code>mkdir</code> 指令，並建立 <code>express_project</code> 的專案資料夾</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> express_project</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>再利用 <code>cd</code> 進入資料夾內</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> express_project</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step2. 產生 package.json 檔案</strong></p>
+<ul>
+<li>
+<p>利用 <code>npm init</code> 指令產生 <code>package.json</code> 的檔案，裡面會記錄關於專案的相關資訊</p>
+</li>
+<li>
+<p>而 <code>-y</code> 是為了快速把 <code>package.json</code> 快速建立好，並跳過許多手動設定，之後有需要再修改即可</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step3. 利用 npm 安裝 Express</strong></p>
+<ul>
+<li>
+<p>利用 <code>npm install</code> 或 <code>npm i</code> (縮寫)指令下載 Express 套件會看到專案資料夾產生 <code>node_modules</code> 的資料夾，裡面會放置透過 npm 下載的套件</p>
+</li>
+<li>
+<p>若有指定版本，可使用 <code>npm install [套件名稱]@[版本號]</code>，若沒有指定版本會<strong>預設下載最新版本</strong></p>
+</li>
+<li>
+<p>打開 <code>package.json</code> 會發現 <code>dependencies</code> 裡面出現 express 的套件，表示安裝成功囉!</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install express</span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2️⃣-定義和伺服器有關的變數"><a class="header-anchor" href="#2️⃣-定義和伺服器有關的變數"></a>2️⃣ 定義和伺服器有關的變數</h3>
+<p>🚩 <strong>Step1. 載入 Express</strong></p>
+<ul>
+<li>
+<p>在專案資料夾 <code>express_project</code> 新增名為 <code>app.js</code> 的檔案</p>
+</li>
+<li>
+<p>利用 <code>require</code> 載入 Express，並存在 <code>express</code> 的變數裡</p>
+</li>
+<li>
+<p>再定義 <code>app</code> 來使用 Express 框架提供的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>🚩 <strong>Step2. 設定伺服器的相關變數</strong></p>
+<ul>
+<li>
+<p>Express 的伺服器相關變數設定簡化</p>
+<ul>
+<li><strong>不需要再載入 HTTP 模組</strong> ➡️ 如開頭所述，因為 Express 內部已載入 HTTP 模組</li>
+<li><strong>不需要特別設定主機名稱</strong> ➡️ Express 預設為 <code>localhost</code></li>
+</ul>
+</li>
+<li>
+<p><strong>只要設定連接埠號 (port) !</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3️⃣-設定伺服器處理請求和回應的動作"><a class="header-anchor" href="#3️⃣-設定伺服器處理請求和回應的動作"></a>3️⃣ <strong>設定伺服器處理請求和回應的動作</strong></h3>
+<ul>
+<li><strong>不用設定回應的 HTTP 狀態碼 (status code)</strong> ➡️ Express 會自己判斷 HTTTP 狀態碼</li>
+<li><strong>不用設定內容格式類型 (Content-Type)</strong> ➡️ Express 會自己判斷內容格式類型
+<ul>
+<li>
+<p>這邊利用 <code>res.send()</code> 方法回傳瀏覽器顯示的內容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my Express server!&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>若要回傳 HTML 格式，可以這樣做 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;&lt;h1&gt;This is my Express server!&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>’ / ’ 是<strong>根目錄</strong>，也就是網址為<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000.com</a>的頁面</p>
+</blockquote>
+<p>💡 <strong>重點說明:</strong></p>
+<ul>
+<li>
+<p><strong>使用 Express 方法:</strong></p>
+<ul>
+<li>
+<p><code>app.get</code> ➡️ 定義到哪個路由時，瀏覽器要給予什麼樣的回應</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;路徑&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>匿名函式可以取得瀏覽器發進來的請求 (request)， 和我們的伺服器想傳送的回應 (response)</p>
+</blockquote>
+<ul>
+<li>
+<p><code>res.send</code> ➡️ 把內容傳送回去給瀏覽器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;回應的內容&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4️⃣-啟動並監聽-listen-伺服器"><a class="header-anchor" href="#4️⃣-啟動並監聽-listen-伺服器"></a>4️⃣ <strong>啟動並監聽(listen)伺服器</strong></h3>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>成功啟動後，可以在終端機看到 <code>The server is listening on http://localhost:3000</code>，接下來就可以打開瀏覽器輸入 <code>http://localhost:3000</code>，就看到伺服器回應我們的內容 <code>This is my Express server</code> !!!</p>
+<p>💡 <strong>重點說明:</strong></p>
+<ul>
+<li>
+<p><strong>使用 Express 方法: app.listen</strong></p>
+<ul>
+<li>
+<p>裡面的匿名函式: 當伺服器啟動時，這個函式就會被執行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 匿名函式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>🎉🎉🎉耶!恭喜成功完成 Express 伺服器，接下來我們就正式開始打造我們的 Express 應用程式!💗</p>
+<h2 id="🔎-參考資料來源"><a class="header-anchor" href="#🔎-參考資料來源"></a>🔎 參考資料來源</h2>
+<p>📌 ALPHA Camp: <a target="_blank" rel="noopener" href="https://lighthouse.alphacamp.co/">https://lighthouse.alphacamp.co/</a></p>
+<p>📌 Express 官網: <a target="_blank" rel="noopener" href="https://expressjs.com/">https://expressjs.com/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/expressjs/" rel="tag"># expressjs</a>
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+              <a href="/tags/http/" rel="tag"># http</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/23/AC%E5%AD%B8%E6%9C%9F2-3%E8%87%AA%E5%AD%B8%E7%B6%93%E9%A9%97%E5%9B%9E%E9%A1%A7/" rel="prev" title="AC學期2-3: 自學經驗回顧">
+      <i class="fa fa-chevron-left"></i> AC學期2-3: 自學經驗回顧
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/25/React_Hook%E4%BB%8B%E7%B4%B9/" rel="next" title="React Hook 介紹">
+      React Hook 介紹 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">[AC學期2-3]利用Node.js及Express框架打造伺服器及靜態網頁(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E7%82%BA%E4%BD%95%E6%9C%83%E4%BD%BF%E7%94%A8-Express-%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.</span> <span class="nav-text">⭐ 為何會使用 Express 框架 ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%8E-Express-%E6%A1%86%E6%9E%B6%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E"><span class="nav-number">1.2.</span> <span class="nav-text">💎 Express 框架學習重點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%AD%B8%E7%BF%92-MVC-%E6%9E%B6%E6%A7%8B"><span class="nav-number">1.3.</span> <span class="nav-text">📚 學習 MVC 架構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%8F%EF%B8%8F-%E5%88%A9%E7%94%A8-Express-%E6%A1%86%E6%9E%B6%E5%BB%BA%E7%AB%8B%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">✏️ 利用 Express 框架建立伺服器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E5%AE%89%E8%A3%9DExpress"><span class="nav-number">1.4.1.</span> <span class="nav-text">1️⃣ 安裝Express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E5%AE%9A%E7%BE%A9%E5%92%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%9C%89%E9%97%9C%E7%9A%84%E8%AE%8A%E6%95%B8"><span class="nav-number">1.4.2.</span> <span class="nav-text">2️⃣ 定義和伺服器有關的變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E8%A8%AD%E5%AE%9A%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%99%95%E7%90%86%E8%AB%8B%E6%B1%82%E5%92%8C%E5%9B%9E%E6%87%89%E7%9A%84%E5%8B%95%E4%BD%9C"><span class="nav-number">1.4.3.</span> <span class="nav-text">3️⃣ 設定伺服器處理請求和回應的動作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%B8%8F%E2%83%A3-%E5%95%9F%E5%8B%95%E4%B8%A6%E7%9B%A3%E8%81%BD-listen-%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="nav-number">1.4.4.</span> <span class="nav-text">4️⃣ 啟動並監聽(listen)伺服器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">1.5.</span> <span class="nav-text">🔎 參考資料來源</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy Ke"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Amy Ke</p>
+  <div class="site-description" itemprop="description">這是一段學無止盡的旅程</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imamyke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imamyke@gmail.com" title="E-Mail → mailto:imamyke@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/imamyke" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amy Ke</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://imamyke.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/23/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Node.js%E5%8F%8AExpress%E6%A1%86%E6%9E%B6%E6%89%93%E9%80%A0%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%8A%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81(%E4%BA%8C)/";
+    this.page.identifier = "2023/01/23/如何利用Node.js及Express框架打造伺服器及靜態網頁(二)/";
+    this.page.title = "AC學期2-3:如何利用Node.js及Express框架打造伺服器及靜態網頁(二)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

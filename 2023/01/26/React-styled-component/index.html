@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imamyke.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"/search.xml"};
+  </script>
+
+  <meta name="description" content="React — Styled-component ⭐ 前言 Styled-component 是讓我們在 React 元件系統撰寫 CSS 時更加方便。 同時，也可以利用 props 動態調整樣式!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React — Styled-component">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/26/React-styled-component/index.html">
+<meta property="og:site_name" content="全端筆記">
+<meta property="og:description" content="React — Styled-component ⭐ 前言 Styled-component 是讓我們在 React 元件系統撰寫 CSS 時更加方便。 同時，也可以利用 props 動態調整樣式!">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-01-26T05:16:48.000Z">
+<meta property="article:modified_time" content="2023-01-27T05:14:39.390Z">
+<meta property="article:author" content="Amy Ke">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="react">
+<meta property="article:tag" content="jsx">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://imamyke.github.io/2023/01/26/React-styled-component/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>React — Styled-component | 全端筆記</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-253618128-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-253618128-1');
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">全端筆記</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">留下學習的痕跡</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/26/React-styled-component/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Amy Ke">
+      <meta itemprop="description" content="這是一段學無止盡的旅程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="全端筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React — Styled-component
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-01-26 13:16:48" itemprop="dateCreated datePublished" datetime="2023-01-26T13:16:48+08:00">2023-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-01-27 13:14:39" itemprop="dateModified" datetime="2023-01-27T13:14:39+08:00">2023-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/26/React-styled-component/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/26/React-styled-component/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>React — Styled-component</h1>
+<h2 id="⭐-前言"><a class="header-anchor" href="#⭐-前言"></a>⭐ 前言</h2>
+<p>Styled-component 是讓我們在 React 元件系統撰寫 CSS 時更加方便。<br>
+同時，也可以利用 <code>props</code> 動態調整樣式!</p>
+<span id="more"></span>
+<h2 id="🔧-環境建置"><a class="header-anchor" href="#🔧-環境建置"></a>🔧 環境建置</h2>
+<p><strong>Step1. 打開終端機安裝 create-react-app</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g create-react-app</span><br></pre></td></tr></table></figure>
+<p><strong>Step2. 建立專案資料夾名稱 react_styled</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app react_styled</span><br></pre></td></tr></table></figure>
+<p><strong>Step3. 道專案資料夾啟動專案</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+<p><strong>Step4. 開啟 App.js 檔案並載入 Styled-component</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">&#x27;styled-components&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>此時，我們可以利用 <code>styled</code> 來使用 styled-components 的方法</p>
+<h2 id="🚀-如何使用-Styled-component"><a class="header-anchor" href="#🚀-如何使用-Styled-component"></a>🚀 如何使用 Styled-component ?</h2>
+<h3 id="重點提要"><a class="header-anchor" href="#重點提要"></a>重點提要</h3>
+<ul>
+<li>styled-component 的命名<strong>第一個字母要大寫</strong></li>
+<li>styled-component 要在 render 的外面 define</li>
+<li>讓我們在JSX標籤可以延續使用 element (eg:div, a, p…) 原有屬性 (eg:href, type, target…)</li>
+<li>可以使用 Templare string 讓我們方便去安插變數</li>
+<li>可以使用 <code>props</code> 來傳遞參數</li>
+</ul>
+<h3 id="Styled-component-的重構元件"><a class="header-anchor" href="#Styled-component-的重構元件"></a>Styled-component 的重構元件</h3>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [linkColor, setFontColor] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="string">&#x27;#fff&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">StyledApp</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">StyledHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">StyledAppLogo</span> <span class="attr">src</span>=<span class="string">&#123;logo&#125;</span> <span class="attr">alt</span>=<span class="string">&quot;logo&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">StyledP</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              Edit <span class="tag">&lt;<span class="name">code</span>&gt;</span>src/App.js<span class="tag">&lt;/<span class="name">code</span>&gt;</span>!</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">StyledP</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">StyledLink</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">href</span>=<span class="string">&quot;https://google.com.tw&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">rel</span>=<span class="string">&quot;noopener noreferrer&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">fontColor</span>=<span class="string">&#123;linkColor&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &gt;</span></span></span><br><span class="line"><span class="language-xml">              Learn React</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">StyledLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">StyledButton</span> <span class="attr">buttonColor</span>=<span class="string">&#123;true&#125;</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">            linkColor === &#x27;#fff&#x27; ? setFontColor(&#x27;pink&#x27;) : setFontColor(&#x27;#fff&#x27;)</span></span><br><span class="line"><span class="language-xml">          &#125;&#125;&gt;Change Color<span class="tag">&lt;/<span class="name">StyledButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">StyledButtonCool</span>&gt;</span>Cool Button<span class="tag">&lt;/<span class="name">StyledButtonCool</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">StyledHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">StyledApp</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1️⃣-渲染-HTML-標籤"><a class="header-anchor" href="#1️⃣-渲染-HTML-標籤"></a>1️⃣ 渲染 HTML 標籤</h3>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">const</span> <span class="title class_">StyledApp</span> = styled.<span class="property">div</span><span class="string">`</span></span><br><span class="line"><span class="string">    text-align: center;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">StyledHeader</span> = styled.<span class="property">div</span><span class="string">`</span></span><br><span class="line"><span class="string">    background-color: #282c34;</span></span><br><span class="line"><span class="string">    min-height: 100vh;</span></span><br><span class="line"><span class="string">    display: flex;</span></span><br><span class="line"><span class="string">    flex-direction: column;</span></span><br><span class="line"><span class="string">    align-items: center;</span></span><br><span class="line"><span class="string">    justify-content: center;</span></span><br><span class="line"><span class="string">    font-size: calc(10px + 2vmin);</span></span><br><span class="line"><span class="string">    color: white;	</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">StyledP</span> = styled.<span class="property">p</span><span class="string">`</span></span><br><span class="line"><span class="string">    color: red;</span></span><br><span class="line"><span class="string">    background-color: black;</span></span><br><span class="line"><span class="string">    border-radius: 5px;</span></span><br><span class="line"><span class="string">    padding: 10px;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">StyledButton</span> = styled.<span class="property">button</span><span class="string">`</span></span><br><span class="line"><span class="string">  padding: 10px;</span></span><br><span class="line"><span class="string">  border-radius: 5px;</span></span><br><span class="line"><span class="string">  margin-top: 30px;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="2️⃣-傳入-props-參數"><a class="header-anchor" href="#2️⃣-傳入-props-參數"></a>2️⃣ 傳入 props 參數</h3>
+<h4 id="範例一-搭配三元運算子"><a class="header-anchor" href="#範例一-搭配三元運算子"></a>範例一: 搭配三元運算子</h4>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">StyledButton</span> = styled.<span class="property">button</span><span class="string">`</span></span><br><span class="line"><span class="string">  color: <span class="subst">$&#123;props =&gt; props.buttonColor ? <span class="string">&#x27;purple&#x27;</span> : <span class="string">&#x27;#fff &#x27;</span>&#125;</span>; </span></span><br><span class="line"><span class="string">  padding: 10px;</span></span><br><span class="line"><span class="string">  border-radius: 5px;</span></span><br><span class="line"><span class="string">  margin-top: 30px;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="範例二-搭配-useState"><a class="header-anchor" href="#範例二-搭配-useState"></a>範例二: 搭配 useState</h4>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">StyledLink</span> = styled.<span class="property">a</span><span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;props =&gt; <span class="string">`color: <span class="subst">$&#123;props.fontColor&#125;</span>`</span>&#125;</span></span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="3️⃣-繼承元素屬性"><a class="header-anchor" href="#3️⃣-繼承元素屬性"></a>3️⃣ 繼承元素屬性</h3>
+<p>利用 <code>styled( )</code>，<code>( )</code>內為<strong>被繼承的元件</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">StyledButtonCool</span> = <span class="title function_">styled</span>(<span class="title class_">StyledButton</span>)<span class="string">`</span></span><br><span class="line"><span class="string">  background-color: black;</span></span><br><span class="line"><span class="string">  color: white;</span></span><br><span class="line"><span class="string">  border: 0px;</span></span><br><span class="line"><span class="string">  transition: all 0.3s;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &amp;:hover &#123;</span></span><br><span class="line"><span class="string">    color: red;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="4️⃣-使用-Animations"><a class="header-anchor" href="#4️⃣-使用-Animations"></a>4️⃣ 使用 Animations</h3>
+<p><strong>Step1. 先載入 keyframes，才可使用方法</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styled, &#123;keyframes&#125; <span class="keyword">from</span> <span class="string">&#x27;styled-components&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Step2. 如 styled 搭配 HTML 標籤</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate = keyframes<span class="string">`</span></span><br><span class="line"><span class="string">  from &#123;</span></span><br><span class="line"><span class="string">    transform: rotate(0deg);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  to &#123;</span></span><br><span class="line"><span class="string">    transform: rotate(360deg);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">StyledAppLogo</span> = styled.<span class="property">img</span><span class="string">`</span></span><br><span class="line"><span class="string">  height: 40vmin;</span></span><br><span class="line"><span class="string">  pointer-events: none;</span></span><br><span class="line"><span class="string">  animation: <span class="subst">$&#123;rotate&#125;</span> 5s linear infinite;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="🔎-參考資料"><a class="header-anchor" href="#🔎-參考資料"></a>🔎 參考資料</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://styled-components.com/docs/basics">Styled-components 官網</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.xuemi.co/">學米React課程</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/frontend/" rel="tag"># frontend</a>
+              <a href="/tags/react/" rel="tag"># react</a>
+              <a href="/tags/jsx/" rel="tag"># jsx</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/26/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%BA%8C)-redux_recoil/" rel="prev" title="React Hook — React的狀態管理(二) Redux、Recoil">
+      <i class="fa fa-chevron-left"></i> React Hook — React的狀態管理(二) Redux、Recoil
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/26/React_Hook-React%E7%9A%84%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86(%E4%B8%80)-UseState_createContext/" rel="next" title="React Hook — React的狀態管理(一) UseState、createContext">
+      React Hook — React的狀態管理(一) UseState、createContext <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">React — Styled-component</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%AD%90-%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">⭐ 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%A7-%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">🔧 環境建置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Styled-component"><span class="nav-number">1.3.</span> <span class="nav-text">🚀 如何使用 Styled-component ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%BB%9E%E6%8F%90%E8%A6%81"><span class="nav-number">1.3.1.</span> <span class="nav-text">重點提要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Styled-component-%E7%9A%84%E9%87%8D%E6%A7%8B%E5%85%83%E4%BB%B6"><span class="nav-number">1.3.2.</span> <span class="nav-text">Styled-component 的重構元件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E6%B8%B2%E6%9F%93-HTML-%E6%A8%99%E7%B1%A4"><span class="nav-number">1.3.3.</span> <span class="nav-text">1️⃣ 渲染 HTML 標籤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E5%82%B3%E5%85%A5-props-%E5%8F%83%E6%95%B8"><span class="nav-number">1.3.4.</span> <span class="nav-text">2️⃣ 傳入 props 參數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%B8%80-%E6%90%AD%E9%85%8D%E4%B8%89%E5%85%83%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">範例一: 搭配三元運算子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%BA%8C-%E6%90%AD%E9%85%8D-useState"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">範例二: 搭配 useState</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E7%B9%BC%E6%89%BF%E5%85%83%E7%B4%A0%E5%B1%AC%E6%80%A7"><span class="nav-number">1.3.5.</span> <span class="nav-text">3️⃣ 繼承元素屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%B8%8F%E2%83%A3-%E4%BD%BF%E7%94%A8-Animations"><span class="nav-number">1.3.6.</span> <span class="nav-text">4️⃣ 使用 Animations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8E-%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.4.</span> <span class="nav-text">🔎 參考資料</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy Ke"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Amy Ke</p>
+  <div class="site-description" itemprop="description">這是一段學無止盡的旅程</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imamyke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imamyke@gmail.com" title="E-Mail → mailto:imamyke@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/imamyke" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;imamyke" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amy Ke</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://imamyke.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://imamyke.github.io/2023/01/26/React-styled-component/";
+    this.page.identifier = "2023/01/26/React-styled-component/";
+    this.page.title = "React — Styled-component";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://imamyke.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
