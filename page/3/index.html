@@ -717,7 +717,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-27 11:11:00 / 修改時間：13:14:40" itemprop="dateCreated datePublished" datetime="2023-01-27T11:11:00+08:00">2023-01-27</time>
+              <time title="創建時間：2023-01-27 11:11:00 / 修改時間：16:41:31" itemprop="dateCreated datePublished" datetime="2023-01-27T11:11:00+08:00">2023-01-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -754,8 +754,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>前端設計基礎 — 置中方法整理</h1>
-
+          <h1>前端設計 — 置中方法整理</h1>
+<h2 id="Display-屬性置中"><a class="header-anchor" href="#Display-屬性置中"></a>Display 屬性置中</h2>
+<h3 id="📌-Display-block"><a class="header-anchor" href="#📌-Display-block"></a>📌 Display: <code>block</code></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outter outter1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box box1&quot;</span>&gt;</span>讓我置中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box box1&quot;</span>&gt;</span>讓我置中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span> <span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="📌-Display-inline-block"><a class="header-anchor" href="#📌-Display-inline-block"></a>📌 Display: <code>inline-block</code></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outter outter1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box box1&quot;</span>&gt;</span>讓我置中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box box1&quot;</span>&gt;</span>讓我置中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">vertical-align</span>: top;</span><br><span class="line">  <span class="attribute">text-align</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="📌-Display-flex"><a class="header-anchor" href="#📌-Display-flex"></a>📌 Display: <code>flex</code></h3>
+<h4 id="搭配-justify-content，對子層做水平置中"><a class="header-anchor" href="#搭配-justify-content，對子層做水平置中"></a>搭配 <code>justify-content</code>，對子層做<strong>水平置中</strong></h4>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outter outter1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box box1&quot;</span>&gt;</span>讓我置中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* justify-content: center對子層做&quot;水平&quot;置中 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="搭配-margin"><a class="header-anchor" href="#搭配-margin"></a>搭配 <code>margin</code></h4>
+<ol>
+<li>
+<p><code>margin: 0 auto;</code></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="comment">/* 先使子層由左至右排列 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">  <span class="comment">/*再針對box本身做置中，此例為margin:0 auto*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>margin: auto auto;</code></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 先使子層由左至右排列 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">margin</span>: auto auto;</span><br><span class="line">  <span class="comment">/* 再針對box本身做置中，此例會在outter3-3&quot;正中間&quot;! */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="搭配-align-items"><a class="header-anchor" href="#搭配-align-items"></a>搭配 <code>align-items</code></h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* align-items針對子層做&quot;垂直&quot;置中 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* justify-content: center針對子層做&quot;水平&quot;置中 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="搭配-align-self"><a class="header-anchor" href="#搭配-align-self"></a>搭配 <code>align-self</code></h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 使子層由左向右排列 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* justify-content: center針對子層做&quot;水平&quot;置中 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">align-self</span>: center;</span><br><span class="line">  <span class="comment">/* 針對自己做垂直置中 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="搭配-flex-direction"><a class="header-anchor" href="#搭配-flex-direction"></a>搭配 <code>flex-direction</code></h4>
+<ol>
+<li>
+<p>垂直置中</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 使子層由左到右排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 使子層由上向下排列 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* 方向被flex-direction轉換為控制&quot;垂直&quot;方向 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>水平置中</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 使子層由左到右排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 使子層由上向下排列 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 方向被flex-direction轉換為控制&quot;水平&quot;方向 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>正中間</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 使子層由左到右排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 使子層由上向下排列 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* 方向被flex-direction轉換為控制&quot;垂直&quot;方向 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="comment">/* 方向被flex-direction轉換為控制&quot;水平&quot;方向 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="📌-Position-屬性置中"><a class="header-anchor" href="#📌-Position-屬性置中"></a>📌 Position 屬性置中</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outter</span><span class="selector-class">.outter1</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="comment">/* 令此層可為position:absolute的參考點 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="comment">/* 參考點為上一層 */</span></span><br><span class="line">  <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="comment">/* top,left的參考值為上一層 */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">  <span class="comment">/* transform參考值(X,Y)為自己的寬高 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="📌-文字的置中"><a class="header-anchor" href="#📌-文字的置中"></a>📌 文字的置中</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 完全置中於box的正中間 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">/* 高度由line-height表示=&gt;值為box5的高 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -799,7 +843,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-27 11:10:50 / 修改時間：13:14:40" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:50+08:00">2023-01-27</time>
+              <time title="創建時間：2023-01-27 11:10:50 / 修改時間：16:42:21" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:50+08:00">2023-01-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -836,7 +880,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>前端設計基礎 — 盒模型(Box Model)及Display屬性?</h1>
+          <h1>前端設計 — 盒模型(Box Model)及Display屬性?</h1>
 <h2 id="⭐-盒模型-Box-Model"><a class="header-anchor" href="#⭐-盒模型-Box-Model"></a>⭐ 盒模型(Box Model)</h2>
 <h3 id="🔖-盒模型定義"><a class="header-anchor" href="#🔖-盒模型定義"></a>🔖 盒模型定義</h3>
 <p>瀏覽器將<strong>每一個標籤元素都視為一個矩形的「盒模型」</strong>，而每一個盒模型都由四個屬性組成，由內而外分別為內容(content)、內距(padding)、邊界(border)及外距(margin)</p>
@@ -891,7 +935,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-27 11:10:36 / 修改時間：13:14:40" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:36+08:00">2023-01-27</time>
+              <time title="創建時間：2023-01-27 11:10:36 / 修改時間：16:42:14" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:36+08:00">2023-01-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -928,7 +972,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>前端設計基礎 — CSS的彈性盒子 Flexbox</h1>
+          <h1>前端設計 — CSS的彈性盒子 Flexbox</h1>
 
       
     </div>
@@ -973,7 +1017,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-27 11:10:22 / 修改時間：13:14:40" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:22+08:00">2023-01-27</time>
+              <time title="創建時間：2023-01-27 11:10:22 / 修改時間：16:42:07" itemprop="dateCreated datePublished" datetime="2023-01-27T11:10:22+08:00">2023-01-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1010,7 +1054,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>前端設計基礎 — 圖片的放置方式</h1>
+          <h1>前端設計 — 圖片的放置方式</h1>
 
       
     </div>
