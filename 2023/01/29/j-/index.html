@@ -23,13 +23,13 @@
   <meta name="description" content="JQuery實作 — 卡片收合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JQuery實作 — 卡片收合">
-<meta property="og:url" content="https://imamyke.github.io/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/index.html">
+<meta property="og:url" content="https://imamyke.github.io/2023/01/29/j-/index.html">
 <meta property="og:site_name" content="全端筆記">
 <meta property="og:description" content="JQuery實作 — 卡片收合">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/yv7ccTT.gif">
-<meta property="article:published_time" content="2023-01-28T16:35:18.213Z">
-<meta property="article:modified_time" content="2023-01-28T17:20:17.064Z">
+<meta property="article:published_time" content="2023-01-28T17:25:43.865Z">
+<meta property="article:modified_time" content="2023-01-28T17:28:10.488Z">
 <meta property="article:author" content="Amy Ke">
 <meta property="article:tag" content="html">
 <meta property="article:tag" content="css">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/yv7ccTT.gif">
 
-<link rel="canonical" href="https://imamyke.github.io/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/">
+<link rel="canonical" href="https://imamyke.github.io/2023/01/29/j-/">
 
 
 <script id="page-configurations">
@@ -215,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://imamyke.github.io/2023/01/29/j-/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -239,7 +239,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-01-29 00:35:18 / 修改時間：01:20:17" itemprop="dateCreated datePublished" datetime="2023-01-29T00:35:18+08:00">2023-01-29</time>
+              <time title="創建時間：2023-01-29 01:25:43 / 修改時間：01:28:10" itemprop="dateCreated datePublished" datetime="2023-01-29T01:25:43+08:00">2023-01-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,8 +260,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/29/JQuery實作-卡片收合/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2023/01/29/j-/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/29/j-/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -286,6 +286,7 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card-text</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">transition</span>: all ease <span class="number">0.8s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card-text</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">72px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="jQuery"><a class="header-anchor" href="#jQuery"></a>jQuery</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$( <span class="variable language_">document</span> ).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    $(<span class="variable language_">this</span>).<span class="title function_">siblings</span>(<span class="string">&#x27;.card-text&#x27;</span>).<span class="title function_">toggleClass</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">    $(<span class="variable language_">this</span>).<span class="title function_">siblings</span>(<span class="string">&#x27;.card-text&#x27;</span>).<span class="title function_">hasClass</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">    ? $(<span class="variable language_">this</span>).<span class="title function_">text</span>(<span class="string">&#x27;Read Less&#x27;</span>)</span><br><span class="line">    : $(<span class="variable language_">this</span>).<span class="title function_">text</span>(<span class="string">&#x27;Read More&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -516,8 +517,8 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://imamyke.github.io/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/";
-    this.page.identifier = "2023/01/29/JQuery實作-卡片收合/";
+    this.page.url = "https://imamyke.github.io/2023/01/29/j-/";
+    this.page.identifier = "2023/01/29/j-/";
     this.page.title = "JQuery實作 — 卡片收合";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

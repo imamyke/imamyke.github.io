@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://imamyke.github.io/2023/01/29/JQuery%E5%AF%A6%E4%BD%9C-%E5%8D%A1%E7%89%87%E6%94%B6%E5%90%88/</loc>
+    <loc>https://imamyke.github.io/2023/01/29/j-/</loc>
     
     <lastmod>2023-01-28</lastmod>
     
@@ -783,13 +783,6 @@
   </url>
   
   <url>
-    <loc>https://imamyke.github.io/tags/useeffect/</loc>
-    <lastmod>2023-01-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://imamyke.github.io/tags/usestate/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -805,6 +798,13 @@
   
   <url>
     <loc>https://imamyke.github.io/tags/usecontext/</loc>
+    <lastmod>2023-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://imamyke.github.io/tags/useeffect/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -860,6 +860,13 @@
   </url>
   
   <url>
+    <loc>https://imamyke.github.io/tags/restapi/</loc>
+    <lastmod>2023-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://imamyke.github.io/tags/layout/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -882,13 +889,6 @@
   
   <url>
     <loc>https://imamyke.github.io/tags/rwd/</loc>
-    <lastmod>2023-01-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://imamyke.github.io/tags/restapi/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -960,14 +960,14 @@
   </url>
   
   <url>
-    <loc>https://imamyke.github.io/categories/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88/</loc>
+    <loc>https://imamyke.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://imamyke.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/</loc>
+    <loc>https://imamyke.github.io/categories/%E5%89%8D%E7%AB%AF%E8%A8%AD%E8%A8%88/</loc>
     <lastmod>2023-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
